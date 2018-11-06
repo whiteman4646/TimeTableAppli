@@ -40,6 +40,7 @@ public class DepartmentCourse extends Application
 
         // ウィンドウ表示
         primaryStage.setScene( scene );
+
         primaryStage.show();
 
     }
