@@ -23,7 +23,7 @@
                   <Font size="23.0" />
                </font>
             </Text>
-            <Button layoutX="442.0" layoutY="354.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" text="登　録" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="112.0" />
+            <Button layoutX="442.0" layoutY="354.0" mnemonicParsing="false" onAction="#clikregi" prefHeight="39.0" prefWidth="86.0" text="登　録" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="112.0" />
             <Button layoutX="540.0" layoutY="354.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" text="次　へ" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="14.0" />
             <MenuBar layoutX="-2.0" layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <menus>
