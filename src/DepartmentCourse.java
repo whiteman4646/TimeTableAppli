@@ -3,6 +3,8 @@ package Fxml;
 import java.net.URL;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -31,7 +33,7 @@ public class DepartmentCourse extends Application
 
 
         // FXMLファイルの読込
-        URL             location    = getClass().getResource( "学科・コース・教室登録.fxml" );
+        URL             location    = getClass().getResource( "CourseRoom.fxml" );
         FXMLLoader      fxmlLoader  = new FXMLLoader( location );
 
         // シーングラフの作成
@@ -46,6 +48,10 @@ public class DepartmentCourse extends Application
 
         primaryStage.show();
 
+    }
+    @FXML
+    public void clickregi(ActionEvent e){
+    	System.out.println("登録が押されました");
     }
 
 }
