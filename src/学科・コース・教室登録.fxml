@@ -11,7 +11,7 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="499.0" prefWidth="783.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="499.0" prefWidth="783.0" VBox.vgrow="ALWAYS" fx:cotroller="Fxml.DepartmentCourse">
          <children>
             <Text layoutX="163.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学科・コース" wrappingWidth="156.0000057220459" AnchorPane.topAnchor="54.1015625">
                <font>
@@ -23,7 +23,7 @@
                   <Font size="23.0" />
                </font>
             </Text>
-            <Button layoutX="442.0" layoutY="354.0" mnemonicParsing="false" onAction="#clikregi" prefHeight="39.0" prefWidth="86.0" text="登　録" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="112.0" />
+            <Button layoutX="442.0" layoutY="354.0" mnemonicParsing="false" onAction="#clickregi" prefHeight="39.0" prefWidth="86.0" text="登　録" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="112.0" />
             <Button layoutX="540.0" layoutY="354.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" text="次　へ" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="14.0" />
             <MenuBar layoutX="-2.0" layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <menus>
