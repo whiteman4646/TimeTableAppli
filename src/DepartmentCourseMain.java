@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * @author karura
  *
  */
-public class DepartmentCourse extends Application
+public class DepartmentCourseMain extends Application
 {
 
     public static void main(String[] args) {
@@ -53,5 +53,7 @@ public class DepartmentCourse extends Application
     public void clickregi(ActionEvent e){
     	System.out.println("登録が押されました");
     }
+
+
 
 }
