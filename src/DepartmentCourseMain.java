@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  * @author karura
  *
  */
-public class DepartmentCourse extends Application
+public class DepartmentCourseMain extends Application
 {
 
     public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class DepartmentCourse extends Application
 
 
         // FXMLファイルの読込
-        URL             location    = getClass().getResource( "学科・コース・教室登録.fxml" );
+        URL             location    = getClass().getResource( "CourseRoom.fxml" );
         FXMLLoader      fxmlLoader  = new FXMLLoader( location );
 
         // シーングラフの作成
@@ -43,8 +43,11 @@ public class DepartmentCourse extends Application
         // ウィンドウ表示
         primaryStage.setScene( scene );
 
+
         primaryStage.show();
 
     }
+
+
 
 }
