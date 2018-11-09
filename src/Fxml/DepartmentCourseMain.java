@@ -3,8 +3,6 @@ package Fxml;
 import java.net.URL;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -44,16 +42,12 @@ public class DepartmentCourseMain extends Application
 
         // ウィンドウ表示
         primaryStage.setScene( scene );
+        scene.getStylesheets().add(
+                getClass().getResource("CourseStyle.css").toExternalForm());
 
 
         primaryStage.show();
 
     }
-    @FXML
-    public void clickregi(ActionEvent e){
-    	System.out.println("登録が押されました");
-    }
-
-
 
 }
