@@ -14,12 +14,12 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="112.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学科・コース" AnchorPane.topAnchor="86.2314453125">
+            <Text fill="#11dabc" layoutX="81.0" layoutY="137.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="学科・コース" wrappingWidth="223.000009059906" AnchorPane.topAnchor="89.51953125">
                <font>
-                  <Font size="35.0" />
+                  <Font size="44.0" />
                </font>
             </Text>
-            <Text layoutX="517.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教室" AnchorPane.topAnchor="79.51953125">
+            <Text fill="#18d5ee" layoutX="517.0" layoutY="136.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教室" AnchorPane.topAnchor="88.51953125">
                <font>
                   <Font size="44.0" />
                </font>
