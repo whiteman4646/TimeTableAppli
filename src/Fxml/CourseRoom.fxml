@@ -15,20 +15,24 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
          <children>
             <Text fill="#11dabc" layoutX="357.0" layoutY="157.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="学科・コース" wrappingWidth="223.000009059906" AnchorPane.topAnchor="100.0">
-
                <font>
                   <Font size="44.0" />
                </font>
             </Text>
             <Text fill="#18d5ee" layoutX="753.0" layoutY="157.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教室" AnchorPane.topAnchor="100.0">
-
                <font>
                   <Font size="44.0" />
                </font>
             </Text>
 
-            <Button fx:id="RegistButton" layoutX="429.0" layoutY="348.0" mnemonicParsing="false" onAction="#clickregi" prefHeight="39.0" prefWidth="86.0" text="登　録" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="125.0" />
-            <Button layoutX="529.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" text="次　へ" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="25.0" />
+            <Button fx:id="RegistButton" layoutX="429.0" layoutY="348.0" mnemonicParsing="false" onAction="#clickregi" prefHeight="39.0" prefWidth="86.0" text="登　録" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="125.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button layoutX="529.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" text="次　へ" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="25.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
             <TextField layoutX="376.0" layoutY="188.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="188.0" />
             <TextField layoutX="376.0" layoutY="252.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="252.0" />
             <TextField layoutX="376.0" layoutY="316.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="316.0" />
