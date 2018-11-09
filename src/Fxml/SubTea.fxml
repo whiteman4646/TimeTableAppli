@@ -22,22 +22,17 @@
                   <Menu mnemonicParsing="false" text="科目・教員削除画面" />
             </menus>
           </MenuBar>
-            <Text layoutX="231.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員" wrappingWidth="89.0" AnchorPane.topAnchor="61.677734375">
+            <Text layoutX="222.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員" wrappingWidth="89.0" AnchorPane.topAnchor="60.677734375">
                <font>
                   <Font size="42.0" />
                </font>
             </Text>
             <TextField layoutX="143.0" layoutY="152.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="152.0" />
             <TextField layoutX="143.0" layoutY="224.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="224.0" />
-            <TextField layoutX="143.0" layoutY="294.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="294.0" />
-            <TextField layoutX="143.0" layoutY="367.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="367.0" />
-            <TextField layoutX="143.0" layoutY="443.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="443.0" />
-            <TextField layoutX="390.0" layoutY="152.0" prefHeight="56.0" prefWidth="240.0" AnchorPane.topAnchor="152.0" />
-            <TextField layoutX="390.0" layoutY="224.0" prefHeight="56.0" prefWidth="240.0" AnchorPane.topAnchor="224.0" />
-            <TextField layoutX="390.0" layoutY="294.0" prefHeight="56.0" prefWidth="240.0" AnchorPane.topAnchor="294.0" />
-            <TextField layoutX="390.0" layoutY="367.0" prefHeight="56.0" prefWidth="240.0" AnchorPane.topAnchor="367.0" />
-            <TextField layoutX="390.0" layoutY="443.0" prefHeight="56.0" prefWidth="240.0" AnchorPane.topAnchor="443.0" />
-            <Text layoutX="460.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科目" wrappingWidth="100.0" AnchorPane.topAnchor="61.677734375">
+            <TextField layoutX="143.0" layoutY="296.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="296.0" />
+            <TextField layoutX="143.0" layoutY="367.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="368.0" />
+            <TextField layoutX="143.0" layoutY="443.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="440.0" />
+            <Text layoutX="464.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科目" wrappingWidth="100.0" AnchorPane.topAnchor="60.5986328125">
                <font>
                   <Font size="43.0" />
                </font>
@@ -52,6 +47,11 @@
                   <Font size="20.0" />
                </font>
             </Button>
+            <TextField layoutX="390.0" layoutY="152.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField layoutX="390.0" layoutY="224.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField layoutX="390.0" layoutY="296.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField layoutX="390.0" layoutY="367.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField layoutX="390.0" layoutY="440.0" prefHeight="56.0" prefWidth="247.0" />
          </children>
     </AnchorPane>
   </children>
