@@ -42,12 +42,12 @@ public class DepartmentCourseMain extends Application
 
         // ウィンドウ表示
         primaryStage.setScene( scene );
-        scene.getStylesheets().add(
-                getClass().getResource("CourseStyle.css").toExternalForm());
 
 
         primaryStage.show();
 
     }
+
+
 
 }
