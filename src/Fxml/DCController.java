@@ -1,5 +1,6 @@
 package Fxml;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,6 @@ import dao.ClassRoomDAO;
 import dao.DepartmetCourseDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-//import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -22,9 +22,7 @@ public class DCController  {
 
 	List<TextField> dclist = new ArrayList<TextField>();
 	List<TextField> crlist = new ArrayList<TextField>();
-
-
-
+  
 	@FXML
     public void clickregi(ActionEvent e){
 		dclist.add(dctext1);

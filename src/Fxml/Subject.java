@@ -1,7 +1,5 @@
 package Fxml;
 
-
-
 import java.net.URL;
 
 import javafx.application.Application;
@@ -19,7 +17,6 @@ import javafx.stage.Stage;
 public class Subject extends Application {
 
 
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -33,8 +30,8 @@ public class Subject extends Application {
 
 
         // FXMLファイルの読込
-        URL             location    = getClass().getResource( "SubTea.fxml" );
-        FXMLLoader      fxmlLoader  = new FXMLLoader( location );
+        URL             location    = getClass().getResource("SubTea.fxml");
+
 
         // シーングラフの作成
         Pane    root        = (Pane) fxmlLoader.load();
