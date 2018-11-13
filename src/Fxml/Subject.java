@@ -31,7 +31,7 @@ public class Subject extends Application {
 
         // FXMLファイルの読込
         URL             location    = getClass().getResource("SubTea.fxml");
-        FXMLLoader      fxmlLoader  = new FXMLLoader( location );
+
 
         // シーングラフの作成
         Pane    root        = (Pane) fxmlLoader.load();

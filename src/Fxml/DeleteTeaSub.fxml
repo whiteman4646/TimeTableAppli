@@ -25,38 +25,38 @@
             </MenuBar>
             <Text layoutX="30.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員・科目一覧" AnchorPane.topAnchor="52.0">
                <font>
-                  <Font size="44.0" />
+                  <Font size="35.0" />
                </font>
             </Text>
-            <TableView layoutX="248.0" layoutY="159.0" prefHeight="507.0" prefWidth="300.0" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="159.0">
+            <TableView layoutX="266.0" layoutY="165.0" prefHeight="445.0" prefWidth="300.0" AnchorPane.leftAnchor="266.0" AnchorPane.topAnchor="165.0">
                <columns>
                   <TableColumn prefWidth="60.0" text="CheckBox" />
                   <TableColumn prefWidth="58.0" text="ID" />
-                  <TableColumn prefWidth="131.0" text="教員" />
+                  <TableColumn prefWidth="181.0" text="教員" />
                </columns>
             </TableView>
-            <Text layoutX="366.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員" wrappingWidth="81.99999570846558" AnchorPane.topAnchor="109.3896484375">
+            <Button layoutX="1098.0" layoutY="639.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="85.0" text="削　除" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="56.0">
                <font>
-                  <Font size="33.0" />
-               </font>
-            </Text>
-            <Text layoutX="797.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科目" wrappingWidth="82.0" AnchorPane.topAnchor="112.3896484375">
-               <font>
-                  <Font size="33.0" />
-               </font>
-            </Text>
-            <Button layoutX="1094.0" layoutY="641.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="100.0" text="削　除" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="46.0">
-               <font>
-                  <Font size="30.0" />
+                  <Font size="15.0" />
                </font>
             </Button>
-            <TableView layoutX="682.0" layoutY="166.0" prefHeight="507.0" prefWidth="300.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="166.0">
+            <TableView layoutX="682.0" layoutY="166.0" prefHeight="445.0" prefWidth="300.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="166.0">
                <columns>
                   <TableColumn prefWidth="60.0" text="CheckBox" />
                   <TableColumn prefWidth="58.0" text="ID" />
-                  <TableColumn prefWidth="131.0" text="科目" />
+                  <TableColumn prefWidth="181.0" text="科目" />
                </columns>
             </TableView>
+            <Text fill="#11dabc" layoutX="383.0" layoutY="143.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教員" wrappingWidth="80.33329153060913">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
+            <Text fill="#11dabc" layoutX="799.0" layoutY="145.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="科目" wrappingWidth="81.6666350364685">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
       </children>
     </AnchorPane>
   </children>

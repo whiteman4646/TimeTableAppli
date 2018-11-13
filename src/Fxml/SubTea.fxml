@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.STController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -22,36 +22,36 @@
                   <Menu mnemonicParsing="false" text="科目・教員削除画面" />
             </menus>
           </MenuBar>
-            <Text layoutX="222.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員" wrappingWidth="89.0" AnchorPane.topAnchor="60.677734375">
+            <TextField fx:id="teatext1" layoutX="371.0" layoutY="233.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="233.0" />
+            <TextField fx:id="teatext1" layoutX="371.0" layoutY="305.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="305.0" />
+            <TextField fx:id="teatext1" layoutX="371.0" layoutY="377.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="377.0" />
+            <TextField fx:id="teatext1" layoutX="371.0" layoutY="449.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="449.0" />
+            <TextField fx:id="teatext1" layoutX="371.0" layoutY="521.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="521.0" />
+            <Button fx:id="subTeaEntButton" layoutX="1018.0" layoutY="632.0" mnemonicParsing="false" onAction="#subTeaEntry" prefHeight="39.0" prefWidth="85.0" text="登　録" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="125.0">
                <font>
-                  <Font size="42.0" />
-               </font>
-            </Text>
-            <TextField fx:id="teatext1" layoutX="143.0" layoutY="152.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="152.0" />
-            <TextField fx:id="teatext2" layoutX="143.0" layoutY="224.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="224.0" />
-            <TextField fx:id="teatext3" layoutX="143.0" layoutY="296.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="296.0" />
-            <TextField fx:id="teatext4" layoutX="143.0" layoutY="367.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="368.0" />
-            <TextField fx:id="teatext5" layoutX="143.0" layoutY="443.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="440.0" />
-            <Text layoutX="464.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科目" wrappingWidth="100.0" AnchorPane.topAnchor="60.5986328125">
-               <font>
-                  <Font size="43.0" />
-               </font>
-            </Text>
-            <Button fx:id="subTeaEntButton" layoutX="985.0" layoutY="615.0" mnemonicParsing="false" onAction="#subTeaEntry" prefHeight="56.0" prefWidth="100.0" text="登　録" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="155.0">
-               <font>
-                  <Font size="20.0" />
+                  <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1106.0" layoutY="615.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="100.0" text="次へ" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="34.0">
+            <Button layoutX="1106.0" layoutY="615.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="85.0" text="次　へ" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="25.0">
                <font>
-                  <Font size="20.0" />
+                  <Font size="15.0" />
                </font>
             </Button>
-            <TextField fx:id="subtext1" layoutX="390.0" layoutY="152.0" prefHeight="56.0" prefWidth="247.0" />
-            <TextField fx:id="subtext2" layoutX="390.0" layoutY="224.0" prefHeight="56.0" prefWidth="247.0" />
-            <TextField fx:id="subtext3" layoutX="390.0" layoutY="296.0" prefHeight="56.0" prefWidth="247.0" />
-            <TextField fx:id="subtext4" layoutX="390.0" layoutY="367.0" prefHeight="56.0" prefWidth="247.0" />
-            <TextField fx:id="subtext5" layoutX="390.0" layoutY="440.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField fx:id="subtext1" layoutX="618.0" layoutY="233.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField fx:id="subtext1" layoutX="618.0" layoutY="305.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField fx:id="subtext1" layoutX="618.0" layoutY="377.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField fx:id="subtext1" layoutX="618.0" layoutY="448.0" prefHeight="56.0" prefWidth="247.0" />
+            <TextField fx:id="subtext1" layoutX="618.0" layoutY="521.0" prefHeight="56.0" prefWidth="247.0" />
+            <Text fill="#11dabc" layoutX="456.0" layoutY="197.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教員" wrappingWidth="93.6666350364685">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Text>
+            <Text fill="#11dabc" layoutX="702.0" layoutY="195.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="科目" wrappingWidth="91.000009059906">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Text>
          </children>
     </AnchorPane>
   </children>
