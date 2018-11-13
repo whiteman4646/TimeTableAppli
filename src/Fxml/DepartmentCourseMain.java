@@ -31,7 +31,7 @@ public class DepartmentCourseMain extends Application
 
 
         // FXMLファイルの読込
-        URL             location    = getClass().getResource( "DeleteCourseRoom.fxml" );
+        URL             location    = getClass().getResource( "CourseRoom.fxml" );
         FXMLLoader      fxmlLoader  = new FXMLLoader( location );
 
         // シーングラフの作成
@@ -42,6 +42,8 @@ public class DepartmentCourseMain extends Application
 
         // ウィンドウ表示
         primaryStage.setScene( scene );
+        scene.getStylesheets().add(
+                getClass().getResource("CourseStyle.css").toExternalForm());
 
 
         primaryStage.show();
