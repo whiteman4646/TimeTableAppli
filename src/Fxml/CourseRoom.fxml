@@ -14,32 +14,32 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="125.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学科・コース" AnchorPane.topAnchor="73.51953125">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Text>
-            <Text layoutX="512.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教室" AnchorPane.topAnchor="73.51953125">
+            <Text fill="#11dabc" layoutX="357.0" layoutY="157.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="学科・コース" wrappingWidth="223.000009059906" AnchorPane.topAnchor="100.0">
                <font>
                   <Font size="44.0" />
                </font>
             </Text>
-            <Button fx:id="RegistButton" layoutX="429.0" layoutY="348.0" mnemonicParsing="false" onAction="#clickregi" prefHeight="39.0" prefWidth="86.0" text="登　録" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="125.0" />
-            <Button layoutX="529.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" text="次　へ" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="25.0" />
-            <TextField fx:id="dctext1" layoutX="81.0" layoutY="156.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.topAnchor="156.0" />
-            <TextField fx:id="dctext2" layoutX="81.0" layoutY="230.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.topAnchor="230.0" />
-            <TextField fx:id="dctext3" layoutX="83.0" layoutY="294.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.topAnchor="294.0" />
-            <TextField fx:id="dctext4" layoutX="81.0" layoutY="354.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.topAnchor="354.0" />
-            <TextField fx:id="dctext5" layoutX="81.0" layoutY="417.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.topAnchor="417.0" />
-            <TextField fx:id="dctext6" layoutX="83.0" layoutY="484.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.topAnchor="484.0" />
-            <TextField fx:id="dctext7" layoutX="83.0" layoutY="546.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.topAnchor="546.0" />
-            <TextField fx:id="crtext1" layoutX="497.0" layoutY="546.0" prefHeight="46.0" prefWidth="117.0" AnchorPane.topAnchor="156.0" />
-            <TextField fx:id="crtext2" layoutX="497.0" layoutY="230.0" prefHeight="46.0" prefWidth="117.0" AnchorPane.topAnchor="230.0" />
-            <TextField fx:id="crtext3" layoutX="497.0" layoutY="294.0" prefHeight="46.0" prefWidth="117.0" AnchorPane.topAnchor="294.0" />
-            <TextField fx:id="crtext4" layoutX="497.0" layoutY="354.0" prefHeight="46.0" prefWidth="117.0" AnchorPane.topAnchor="354.0" />
-            <TextField fx:id="crtext5" layoutX="497.0" layoutY="417.0" prefHeight="46.0" prefWidth="117.0" AnchorPane.topAnchor="417.0" />
-            <TextField fx:id="crtext6" layoutX="498.0" layoutY="484.0" prefHeight="46.0" prefWidth="117.0" AnchorPane.topAnchor="484.0" />
-            <TextField fx:id="crtext7" layoutX="497.0" layoutY="546.0" prefHeight="46.0" prefWidth="117.0" AnchorPane.topAnchor="546.0" />
+            <Text fill="#18d5ee" layoutX="753.0" layoutY="157.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教室" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Text>
+
+            <Button fx:id="RegistButton" layoutX="429.0" layoutY="348.0" mnemonicParsing="false" onAction="#clickregi" prefHeight="39.0" prefWidth="85.0" text="登　録" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="125.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button layoutX="529.0" layoutY="348.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="85.0" text="次　へ" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="25.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <TextField layoutX="376.0" layoutY="188.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="188.0" />
+            <TextField layoutX="376.0" layoutY="252.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="252.0" />
+            <TextField layoutX="376.0" layoutY="316.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="316.0" />
+            <TextField layoutX="376.0" layoutY="380.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="380.0" />
+            <TextField layoutX="376.0" layoutY="444.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="444.0" />
+            <TextField layoutX="382.0" layoutY="509.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="509.0" />
+            <TextField layoutX="376.0" layoutY="572.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="572.0" />
             <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <menus>
                   <Menu mnemonicParsing="false" text="作成画面" />
@@ -49,6 +49,13 @@
                   <Menu mnemonicParsing="false" text="科目/教員削除画面" />
                </menus>
             </MenuBar>
+            <TextField layoutX="766.0" layoutY="188.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="188.0" />
+            <TextField layoutX="766.0" layoutY="252.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="252.0" />
+            <TextField layoutX="766.0" layoutY="316.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="316.0" />
+            <TextField layoutX="766.0" layoutY="380.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="380.0" />
+            <TextField layoutX="766.0" layoutY="444.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="444.0" />
+            <TextField layoutX="766.0" layoutY="508.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="508.0" />
+            <TextField layoutX="766.0" layoutY="572.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" />
          </children>
          <opaqueInsets>
             <Insets />
