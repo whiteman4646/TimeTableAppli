@@ -1,3 +1,4 @@
+
 package Fxml;
 
 
@@ -22,7 +23,7 @@ public class DCController  {
 
 	List<TextField> dclist = new ArrayList<TextField>();
 	List<TextField> crlist = new ArrayList<TextField>();
-  
+
 	@FXML
     public void clickregi(ActionEvent e){
 		dclist.add(dctext1);
@@ -60,4 +61,5 @@ public class DCController  {
 
 
 }
+
 
