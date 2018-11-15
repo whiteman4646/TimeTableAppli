@@ -23,7 +23,7 @@ public class DeleteSubject extends Application {
 
 
         // FXMLファイルの読込
-        URL             location    = getClass().getResource("DeleteSubject.fxml");
+        URL             location    = getClass().getResource("DeleteTeaSub.fxml");
         FXMLLoader      fxmlLoader  = new FXMLLoader( location );
 
         // シーングラフの作成

@@ -9,13 +9,15 @@ import java.util.ArrayList;
 
 import dto.Subject;
 import dto.Teacher;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public abstract class SubjectTeacherDAO {
 	final static String DB_CONNECT = "jdbc:sqlite:C:/tools/sqlite3/timetable.db";
 
 	//SQL:Teacherの参照メソッド
-	public static ArrayList<Teacher> selectTeacher() {
-		ArrayList<Teacher> tList = new ArrayList<Teacher>();
+	public static ObservableList<Teacher> selectTeacher() {
+		ObservableList<Teacher> tList = FXCollections.observableArrayList(new ArrayList<Teacher>());
 		Connection con = null;
 		PreparedStatement prst = null;
 		ResultSet rs = null;
@@ -29,9 +31,9 @@ public abstract class SubjectTeacherDAO {
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
-				int id = rs.getInt("teacherid");
-				String name = rs.getString("teachername");
-				tList.add(new Teacher(id, name));
+				//int id = rs.getInt("teacherid");
+				//String name = rs.getString("teachername");
+				tList.add(new Teacher(rs.getInt("teacherid"), rs.getString("teachername")));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -110,8 +112,8 @@ public abstract class SubjectTeacherDAO {
 	}
 
 	//SQL:Subjectの参照メソッド
-	public static ArrayList<Subject> selectSubject() {
-		ArrayList<Subject> sList = new ArrayList<Subject>();
+	public static ObservableList<Subject> selectSubject() {
+		ObservableList<Subject> sList = FXCollections.observableArrayList(new ArrayList<Subject>());
 		Connection con = null;
 		PreparedStatement prst = null;
 		ResultSet rs = null;
