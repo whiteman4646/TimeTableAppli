@@ -4,11 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -65,12 +67,12 @@
                   <Font size="27.0" />
                </font>
             </Text>
-            <Text layoutX="278.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員" wrappingWidth="61.171875">
+            <Text layoutX="478.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員" wrappingWidth="61.171875">
                <font>
                   <Font size="27.0" />
                </font>
             </Text>
-            <Text layoutX="474.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科目" wrappingWidth="69.17187832295895">
+            <Text layoutX="274.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科目" wrappingWidth="69.17187832295895">
                <font>
                   <Font size="27.0" />
                </font>
@@ -111,7 +113,7 @@
                   <Font size="28.0" />
                </font>
             </Button>
-            <ColorPicker layoutX="570.0" layoutY="442.0" prefHeight="44.0" prefWidth="171.0" AnchorPane.leftAnchor="570.0" />
+            <ColorPicker layoutX="584.0" layoutY="480.0" prefHeight="44.0" prefWidth="171.0" AnchorPane.topAnchor="480.0" />
             <TableView layoutX="812.0" layoutY="82.0" prefHeight="478.0" prefWidth="374.0" AnchorPane.bottomAnchor="115.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="82.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="月">
@@ -182,6 +184,35 @@
               </columns>
             </TableView>
             <Accordion layoutX="498.0" layoutY="195.0" />
+            <Label layoutX="611.0" layoutY="243.0" prefHeight="44.0" prefWidth="88.0" text="科目">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="611.0" layoutY="290.0" prefHeight="44.0" prefWidth="88.0" text="教員">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="611.0" layoutY="338.0" prefHeight="60.0" prefWidth="94.0" text="教室">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label layoutX="812.0" layoutY="46.0" prefHeight="36.0" prefWidth="78.0" text="学科・コース">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField layoutX="912.0" layoutY="52.0" prefHeight="25.0" prefWidth="37.0" />
+            <TextField layoutX="991.0" layoutY="52.0" prefHeight="25.0" prefWidth="37.0" />
+            <TextField layoutX="1168.0" layoutY="52.0" prefHeight="25.0" prefWidth="37.0" />
+            <TextField layoutX="1093.0" layoutY="52.0" prefHeight="25.0" prefWidth="37.0" />
+            <Text layoutX="963.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="月" />
+            <Text layoutX="1214.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="日" />
+            <Text layoutX="1036.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="日" />
+            <Text layoutX="1142.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="月" />
+            <Text layoutX="1062.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="～" />
          </children>
     </AnchorPane>
   </children>
