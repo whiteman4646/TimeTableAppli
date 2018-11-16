@@ -33,13 +33,13 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <TextField layoutX="376.0" layoutY="188.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="188.0" />
-            <TextField layoutX="376.0" layoutY="252.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="252.0" />
-            <TextField layoutX="376.0" layoutY="316.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="316.0" />
-            <TextField layoutX="376.0" layoutY="380.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="380.0" />
-            <TextField layoutX="376.0" layoutY="444.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="444.0" />
-            <TextField layoutX="382.0" layoutY="509.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="509.0" />
-            <TextField layoutX="376.0" layoutY="572.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="572.0" />
+            <TextField fx:id="dctext1" layoutX="376.0" layoutY="188.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="188.0" />
+            <TextField fx:id="dctext2" layoutX="376.0" layoutY="252.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="252.0" />
+            <TextField fx:id="dctext3" layoutX="376.0" layoutY="316.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="316.0" />
+            <TextField fx:id="dctext4" layoutX="376.0" layoutY="380.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="380.0" />
+            <TextField fx:id="dctext5" layoutX="376.0" layoutY="444.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="444.0" />
+            <TextField fx:id="dctext6" layoutX="382.0" layoutY="509.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="509.0" />
+            <TextField fx:id="dctext7" layoutX="376.0" layoutY="572.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="572.0" />
             <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <menus>
                   <Menu mnemonicParsing="false" text="作成画面" />
@@ -47,15 +47,16 @@
                   <Menu mnemonicParsing="false" text="科目/教員登録画面" />
                   <Menu mnemonicParsing="false" text="学科コース/教室削除画面" />
                   <Menu mnemonicParsing="false" text="科目/教員削除画面" />
+                  <Menu mnemonicParsing="false" text="ヘルプ" />
                </menus>
             </MenuBar>
-            <TextField layoutX="766.0" layoutY="188.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="188.0" />
-            <TextField layoutX="766.0" layoutY="252.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="252.0" />
-            <TextField layoutX="766.0" layoutY="316.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="316.0" />
-            <TextField layoutX="766.0" layoutY="380.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="380.0" />
-            <TextField layoutX="766.0" layoutY="444.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="444.0" />
-            <TextField layoutX="766.0" layoutY="508.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="508.0" />
-            <TextField layoutX="766.0" layoutY="572.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" />
+            <TextField fx:id="crtext1" layoutX="766.0" layoutY="188.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="188.0" />
+            <TextField fx:id="crtext2" layoutX="766.0" layoutY="252.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="252.0" />
+            <TextField fx:id="crtext3" layoutX="766.0" layoutY="316.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="316.0" />
+            <TextField fx:id="crtext4" layoutX="766.0" layoutY="380.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="380.0" />
+            <TextField fx:id="crtext5" layoutX="766.0" layoutY="444.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="444.0" />
+            <TextField fx:id="crtext6" layoutX="766.0" layoutY="508.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="508.0" />
+            <TextField fx:id="crtext7" layoutX="766.0" layoutY="572.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" />
          </children>
          <opaqueInsets>
             <Insets />
