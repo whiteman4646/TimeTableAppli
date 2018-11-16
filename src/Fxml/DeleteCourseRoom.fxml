@@ -21,6 +21,7 @@
               <Menu mnemonicParsing="false" text="科目・教員登録画面" />
                   <Menu mnemonicParsing="false" text="学科・コース・教室削除画面" />
                   <Menu mnemonicParsing="false" text="科目・教員削除画面" />
+                  <Menu mnemonicParsing="false" text="ヘルプ" />
             </menus>
           </MenuBar>
             <TableView fx:id="dctable" layoutX="179.0" layoutY="150.0" prefHeight="461.0" prefWidth="548.0" AnchorPane.leftAnchor="179.0" AnchorPane.topAnchor="150.0">
