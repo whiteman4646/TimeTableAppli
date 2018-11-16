@@ -14,7 +14,7 @@ public class DepartmentCourse {
 		return dcid;
 	}
 
-	public void setId(int dcid) {
+	public void setDcid(int dcid) {
 		this.dcid = dcid;
 	}
 
