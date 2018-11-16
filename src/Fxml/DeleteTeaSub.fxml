@@ -21,6 +21,7 @@
                   <Menu mnemonicParsing="false" text="科目・教員登録画面" />
                   <Menu mnemonicParsing="false" text="学科・コース・教室削除画面" />
                   <Menu mnemonicParsing="false" text="科目・教員削除画面" />
+                  <Menu mnemonicParsing="false" text="ヘルプ" />
                </menus>
             </MenuBar>
             <Text layoutX="30.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員・科目一覧" AnchorPane.topAnchor="52.0">
@@ -59,4 +60,3 @@
     </AnchorPane>
   </children>
 </VBox>
-

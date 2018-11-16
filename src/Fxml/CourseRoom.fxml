@@ -47,6 +47,7 @@
                   <Menu mnemonicParsing="false" text="科目/教員登録画面" />
                   <Menu mnemonicParsing="false" text="学科コース/教室削除画面" />
                   <Menu mnemonicParsing="false" text="科目/教員削除画面" />
+                  <Menu mnemonicParsing="false" text="ヘルプ" />
                </menus>
             </MenuBar>
             <TextField fx:id="crtext1" layoutX="766.0" layoutY="188.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="188.0" />

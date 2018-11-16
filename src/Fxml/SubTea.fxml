@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.STController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.STController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -20,6 +20,7 @@
               <Menu mnemonicParsing="false" text="科目・教員登録画面" />
                   <Menu mnemonicParsing="false" text="学科・コース・教室削除画面" />
                   <Menu mnemonicParsing="false" text="科目・教員削除画面" />
+                  <Menu mnemonicParsing="false" text="ヘルプ" />
             </menus>
           </MenuBar>
             <TextField fx:id="teatext1" layoutX="371.0" layoutY="233.0" prefHeight="56.0" prefWidth="247.0" AnchorPane.topAnchor="233.0" />
