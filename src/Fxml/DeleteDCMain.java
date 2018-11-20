@@ -18,11 +18,9 @@ public class DeleteDCMain extends Application {
 
 
 	    @Override
-	    public void start(Stage primaryStage) throws Exception
-	    {
+	    public void start(Stage primaryStage) throws Exception{
 	        // フォント色がおかしくなることへの対処
 	        System.setProperty( "prism.lcdtext" , "false" );
-
 
 	        // FXMLファイルの読込
 	        URL             location    = getClass().getResource( "DeleteCourseRoom.fxml" );
