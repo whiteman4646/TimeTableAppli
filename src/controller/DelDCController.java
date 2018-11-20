@@ -33,6 +33,7 @@ public class DelDCController implements Initializable {
 	private TableColumn<DepartmentCourse, Boolean> dccheckColumn;
 	@FXML
 	private TableColumn<ClassRoom, Boolean> crcheckColumn;
+
 	@FXML
 	private Button deleteButton;
 
