@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dao.ClassRoomDAO;
-import dao.DepartmetCourseDAO;
+import dao.DepartmentCourseDAO;
 import dto.ClassRoom;
 import dto.DepartmentCourse;
 import javafx.collections.ObservableList;
@@ -33,13 +33,15 @@ public class DelDCController implements Initializable {
 	private TableColumn<DepartmentCourse, Boolean> dccheckColumn;
 	@FXML
 	private TableColumn<ClassRoom, Boolean> crcheckColumn;
+
 	@FXML
 	private Button deleteButton;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources){
 
-		dcList = DepartmetCourseDAO.selectDAO();
+		dcList = DepartmentCourseDAO.selectDAO();
+
 		dctable.setItems(dcList);
 
 		crList = ClassRoomDAO.selectDAO();
@@ -83,7 +85,7 @@ public class DelDCController implements Initializable {
 		for(DepartmentCourse dc : dcList){
 			if(dc.isDccheck()){
 				System.out.println(dc.getDcid());
-				DepartmetCourseDAO.deleteDAO(dc.getDcid());
+				DepartmentCourseDAO.deleteDAO(dc.getDcid());
 
 			}
 		}
@@ -96,13 +98,13 @@ public class DelDCController implements Initializable {
 		}
 
 
-		dctable.refresh();
-		DepartmetCourseDAO.selectDAO();
+		/*dctable.refresh();
+		DepartmentCourseDAO.selectDAO();
 		dctable.setItems(dcList);
 
 		crtable.refresh();
 		ClassRoomDAO.selectDAO();
-		crtable.setItems(crList);
+		crtable.setItems(crList);*/
 
 
 	}

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.ClassRoomDAO;
-import dao.DepartmetCourseDAO;
+import dao.DepartmentCourseDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,7 +47,7 @@ public class DCController  {
 			if(t.getText().equals("")){
 				continue;
 			}
-    		DepartmetCourseDAO.insertDAO(t.getText());
+			DepartmentCourseDAO.insertDAO(t.getText());
 		}
 		for (TextField f : crlist){
 			if(f.getText().equals("")){
