@@ -53,9 +53,57 @@ public class ClassRoomDAO {
 				e.printStackTrace();
 			}
 		}
-
-
 	}
+
+	public static ClassRoom deleteDAO(int key){
+		ClassRoom result = null;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try{
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection("jdbc:sqlite:C:/tools/sqlite3/timetable.db");
+
+			String sql = "DELETE FROM classroom where crid = ?;";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, key);
+
+			int del = pstmt.executeUpdate();
+
+			System.out.println(del + "件の削除");
+		} catch (ClassNotFoundException e) {
+			System.out.println("JDBCドライバが見つかりません。");
+			e.printStackTrace();
+		} catch (SQLException e){
+			System.out.println("DBアクセスに失敗しました。");
+			e.printStackTrace();
+		}catch (Exception e){
+			System.out.println("数字を指定してください");
+		} finally {
+			try{
+				if( pstmt != null){
+					pstmt.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try{
+				if(con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
 	public static ObservableList<ClassRoom> selectDAO(){
 		ObservableList<ClassRoom> result = FXCollections.observableArrayList(new ArrayList<ClassRoom>());
 
@@ -73,9 +121,10 @@ public class ClassRoomDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
+				boolean crcheck = false;
 				int crid = rs.getInt("crid");
 				String crname = rs.getString("crname");
-				result.add(new ClassRoom(crid,crname));
+				result.add(new ClassRoom(crcheck, crid,crname));
 			}
 
 		} catch (ClassNotFoundException e) {
