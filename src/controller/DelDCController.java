@@ -98,13 +98,13 @@ public class DelDCController implements Initializable {
 		}
 
 
-		dctable.refresh();
+		/*dctable.refresh();
 		DepartmentCourseDAO.selectDAO();
 		dctable.setItems(dcList);
 
 		crtable.refresh();
 		ClassRoomDAO.selectDAO();
-		crtable.setItems(crList);
+		crtable.setItems(crList);*/
 
 
 	}
