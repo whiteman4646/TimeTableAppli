@@ -1,5 +1,6 @@
 package Fxml;
 
+
 import java.net.URL;
 
 import javafx.application.Application;
@@ -34,6 +35,8 @@ public class DeleteDCMain extends Application {
 
 	        // ウィンドウ表示
 	        primaryStage.setScene( scene );
+	        scene.getStylesheets().add(
+	                getClass().getResource("CourseStyle.css").toExternalForm());
 	        primaryStage.show();
 
 	    }
