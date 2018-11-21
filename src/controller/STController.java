@@ -41,12 +41,14 @@ public class STController {
 				continue;
 			}
 			SubjectTeacherDAO.insertTeacher(t.getText());
+			t.setText("");
 		}
 		for(TextField s: subList) {
 			if(s.getText().equals("")) {
 				continue;
 			}
 			SubjectTeacherDAO.insertSubject(s.getText());
+			s.setText("");
 		}
     }
 }
