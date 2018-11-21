@@ -48,12 +48,14 @@ public class DCController  {
 				continue;
 			}
 			DepartmentCourseDAO.insertDAO(t.getText());
+			t.setText("");
 		}
 		for (TextField f : crlist){
 			if(f.getText().equals("")){
 				continue;
 			}
 			ClassRoomDAO.insertDAO(f.getText());
+			f.setText("");
 		}
 		System.out.println("登録完了");
 
