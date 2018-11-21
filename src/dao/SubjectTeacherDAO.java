@@ -31,9 +31,10 @@ public abstract class SubjectTeacherDAO {
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
-				//int id = rs.getInt("teacherid");
-				//String name = rs.getString("teachername");
-				tList.add(new Teacher(rs.getInt("teacherid"), rs.getString("teachername")));
+				boolean check = false;
+				int id = rs.getInt("teacherid");
+				String name = rs.getString("teachername");
+				tList.add(new Teacher(check, id, name));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -111,6 +112,51 @@ public abstract class SubjectTeacherDAO {
 		}
 	}
 
+	//SQL:Teacherのデリートメソッド
+	public static void deleteTeacher(int key) {
+		final String sql = "DELETE FROM teacher where teacherid = ?;";
+		Connection con = null;
+		PreparedStatement prst = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			System.out.println("Connection!");
+			prst = con.prepareStatement(sql);
+			prst.setInt(1, key);
+			prst.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+	}
+
+
 	//SQL:Subjectの参照メソッド
 	public static ObservableList<Subject> selectSubject() {
 		ObservableList<Subject> sList = FXCollections.observableArrayList(new ArrayList<Subject>());
@@ -127,9 +173,10 @@ public abstract class SubjectTeacherDAO {
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
+				boolean check = false;
 				int id = rs.getInt("subjectid");
 				String name = rs.getString("subjectname");
-				sList.add(new Subject(id, name));
+				sList.add(new Subject(check, id, name));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -164,7 +211,8 @@ public abstract class SubjectTeacherDAO {
 	}
 
 	//SQL:Subjectのインサートメソッド
-	public static void insertSubject(String key) {		final String sql = "INSERT INTO subject(subjectname) VALUES(?);";
+	public static void insertSubject(String key) {
+		final String sql = "INSERT INTO subject(subjectname) VALUES(?);";
 		Connection con = null;
 		PreparedStatement prst = null;
 		try {
@@ -174,6 +222,49 @@ public abstract class SubjectTeacherDAO {
 			System.out.println("Connection!");
 			prst = con.prepareStatement(sql);
 			prst.setString(1, key);
+			prst.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+	}
+
+	//SQL:Subjectのデリートメソッド
+	public static void deleteSubject(Integer key) {
+		final String sql = "DELETE FROM subject where subjectid = ?;";
+		Connection con = null;
+		PreparedStatement prst = null;
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			System.out.println("Connection!");
+			prst = con.prepareStatement(sql);
+			prst.setInt(1, key);
 			prst.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
