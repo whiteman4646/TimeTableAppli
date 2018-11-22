@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="63.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.時間割作成画面について" wrappingWidth="324.6171875">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <MenuBar layoutX="-299.0" layoutY="311.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="作成画面" />
+                  <Menu mnemonicParsing="false" text="学科コース/教室登録画面" />
+                  <Menu mnemonicParsing="false" text="科目/教員登録画面" />
+                  <Menu mnemonicParsing="false" text="学科コース/教室削除画面" />
+                  <Menu mnemonicParsing="false" text="科目/教員削除画面" />
+                  <Menu mnemonicParsing="false" text="ヘルプ" />
+               </menus>
+            </MenuBar>
+            <Text layoutX="564.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.登録画面について">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <ScrollBar layoutX="784.0" layoutY="100.0" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Text layoutX="564.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="テキストボックスに登録したい情報を入力して、登録ボタンを押していただくと入力された情報がデータベースに登録されます" wrappingWidth="418.509765625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="568.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.削除画面について" wrappingWidth="220.7734375">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="564.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="削除画面は登録した内容が一覧で表示されており、">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="568.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="その一覧表にチェックボックスがありますので削除したい項目にチェックを入れて削除ボタンを押していただくとデータが削除されます" wrappingWidth="479.53515625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="568.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.印刷機能について">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="568.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5.PDF変換について">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
