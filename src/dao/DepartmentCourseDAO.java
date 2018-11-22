@@ -22,7 +22,7 @@ public class DepartmentCourseDAO {
 		try{
 			Class.forName("org.sqlite.JDBC");
 			con = DriverManager.getConnection("jdbc:sqlite:C:/tools/sqlite3/timetable.db");
-			String sql = "INSERT INTO classroom(crname) VALUES(?);";
+			String sql = "INSERT INTO departmentcourse(dcname) VALUES(?);";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, crname);
 
@@ -67,7 +67,7 @@ public class DepartmentCourseDAO {
 
 			con = DriverManager.getConnection("jdbc:sqlite:C:/tools/sqlite3/timetable.db");
 
-			String sql = "DELETE FROM classroom where crid = ?;";
+			String sql = "DELETE FROM departmentcourse where dcid = ?;";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, key);
