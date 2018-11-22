@@ -17,16 +17,24 @@
          <children>
           <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <menus>
-              <Menu mnemonicParsing="false" text="作成画面" />
-              <Menu mnemonicParsing="false" text="学科・コース・教室登録画面" />
-              <Menu mnemonicParsing="false" text="科目・教員登録画面" />
-                  <Menu mnemonicParsing="false" text="学科・コース・教室削除画面" />
-                  <Menu mnemonicParsing="false" text="科目・教員削除画面" />
+              <Menu mnemonicParsing="false" text="作成画面">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="作成画面へ" />
+                     </items></Menu>
+              <Menu mnemonicParsing="false" text="登録画面">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="学科コース/教室登録" />
+                        <MenuItem mnemonicParsing="false" text="教員/科目登録" />
+                     </items></Menu>
+              <Menu mnemonicParsing="false" text="削除画面">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="学科コース/教室削除" />
+                        <MenuItem mnemonicParsing="false" text="教員/科目削除" />
+                     </items></Menu>
                   <Menu mnemonicParsing="false" text="ヘルプ">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="ヘルプへ" />
+                     </items></Menu>
             </menus>
           </MenuBar>
             <TableView fx:id="dctable" layoutX="179.0" layoutY="150.0" prefHeight="461.0" prefWidth="548.0" AnchorPane.leftAnchor="179.0" AnchorPane.topAnchor="150.0">

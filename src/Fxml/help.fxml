@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -19,12 +20,24 @@
             </Text>
             <MenuBar layoutX="-299.0" layoutY="311.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
-                  <Menu mnemonicParsing="false" text="作成画面" />
-                  <Menu mnemonicParsing="false" text="学科コース/教室登録画面" />
-                  <Menu mnemonicParsing="false" text="科目/教員登録画面" />
-                  <Menu mnemonicParsing="false" text="学科コース/教室削除画面" />
-                  <Menu mnemonicParsing="false" text="科目/教員削除画面" />
-                  <Menu mnemonicParsing="false" text="ヘルプ" />
+                  <Menu mnemonicParsing="false" text="作成画面">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="作成画面へ" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="登録画面">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="学科コース/教室登録" />
+                        <MenuItem mnemonicParsing="false" text="教員/科目登録" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="削除画面">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="学科コース/教室削除" />
+                        <MenuItem mnemonicParsing="false" text="教員/科目削除" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="ヘルプ">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="ヘルプへ" />
+                     </items></Menu>
                </menus>
             </MenuBar>
             <Text layoutX="564.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.登録画面について">
