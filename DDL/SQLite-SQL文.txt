@@ -1,0 +1,19 @@
+sqlite3 taimetable.db 
+
+create table classroom(
+crid INTEGER PRIMARY KEY AUTOINCREMENT,
+ crname TEXT NOT NULL);
+
+create table departmentcourse(
+dcid INTEGER PRIMARY KEY AUTOINCREMENT, 
+dcname TEXT NOT NULL);
+
+create table teacher(
+teacherid INTEGER PRIMARY KEY AUTOINCREMENT,
+teachername TEXT NOT NULL
+);
+
+create table subject(
+subjectid INTEGER PRIMARY KEY AUTOINCREMENT, 
+subjectname TEXT NOT NULL
+);
