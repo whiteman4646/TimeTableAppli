@@ -210,6 +210,45 @@
                   </Menu>
                </menus>
           </MenuBar>
+            <VBox layoutX="751.0" layoutY="201.0" prefHeight="402.0" prefWidth="61.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="4" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="7" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
          </children>
     </AnchorPane>
   </children>
