@@ -22,7 +22,7 @@ public class DepartmentCourseDAO {
 		try{
 			Class.forName("org.sqlite.JDBC");
 			con = DriverManager.getConnection("jdbc:sqlite:C:/tools/sqlite3/timetable.db");
-			String sql = "INSERT INTO classroom(crname) VALUES(?);";
+			String sql = "INSERT INTO departmentcourse(dcname) VALUES(?);";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, crname);
 

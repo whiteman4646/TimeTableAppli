@@ -11,12 +11,13 @@ import dto.ClassRoom;
 import dto.DepartmentCourse;
 import dto.Subject;
 import dto.Teacher;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
-//import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Label;
 
 public class CreateTimetableController implements Initializable {
 
@@ -37,6 +38,14 @@ public class CreateTimetableController implements Initializable {
 	private ChoiceBox<String> subchoice;
 	@FXML
 	private ChoiceBox<String> teachoice;
+	@FXML
+	private Label dcLabel;
+	@FXML
+	private Label subLabel;
+	@FXML
+	private Label teaLabel;
+	@FXML
+	private Label crLabel;
 
 	public void initialize(URL location, ResourceBundle resources){
 
@@ -65,8 +74,39 @@ public class CreateTimetableController implements Initializable {
 		}
 		teachoice.setItems(tanameList);
 
+		//学科・コースのチョイスボックス選択後ラベルに反映する
+		dcchoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					//System.out.println(ov.getValue());
+					//System.out.println(oldVal);
+					//System.out.println(newVal);
+					dcLabel.setText(dcList.get((int) ov.getValue()).getDcname());
+				});
 
+		subchoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					//System.out.println(ov.getValue());
+					//System.out.println(oldVal);
+					//System.out.println(newVal);
+					subLabel.setText(sbList.get((int) ov.getValue()).getSubjectName());
+				});
 
+		teachoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					//System.out.println(ov.getValue());
+					//System.out.println(oldVal);
+					//System.out.println(newVal);
+					teaLabel.setText(taList.get((int) ov.getValue()).getTeacherName());
+				});
+
+		crchoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					//System.out.println(ov.getValue());
+					//System.out.println(oldVal);
+					//System.out.println(newVal);
+					crLabel.setText(crList.get((int) ov.getValue()).getCrname());
+				});
 	}
+
 
 }

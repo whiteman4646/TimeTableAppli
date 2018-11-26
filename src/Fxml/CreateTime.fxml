@@ -38,10 +38,10 @@
                   <TableColumn prefWidth="75.0" text="5" />
               </columns>
             </TableView>
-            <ChoiceBox fx:id="dcchoice" layoutX="16.0" layoutY="64.0" prefHeight="44.0" prefWidth="181.0" />
+            <ChoiceBox fx:id="dcchoice" layoutX="19.0" layoutY="64.0" prefHeight="44.0" prefWidth="181.0" />
             <ChoiceBox fx:id="subchoice" layoutX="212.0" layoutY="64.0" prefHeight="44.0" prefWidth="193.0" />
             <ChoiceBox fx:id="teachoice" layoutX="418.0" layoutY="64.0" prefHeight="44.0" prefWidth="181.0" />
-            <ChoiceBox fx:id="crchoice" layoutX="609.0" layoutY="64.0" prefHeight="44.0" prefWidth="181.0" />
+            <ChoiceBox fx:id="crchoice" layoutX="611.0" layoutY="64.0" prefHeight="44.0" prefWidth="181.0" />
             <Text layoutX="41.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学科・コース" wrappingWidth="131.171875">
                <font>
                   <Font size="27.0" />
@@ -164,22 +164,22 @@
               </columns>
             </TableView>
             <Accordion layoutX="498.0" layoutY="195.0" />
-            <Label layoutX="611.0" layoutY="243.0" prefHeight="44.0" prefWidth="88.0" text="科目">
+            <Label fx:id="subLabel" layoutX="611.0" layoutY="243.0" prefHeight="44.0" prefWidth="88.0" text="科目">
                <font>
                   <Font size="42.0" />
                </font>
             </Label>
-            <Label layoutX="611.0" layoutY="290.0" prefHeight="44.0" prefWidth="88.0" text="教員">
+            <Label fx:id="teaLabel" layoutX="611.0" layoutY="290.0" prefHeight="44.0" prefWidth="88.0" text="教員">
                <font>
                   <Font size="42.0" />
                </font>
             </Label>
-            <Label layoutX="611.0" layoutY="338.0" prefHeight="60.0" prefWidth="94.0" text="教室">
+            <Label fx:id="crLabel" layoutX="611.0" layoutY="338.0" prefHeight="60.0" prefWidth="94.0" text="教室">
                <font>
                   <Font size="38.0" />
                </font>
             </Label>
-            <Label layoutX="845.0" layoutY="14.0" prefHeight="36.0" prefWidth="315.0" text="学科・コース" textAlignment="CENTER">
+            <Label fx:id="dcLabel" layoutX="845.0" layoutY="14.0" prefHeight="36.0" prefWidth="315.0" text="学科・コース" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
