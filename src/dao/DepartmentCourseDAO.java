@@ -67,7 +67,7 @@ public class DepartmentCourseDAO {
 
 			con = DriverManager.getConnection("jdbc:sqlite:C:/tools/sqlite3/timetable.db");
 
-			String sql = "DELETE FROM classroom where crid = ?;";
+			String sql = "DELETE FROM departmentcourse where dcid = ?;";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, key);
