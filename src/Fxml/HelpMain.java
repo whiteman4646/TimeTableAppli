@@ -1,7 +1,5 @@
 package Fxml;
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,8 +8,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class HelpMain extends Application {
-	public static HelpMain singleton;
-	private Stage stage;
+	//public static HelpMain singleton;
+	//private Stage stage;
 	private Pane root;
 
 	public static void main(String[] args) {
@@ -22,11 +20,10 @@ public class HelpMain extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		System.setProperty( "prism.lcdtext" , "false" );
 
 		try{
-			singleton = this;
-			stage = primaryStage;
+			//singleton = this;
+			//stage = primaryStage;
 			// フォント色がおかしくなることへの対処
 			System.setProperty( "prism.lcdtext" , "false" );
 
@@ -49,7 +46,7 @@ public class HelpMain extends Application {
 
 	}
 
-	public static HelpMain getInstance(){
+	/*public static HelpMain getInstance(){
 		return singleton;
 	}
 
@@ -61,6 +58,6 @@ public class HelpMain extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 }

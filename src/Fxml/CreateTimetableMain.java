@@ -1,6 +1,6 @@
 package Fxml;
 
-import java.net.URL;
+import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,30 +9,55 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class CreateTimetableMain extends Application {
+	public static CreateTimetableMain singleton;
+	private Stage stage;
+	private Pane root;
+
 	public static void main(String[] args) {
 
-        launch(args);
-    }
+		launch(args);
+	}
 
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        // フォント色がおかしくなることへの対処
-        System.setProperty( "prism.lcdtext" , "false" );
+	@Override
+	public void start(Stage primaryStage) throws Exception{
+		try{
+			singleton = this;
+			stage = primaryStage;
+			// フォント色がおかしくなることへの対処
+			System.setProperty( "prism.lcdtext" , "false" );
 
-        // FXMLファイルの読込
-        URL             location    = getClass().getResource( "CreateTime.fxml" );
-        FXMLLoader      fxmlLoader  = new FXMLLoader( location );
+			root = (Pane)FXMLLoader.load(getClass().getResource("CreateTime.fxml"));
 
-        // シーングラフの作成
-        Pane    root        = (Pane) fxmlLoader.load();
+			// シーンの作成
+			Scene   scene       = new Scene( root , 1240 , 700 );
 
-        // シーンの作成
-        Scene   scene       = new Scene( root , 1240 , 700 );
+			// ウィンドウ表示
+			primaryStage.setResizable(false);
+			primaryStage.setScene( scene );
+			scene.getStylesheets().add(
+					getClass().getResource("CourseStyle.css").toExternalForm());
+			primaryStage.show();
 
-        // ウィンドウ表示
-        primaryStage.setScene( scene );
-        primaryStage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 
-    }
+	}
+	public static CreateTimetableMain getInstance(){
+		return singleton;
+	}
+
+	//画面遷移用メソッド、引数は遷移対象のfxml
+	public void setPage(String fxml){
+		try {
+			root = (Pane)FXMLLoader.load(getClass().getResource(fxml));
+			stage.setScene(new Scene(root));
+			root.getStylesheets().add(
+					getClass().getResource("CourseStyle.css").toExternalForm());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

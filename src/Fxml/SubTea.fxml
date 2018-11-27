@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
@@ -17,23 +16,23 @@
          <children>
           <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <menus>
-              <Menu mnemonicParsing="false" text="作成画面">
+              <Menu fx:id="cttmenu" mnemonicParsing="false" text="作成画面">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="作成画面へ" />
+                        <MenuItem fx:id="cttmenuitem" mnemonicParsing="false" onAction="#nextcttPage" text="作成画面へ" />
                      </items></Menu>
-              <Menu mnemonicParsing="false" text="登録画面">
+              <Menu fx:id="registmenu" mnemonicParsing="false" text="登録画面">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="学科コース/教室登録" />
-                        <MenuItem mnemonicParsing="false" text="教員/科目登録" />
+                        <MenuItem fx:id="dcregimenuItem" mnemonicParsing="false" onAction="#nextdcregiPage" text="学科コース/教室登録" />
+                        <MenuItem fx:id="crregimenuItem" mnemonicParsing="false" onAction="#nextcrregiPage" text="教員/科目登録" />
                      </items></Menu>
-              <Menu mnemonicParsing="false" text="削除画面">
+              <Menu fx:id="deleteMenu" mnemonicParsing="false" text="削除画面">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="学科コース/教室削除" />
-                        <MenuItem mnemonicParsing="false" text="教員/科目削除" />
+                        <MenuItem fx:id="dcdeleMenuItem" mnemonicParsing="false" onAction="#nextdcdelPage" text="学科コース/教室削除" />
+                        <MenuItem fx:id="crdeleMenuItem" mnemonicParsing="false" onAction="#nextcrdelPage" text="教員/科目削除" />
                      </items></Menu>
-                  <Menu mnemonicParsing="false" text="ヘルプ">
+                  <Menu fx:id="helpMenu" mnemonicParsing="false" text="ヘルプ">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="ヘルプへ" />
+                        <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
                      </items></Menu>
             </menus>
           </MenuBar>
@@ -71,4 +70,3 @@
     </AnchorPane>
   </children>
 </VBox>
-

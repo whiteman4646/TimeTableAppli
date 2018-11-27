@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Fxml.CreateTimetableMain;
 import dao.ClassRoomDAO;
 import dao.DepartmentCourseDAO;
 import dao.SubjectTeacherDAO;
@@ -11,15 +12,28 @@ import dto.ClassRoom;
 import dto.DepartmentCourse;
 import dto.Subject;
 import dto.Teacher;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
+//import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 
 public class CreateTimetableController implements Initializable {
+	private final String cttPage = "CreateTime.fxml";
+	private final String dcregiPage = "CourseRoom.fxml";
+	private final String crregiPage = "SubTea.fxml";
+	private final String dcdelPage = "DeleteCourseRoom.fxml";
+	private final String crdelPage = "DeleteTeaSub.fxml";
+	private final String helpPage = "help.fxml";
+
+	@FXML
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu;
+	@FXML
+	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem;
 
 	ObservableList<DepartmentCourse> dcList;
 	ObservableList<String> dcnameList = FXCollections.observableArrayList(new ArrayList<String>());
@@ -38,14 +52,6 @@ public class CreateTimetableController implements Initializable {
 	private ChoiceBox<String> subchoice;
 	@FXML
 	private ChoiceBox<String> teachoice;
-	@FXML
-	private Label dcLabel;
-	@FXML
-	private Label subLabel;
-	@FXML
-	private Label teaLabel;
-	@FXML
-	private Label crLabel;
 
 	public void initialize(URL location, ResourceBundle resources){
 
@@ -74,39 +80,38 @@ public class CreateTimetableController implements Initializable {
 		}
 		teachoice.setItems(tanameList);
 
-		//学科・コースのチョイスボックス選択後ラベルに反映する
-		dcchoice.getSelectionModel().selectedIndexProperty().addListener(
-				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
-					//System.out.println(ov.getValue());
-					//System.out.println(oldVal);
-					//System.out.println(newVal);
-					dcLabel.setText(dcList.get((int) ov.getValue()).getDcname());
-				});
 
-		subchoice.getSelectionModel().selectedIndexProperty().addListener(
-				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
-					//System.out.println(ov.getValue());
-					//System.out.println(oldVal);
-					//System.out.println(newVal);
-					subLabel.setText(sbList.get((int) ov.getValue()).getSubjectName());
-				});
 
-		teachoice.getSelectionModel().selectedIndexProperty().addListener(
-				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
-					//System.out.println(ov.getValue());
-					//System.out.println(oldVal);
-					//System.out.println(newVal);
-					teaLabel.setText(taList.get((int) ov.getValue()).getTeacherName());
-				});
-
-		crchoice.getSelectionModel().selectedIndexProperty().addListener(
-				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
-					//System.out.println(ov.getValue());
-					//System.out.println(oldVal);
-					//System.out.println(newVal);
-					crLabel.setText(crList.get((int) ov.getValue()).getCrname());
-				});
 	}
 
+	@FXML
+	public void nextcttPage(){
+		CreateTimetableMain.getInstance().setPage(cttPage);
+	}
+
+	@FXML
+	public void nextdcregiPage(){
+		CreateTimetableMain.getInstance().setPage(dcregiPage);
+	}
+
+	@FXML
+	public void nextcrregiPage(){
+		CreateTimetableMain.getInstance().setPage(crregiPage);
+	}
+
+	@FXML
+	public void nextdcdelPage(){
+		CreateTimetableMain.getInstance().setPage(dcdelPage);
+	}
+
+	@FXML
+	public void nextcrdelPage(){
+		CreateTimetableMain.getInstance().setPage(crdelPage);
+	}
+
+	@FXML
+	public void nexthelpPage(){
+		CreateTimetableMain.getInstance().setPage(helpPage);
+	}
 
 }
