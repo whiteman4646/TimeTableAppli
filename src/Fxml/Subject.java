@@ -1,6 +1,5 @@
+
 package Fxml;
-
-
 
 import java.net.URL;
 
@@ -43,8 +42,6 @@ public class Subject extends Application {
 
         // ウィンドウ表示
         primaryStage.setScene( scene );
-        scene.getStylesheets().add(
-                getClass().getResource("CourseStyle.css").toExternalForm());
         primaryStage.show();
 
     }

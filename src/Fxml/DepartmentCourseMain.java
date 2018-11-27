@@ -1,7 +1,5 @@
 package Fxml;
 
-import java.net.URL;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,41 +12,58 @@ import javafx.stage.Stage;
  * @author karura
  *
  */
-public class DepartmentCourseMain extends Application
-{
+public class DepartmentCourseMain extends Application {
+	//public static CreateTimetableMain singleton;
+	//private Stage stage;
+	private Pane root;
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        launch(args);
-    }
-
-
-    @Override
-    public void start(Stage primaryStage) throws Exception
-    {
-        // フォント色がおかしくなることへの対処
-        System.setProperty( "prism.lcdtext" , "false" );
+		launch(args);
+	}
 
 
-        // FXMLファイルの読込
-        URL             location    = getClass().getResource( "CourseRoom.fxml" );
-        FXMLLoader      fxmlLoader  = new FXMLLoader( location );
+	@Override
+	public void start(Stage primaryStage) throws Exception{
+		try{
+			//singleton = new CreateTimetableMain();
+			//stage = primaryStage;
+			// フォント色がおかしくなることへの対処
+			System.setProperty( "prism.lcdtext" , "false" );
 
-        // シーングラフの作成
-        Pane    root        = (Pane) fxmlLoader.load();
+			root = (Pane)FXMLLoader.load(getClass().getResource("CourseRoom.fxml"));
 
-        // シーンの作成
-        Scene   scene       = new Scene( root , 1240 , 700 );
+			// シーンの作成
+			Scene   scene       = new Scene( root , 1240 , 700 );
 
-        // ウィンドウ表示
-        primaryStage.setScene( scene );
-        scene.getStylesheets().add(
-                getClass().getResource("CourseStyle.css").toExternalForm());
+			// ウィンドウ表示
+			primaryStage.setResizable(false);
+			primaryStage.setScene( scene );
+			scene.getStylesheets().add(
+					getClass().getResource("CourseStyle.css").toExternalForm());
+			primaryStage.show();
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 
 
-        primaryStage.show();
+	}
+	/*public static CreateTimetableMain getInstance(){
+		return singleton;
+	}
 
-    }
+	//画面遷移用メソッド、引数は遷移対象のfxml
+	public void setPage(String fxml){
+		try {
+			root = (Pane)FXMLLoader.load(getClass().getResource(fxml));
+			stage.setScene(new Scene(root));
+			root.getStylesheets().add(
+					getClass().getResource("CourseStyle.css").toExternalForm());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}*/
 
 
 
