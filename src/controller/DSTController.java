@@ -52,8 +52,8 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 		subjectTable.setItems(subList);
 		teacherTable.setItems(teaList);
 
-		subjectTable.getColumns().add(new DSCheckBoxColumn());
-		teacherTable.getColumns().add(new DTCheckBoxColumn());
+		subjectTable.getColumns().set(0, new DSCheckBoxColumn());
+		teacherTable.getColumns().set(0, new DTCheckBoxColumn());
 
 
 		//sCheckColumn.setCellFactory(CheckBoxTableCell.forTableColumn(dscolumn));
