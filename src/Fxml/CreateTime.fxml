@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Accordion?>
@@ -30,6 +31,7 @@
                   <TableColumn prefWidth="75.0" text="5" />
               </columns>
             </TableView>
+
             <ChoiceBox fx:id="dcchoice" layoutX="16.0" layoutY="77.0" prefHeight="44.0" prefWidth="181.0" />
             <ChoiceBox fx:id="subchoice" layoutX="212.0" layoutY="77.0" prefHeight="44.0" prefWidth="193.0" />
             <ChoiceBox fx:id="teachoice" layoutX="418.0" layoutY="77.0" prefHeight="44.0" prefWidth="181.0" />
@@ -156,22 +158,22 @@
               </columns>
             </TableView>
             <Accordion layoutX="498.0" layoutY="195.0" />
-            <Label layoutX="611.0" layoutY="243.0" prefHeight="44.0" prefWidth="88.0" text="科目">
+            <Label fx:id="subLabel" layoutX="611.0" layoutY="243.0" prefHeight="44.0" prefWidth="88.0" text="科目">
                <font>
                   <Font size="42.0" />
                </font>
             </Label>
-            <Label layoutX="611.0" layoutY="290.0" prefHeight="44.0" prefWidth="88.0" text="教員">
+            <Label fx:id="teaLabel" layoutX="611.0" layoutY="290.0" prefHeight="44.0" prefWidth="88.0" text="教員">
                <font>
                   <Font size="42.0" />
                </font>
             </Label>
-            <Label layoutX="611.0" layoutY="338.0" prefHeight="60.0" prefWidth="94.0" text="教室">
+            <Label fx:id="crLabel" layoutX="611.0" layoutY="338.0" prefHeight="60.0" prefWidth="94.0" text="教室">
                <font>
                   <Font size="38.0" />
                </font>
             </Label>
-            <Label layoutX="847.0" layoutY="30.0" prefHeight="36.0" prefWidth="315.0" text="学科・コース" textAlignment="CENTER">
+            <Label fx:id="dcLabel" layoutX="845.0" layoutY="14.0" prefHeight="36.0" prefWidth="315.0" text="学科・コース" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
@@ -210,6 +212,45 @@
                   </Menu>
                </menus>
           </MenuBar>
+            <VBox layoutX="751.0" layoutY="201.0" prefHeight="402.0" prefWidth="61.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="4" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="7" textAlignment="RIGHT" wrappingWidth="52.0078125">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
          </children>
     </AnchorPane>
   </children>
