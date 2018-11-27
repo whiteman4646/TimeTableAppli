@@ -59,8 +59,8 @@ public class DelDCController implements Initializable {
 				new PropertyValueFactory<DepartmentCourse,Integer>("dcid"));*/
 
 
-		dctable.getColumns().add(new DCCheckBoxColumn());
-		crtable.getColumns().add(new CRCheckBoxColumn());
+		dctable.getColumns().set(0, new DCCheckBoxColumn());
+		crtable.getColumns().set(0, new CRCheckBoxColumn());
 		//dctable.getColumns().add(dcidColumn);
 
 		dcnameColumn.setCellValueFactory(new PropertyValueFactory<>("dcname"));
@@ -97,7 +97,7 @@ public class DelDCController implements Initializable {
 			}
 		}
 
-
+		initialize(null, null);
 		/*dctable.refresh();
 		DepartmentCourseDAO.selectDAO();
 		dctable.setItems(dcList);
