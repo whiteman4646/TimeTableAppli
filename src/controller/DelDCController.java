@@ -112,8 +112,8 @@ public class DelDCController implements Initializable {
 			}
 		}
 
-		initialize(null,null);
 
+		initialize(null, null);
 		/*dctable.refresh();
 		DepartmentCourseDAO.selectDAO();
 		dctable.setItems(dcList);
