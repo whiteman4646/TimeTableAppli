@@ -12,11 +12,13 @@ import dto.ClassRoom;
 import dto.DepartmentCourse;
 import dto.Subject;
 import dto.Teacher;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 //import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -52,6 +54,14 @@ public class CreateTimetableController implements Initializable {
 	private ChoiceBox<String> subchoice;
 	@FXML
 	private ChoiceBox<String> teachoice;
+	@FXML
+	private Label dcLabel;		//学科・コース
+	@FXML
+	private Label subLabel;	//教科
+	@FXML
+	private Label teaLabel;	//教員
+	@FXML
+	private Label crLabel;		//教室
 
 	public void initialize(URL location, ResourceBundle resources){
 
@@ -80,8 +90,26 @@ public class CreateTimetableController implements Initializable {
 		}
 		teachoice.setItems(tanameList);
 
-
-
+		//学科・コースのチョイスボックス選択後ラベルに反映する
+		dcchoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					dcLabel.setText(dcList.get((int) ov.getValue()).getDcname());
+				});
+		//教科のチョイスボックス選択後ラベルに反映する
+		subchoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					subLabel.setText(sbList.get((int) ov.getValue()).getSubjectName());
+				});
+		//教員のチョイスボックス選択後ラベルに反映する
+		teachoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					teaLabel.setText(taList.get((int) ov.getValue()).getTeacherName());
+				});
+		//教室のチョイスボックス選択後ラベルに反映する
+		crchoice.getSelectionModel().selectedIndexProperty().addListener(
+				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
+					crLabel.setText(crList.get((int) ov.getValue()).getCrname());
+				});
 	}
 
 	@FXML
