@@ -41,7 +41,7 @@
             <TextField fx:id="dctext5" layoutX="376.0" layoutY="444.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="444.0" />
             <TextField fx:id="dctext6" layoutX="382.0" layoutY="509.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="509.0" />
             <TextField fx:id="dctext7" layoutX="376.0" layoutY="572.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="572.0" />
-            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
                   <Menu fx:id="cttmenu" mnemonicParsing="false" text="作成画面">
                      <items>
