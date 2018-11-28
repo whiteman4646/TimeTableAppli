@@ -60,7 +60,7 @@
             <Button layoutX="331.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="木" AnchorPane.topAnchor="276.0" />
             <Button layoutX="406.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="金" AnchorPane.topAnchor="276.0" />
             <Button layoutX="181.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="火" AnchorPane.topAnchor="276.0" />
-            <Button layoutX="256.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="水" AnchorPane.rightAnchor="909.0" AnchorPane.topAnchor="276.0" />
+            <Button layoutX="256.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="水" AnchorPane.topAnchor="276.0" />
             <Button layoutX="107.0" layoutY="209.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="131.0" text="教室" AnchorPane.topAnchor="209.0">
                <font>
                   <Font size="30.0" />
