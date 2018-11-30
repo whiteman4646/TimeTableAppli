@@ -13,7 +13,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="63.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.時間割作成画面について" wrappingWidth="324.6171875">
+            <Text fill="#eabd00" layoutX="63.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.時間割作成画面について" wrappingWidth="324.6171875">
                <font>
                   <Font size="29.0" />
                </font>
@@ -40,20 +40,10 @@
                      </items></Menu>
                </menus>
             </MenuBar>
-            <Text layoutX="564.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.登録画面について">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
             <ScrollBar layoutX="784.0" layoutY="100.0" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Text layoutX="564.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="テキストボックスに登録したい情報を入力して、登録ボタンを押していただくと入力された情報がデータベースに登録されます" wrappingWidth="418.509765625">
                <font>
                   <Font size="18.0" />
-               </font>
-            </Text>
-            <Text layoutX="568.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.削除画面について" wrappingWidth="220.7734375">
-               <font>
-                  <Font size="28.0" />
                </font>
             </Text>
             <Text layoutX="564.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="削除画面は登録した内容が一覧で表示されており、">
@@ -66,14 +56,24 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="568.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.印刷機能について">
+            <Text fill="#eabd00" layoutX="564.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.登録画面について" wrappingWidth="324.6171875">
                <font>
-                  <Font size="28.0" />
+                  <Font size="29.0" />
                </font>
             </Text>
-            <Text layoutX="568.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5.PDF変換について">
+            <Text fill="#eabd00" layoutX="568.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.削除画面について" wrappingWidth="240.6171875">
                <font>
-                  <Font size="28.0" />
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fill="#eabd00" layoutX="564.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.PDF変換について" wrappingWidth="228.6171875">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text layoutX="569.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDF変換は作成画面で時間割を作成したら、メニューバーにPDF変換という機能があるので押していただくと作成した時間割をPDF変換してそこから印刷までつなげることが可能です。" wrappingWidth="479.5351441204548">
+               <font>
+                  <Font size="18.0" />
                </font>
             </Text>
          </children>
