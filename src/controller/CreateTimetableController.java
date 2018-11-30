@@ -18,10 +18,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 //import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 
 public class CreateTimetableController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -46,6 +49,8 @@ public class CreateTimetableController implements Initializable {
 	ObservableList<Teacher> taList;
 	ObservableList<String> tanameList = FXCollections.observableArrayList(new ArrayList<String>());
 
+	@FXML
+	private ColorPicker colorPicker;
 	@FXML
 	private ChoiceBox<String> dcchoice;
 	@FXML
@@ -110,6 +115,14 @@ public class CreateTimetableController implements Initializable {
 				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
 					crLabel.setText(crList.get((int) ov.getValue()).getCrname());
 				});
+	}
+
+	@FXML
+	public void actionSetColor() {
+		System.out.println("え？色選択されたん？");
+		subLabel.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
+		teaLabel.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
+		crLabel.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
 	}
 
 	@FXML
