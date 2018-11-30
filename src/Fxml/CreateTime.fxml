@@ -82,11 +82,6 @@
                   <Font size="28.0" />
                </font>
             </Button>
-            <Button layoutX="975.0" layoutY="597.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="PDF" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="159.0">
-               <font>
-                  <Font size="28.0" />
-               </font>
-            </Button>
             <TableView layoutX="812.0" layoutY="99.0" prefHeight="478.0" prefWidth="374.0" AnchorPane.bottomAnchor="98.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="99.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="月">
@@ -162,12 +157,12 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label fx:id="teaLabel" layoutX="555.0" layoutY="209.0" prefHeight="44.0" prefWidth="88.0" text="教員" AnchorPane.leftAnchor="478.0">
+            <Label fx:id="teaLabel" layoutX="555.0" layoutY="209.0" prefHeight="44.0" prefWidth="140.0" text="教員" AnchorPane.leftAnchor="478.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label fx:id="crLabel" layoutX="552.0" layoutY="242.0" prefHeight="52.0" prefWidth="94.0" text="教室" AnchorPane.leftAnchor="478.0">
+            <Label fx:id="crLabel" layoutX="552.0" layoutY="242.0" prefHeight="52.0" prefWidth="131.0" text="教室" AnchorPane.leftAnchor="478.0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -203,6 +198,11 @@
                         <MenuItem fx:id="dcdeleMenuItem" mnemonicParsing="false" onAction="#nextdcdelPage" text="学科・コース/教室削除" />
                         <MenuItem fx:id="crdeleMenuItem" mnemonicParsing="false" onAction="#nextcrdelPage" text="教員/科目削除" />
                      </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="PDF変換">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="PDF変換" />
+                    </items>
                   </Menu>
                   <Menu fx:id="helpMenu" mnemonicParsing="false" text="ヘルプ">
                      <items>
