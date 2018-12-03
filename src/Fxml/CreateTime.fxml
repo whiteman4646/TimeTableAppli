@@ -85,21 +85,6 @@
                </font>
             </Button>
             <Accordion layoutX="498.0" layoutY="195.0" />
-            <Label fx:id="subLabel" layoutX="478.0" layoutY="173.0" prefHeight="44.0" prefWidth="220.0" text="科目" AnchorPane.leftAnchor="478.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="teaLabel" layoutX="555.0" layoutY="209.0" prefHeight="44.0" prefWidth="140.0" text="教員" AnchorPane.leftAnchor="478.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="crLabel" layoutX="552.0" layoutY="242.0" prefHeight="52.0" prefWidth="131.0" text="教室" AnchorPane.leftAnchor="478.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
             <Label fx:id="dcLabel" layoutX="847.0" layoutY="30.0" prefHeight="36.0" prefWidth="315.0" text="学科・コース" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
@@ -308,6 +293,26 @@
                   </VBox>
                </children>
             </HBox>
+            <VBox layoutX="549.0" layoutY="148.0" prefHeight="107.0" prefWidth="100.0" />
+            <VBox layoutX="483.0" layoutY="130.0" prefHeight="108.0" prefWidth="212.0">
+               <children>
+                  <Label fx:id="subLabel" prefHeight="44.0" prefWidth="220.0" text="科目">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="teaLabel" prefHeight="36.0" prefWidth="215.0" text="教員">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="crLabel" prefHeight="36.0" prefWidth="218.0" text="教室" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
     </AnchorPane>
   </children>
