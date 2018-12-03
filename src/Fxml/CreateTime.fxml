@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -12,6 +13,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -82,91 +84,7 @@
                   <Font size="28.0" />
                </font>
             </Button>
-            <TableView layoutX="812.0" layoutY="99.0" prefHeight="478.0" prefWidth="374.0" AnchorPane.bottomAnchor="98.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="99.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="月">
-                     <columns>
-                      <TableColumn prefWidth="75.0" text="科目">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="教員">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="教室" />
-                                 </columns>
-                              </TableColumn>
-                           </columns>
-                        </TableColumn>
-                     </columns>
-                  </TableColumn>
-                  <TableColumn prefWidth="75.0" text="火">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="科目">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="教員">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="教室" />
-                                 </columns>
-                              </TableColumn>
-                           </columns>
-                        </TableColumn>
-                     </columns>
-                  </TableColumn>
-                  <TableColumn prefWidth="75.0" text="水">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="科目">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="教員">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="教室" />
-                                 </columns>
-                              </TableColumn>
-                           </columns>
-                        </TableColumn>
-                     </columns>
-                  </TableColumn>
-                  <TableColumn prefWidth="75.0" text="木">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="科目">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="教員">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="教室" />
-                                 </columns>
-                              </TableColumn>
-                           </columns>
-                        </TableColumn>
-                     </columns>
-                  </TableColumn>
-                  <TableColumn prefWidth="106.0" text="金">
-                     <columns>
-                        <TableColumn prefWidth="106.0" text="科目">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="教員">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="教室" />
-                                 </columns>
-                              </TableColumn>
-                           </columns>
-                        </TableColumn>
-                     </columns>
-                  </TableColumn>
-              </columns>
-            </TableView>
             <Accordion layoutX="498.0" layoutY="195.0" />
-            <Label fx:id="subLabel" layoutX="478.0" layoutY="173.0" prefHeight="44.0" prefWidth="220.0" text="科目" AnchorPane.leftAnchor="478.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="teaLabel" layoutX="555.0" layoutY="209.0" prefHeight="44.0" prefWidth="140.0" text="教員" AnchorPane.leftAnchor="478.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="crLabel" layoutX="552.0" layoutY="242.0" prefHeight="52.0" prefWidth="131.0" text="教室" AnchorPane.leftAnchor="478.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
             <Label fx:id="dcLabel" layoutX="847.0" layoutY="30.0" prefHeight="36.0" prefWidth="315.0" text="学科・コース" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
@@ -199,9 +117,9 @@
                         <MenuItem fx:id="crdeleMenuItem" mnemonicParsing="false" onAction="#nextcrdelPage" text="教員/科目削除" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="PDF変換">
+                  <Menu mnemonicParsing="false" text="編集">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="PDF変換" />
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
                     </items>
                   </Menu>
                   <Menu fx:id="helpMenu" mnemonicParsing="false" text="ヘルプ">
@@ -211,7 +129,7 @@
                   </Menu>
                </menus>
           </MenuBar>
-            <VBox layoutX="712.0" layoutY="195.0" prefHeight="407.0" prefWidth="100.0">
+            <VBox layoutX="700.0" layoutY="195.0" prefHeight="413.0" prefWidth="88.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="RIGHT" wrappingWidth="99.13671875">
                      <font>
@@ -251,6 +169,150 @@
                </children>
             </VBox>
             <ColorPicker fx:id="colorPicker" layoutX="620.0" layoutY="254.0" onAction="#actionSetColor" prefHeight="44.0" prefWidth="88.0" />
+            <Button layoutX="1156.0" layoutY="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="PDF" />
+            <HBox layoutX="821.0" layoutY="201.0" prefHeight="404.0" prefWidth="406.0">
+               <children>
+                  <VBox prefHeight="510.0" prefWidth="81.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Mon" textAlignment="RIGHT">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="83.0" text="科目" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="教員" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="教室" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="510.0" prefWidth="81.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="86.0" text="Tue" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="科目" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="教員" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="教室" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="510.0" prefWidth="81.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="89.0" text="Wed" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="科目" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="教員" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="教室" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="510.0" prefWidth="81.0">
+                     <children>
+                        <Label text="Thu" />
+                        <Label prefHeight="17.0" prefWidth="82.0" text="科目" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="教員" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="教室" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="81.0" text="Label" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="81.0">
+                     <children>
+                        <Label text="Fri" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="科目" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="教員" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="教室" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                        <Label prefHeight="17.0" prefWidth="83.0" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox layoutX="549.0" layoutY="148.0" prefHeight="107.0" prefWidth="100.0" />
+            <VBox layoutX="483.0" layoutY="130.0" prefHeight="108.0" prefWidth="212.0">
+               <children>
+                  <Label fx:id="subLabel" prefHeight="44.0" prefWidth="220.0" text="科目">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="teaLabel" prefHeight="36.0" prefWidth="215.0" text="教員">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="crLabel" prefHeight="36.0" prefWidth="218.0" text="教室" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
     </AnchorPane>
   </children>
