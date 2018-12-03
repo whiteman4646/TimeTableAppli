@@ -2,20 +2,28 @@
 package controller;
 
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import Fxml.CreateTimetableMain;
 import dao.ClassRoomDAO;
 import dao.DepartmentCourseDAO;
+import dto.ClassRoom;
+import dto.DepartmentCourse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class DCController  {
+public class DCController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
 	private final String dcregiPage = "CourseRoom.fxml";
 	private final String crregiPage = "SubTea.fxml";
@@ -31,13 +39,27 @@ public class DCController  {
 
 	@FXML
 	private Button RegistButton;
+	@FXML
+	private TableView<DepartmentCourse> dcTableView;
+	@FXML
+	private TableView<ClassRoom> crTableView;
+	@FXML
+	private TableColumn<DepartmentCourse, String> dcTColumn;
+	@FXML
+	private TableColumn<ClassRoom, String> crTColumn;
 
 	@FXML
 	private TextField dctext1,dctext2, dctext3, dctext4, dctext5, dctext6, dctext7,
 					crtext1, crtext2, crtext3, crtext4, crtext5, crtext6, crtext7;
-
 	List<TextField> dclist = new ArrayList<TextField>();
 	List<TextField> crlist = new ArrayList<TextField>();
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		dcTableView.setItems(DepartmentCourseDAO.selectDAO());
+		dcTColumn.setCellValueFactory(new PropertyValueFactory<>("dcname"));
+		crTableView.setItems(ClassRoomDAO.selectDAO());
+		crTColumn.setCellValueFactory(new PropertyValueFactory<>("crname"));
+	}
 
 	@FXML
     public void clickregi(ActionEvent e){
@@ -73,6 +95,7 @@ public class DCController  {
 			f.setText("");
 		}
 		System.out.println("登録完了");
+		initialize(null, null);
 
     }
 

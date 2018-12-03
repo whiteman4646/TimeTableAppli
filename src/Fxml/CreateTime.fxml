@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
 
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -168,7 +168,7 @@
                   </Text>
                </children>
             </VBox>
-            <ColorPicker layoutX="620.0" layoutY="254.0" prefHeight="44.0" prefWidth="88.0" />
+            <ColorPicker fx:id="colorPicker" layoutX="620.0" layoutY="254.0" onAction="#actionSetColor" prefHeight="44.0" prefWidth="88.0" />
             <Button layoutX="1156.0" layoutY="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="PDF" />
             <HBox layoutX="821.0" layoutY="201.0" prefHeight="404.0" prefWidth="406.0">
                <children>
