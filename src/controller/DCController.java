@@ -40,6 +40,8 @@ public class DCController implements Initializable {
 	@FXML
 	private Button RegistButton;
 	@FXML
+	private Button dcUpdateButt;
+	@FXML
 	private TableView<DepartmentCourse> dcTableView;
 	@FXML
 	private TableView<ClassRoom> crTableView;
@@ -61,6 +63,10 @@ public class DCController implements Initializable {
 		crTColumn.setCellValueFactory(new PropertyValueFactory<>("crname"));
 	}
 
+	@FXML
+	public void dcUpdate() {
+
+	}
 	@FXML
     public void clickregi(ActionEvent e){
 		dclist.add(dctext1);
