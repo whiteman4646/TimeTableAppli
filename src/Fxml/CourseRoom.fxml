@@ -87,6 +87,11 @@
                 <TableColumn fx:id="crTColumn" prefWidth="153.0" text="教室" />
               </columns>
             </TableView>
+            <Button fx:id="dcUpdateButt" layoutX="348.0" layoutY="648.0" mnemonicParsing="false" onAction="#dcUpdate" prefHeight="39.0" prefWidth="85.0" text="更　新" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="348.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
          <opaqueInsets>
             <Insets />

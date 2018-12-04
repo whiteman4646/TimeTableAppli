@@ -36,7 +36,8 @@ public class STController implements Initializable {
 
 	@FXML
 	private Button subTeaEntButton;
-
+	@FXML
+	private Button tsUpdateButt;
 	@FXML
 	private TableView<Teacher> teacherTableView;
 	@FXML
@@ -57,6 +58,10 @@ public class STController implements Initializable {
 		subjectTableView.setItems(SubjectTeacherDAO.selectSubject());
 		teacherTColumn.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
 		subjectTColumn.setCellValueFactory(new PropertyValueFactory<>("subjectName"));
+	}
+	@FXML
+	public void tsUpdate() {
+
 	}
 	@FXML
     public void subTeaEntry(ActionEvent e){
