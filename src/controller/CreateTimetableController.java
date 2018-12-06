@@ -15,6 +15,7 @@ import dto.Teacher;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -23,8 +24,19 @@ import javafx.scene.control.Label;
 //import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class CreateTimetableController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -67,8 +79,15 @@ public class CreateTimetableController implements Initializable {
 	private Label teaLabel;	//教員
 	@FXML
 	private Label crLabel;		//教室
+	@FXML
+	private VBox komabox, timeBox1;
+	@FXML
+	private GridPane timetablegrid;
 
 	public void initialize(URL location, ResourceBundle resources){
+
+		timetablegrid.setGridLinesVisible(true);
+		komabox.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, null)));
 
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
 		dcList = DepartmentCourseDAO.selectDAO();
@@ -115,6 +134,8 @@ public class CreateTimetableController implements Initializable {
 				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
 					crLabel.setText(crList.get((int) ov.getValue()).getCrname());
 				});
+
+
 	}
 
 	@FXML
@@ -154,5 +175,88 @@ public class CreateTimetableController implements Initializable {
 	public void nexthelpPage(){
 		CreateTimetableMain.getInstance().setPage(helpPage);
 	}
+
+	// ここからonDrag機能
+	@FXML
+	public void OnDragDetected(){
+		komabox.setOnDragDetected(new EventHandler <MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                /* drag was detected, start drag-and-drop gesture*/
+                System.out.println("onDragDetected");
+
+                /* allow MOVE transfer mode */
+                Dragboard db = komabox.startDragAndDrop(TransferMode.MOVE);
+
+                String list = subLabel.getText() + " " + teaLabel.getText() + " " + crLabel.getText();
+                /* put a string on dragboard */
+                ClipboardContent content = new ClipboardContent();
+                content.putString(list);
+                //content.putString(subLabel.getText());
+
+                db.setContent(content);
+
+
+                event.consume();
+            }
+        });
+
+        timeBox1.setOnDragOver(new EventHandler <DragEvent>() {
+            @Override
+            public void handle(DragEvent event) {
+                /* data is dragged over the target */
+                System.out.println("onDragOver");
+
+                /* accept it only if it is  not dragged from the same node
+                 and if it has a string data */
+                if (event.getGestureSource() != timeBox1 &&
+                        event.getDragboard().hasString()) {
+                    /* allow for moving */
+                    event.acceptTransferModes(TransferMode.MOVE);
+                }
+
+                event.consume();
+            }
+        });
+
+
+
+
+
+        timeBox1.setOnDragDropped(new EventHandler <DragEvent>() {
+            @Override
+            public void handle(DragEvent event) {
+                /* data dropped */
+                System.out.println("onDragDropped");
+                /* if there is a string data on dragboard, read it and use it */
+                Dragboard db = event.getDragboard();
+                boolean success = false;
+                if (db.hasString()) {
+                	String getList = db.getString();
+                	String[] toList = getList.split(" ");
+                	System.out.println(getList);
+                	timeBox1.getChildren().addAll(
+                    new Label(toList[0]),
+                	new Label(toList[1]),
+                	new Label(toList[2])
+                	);
+                	/*subLabel.setText(toList[0]);
+                	teaLabel.setText(toList[1]);
+                    crLabel.setText(toList[2]);*/
+                    /*subLabel1.setText(db.getString());
+                    teaLabel1.setText(db.getString());
+                    crLabel1.setText(db.getString());*/
+                    success = true;
+                }
+                /* let the source know whether the string was successfully
+                 * transferred and used */
+                event.setDropCompleted(success);
+
+                event.consume();
+            }
+        });
+
+	}
+
 
 }
