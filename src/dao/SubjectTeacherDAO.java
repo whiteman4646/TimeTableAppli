@@ -112,6 +112,51 @@ public abstract class SubjectTeacherDAO {
 		}
 	}
 
+	//SQL:Teacherの更新メソッド
+	public static void updateTeacher(int id, String name) {
+		final String sql = "UPDATE teacher SET teachername = ? where teacherid = ?;";
+		Connection con = null;
+		PreparedStatement prst = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			System.out.println("Connection!");
+			prst = con.prepareStatement(sql);
+			prst.setInt(1, id);
+			prst.setString(2, name);
+			prst.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+	}
+
 	//SQL:Teacherのデリートメソッド
 	public static void deleteTeacher(int key) {
 		final String sql = "DELETE FROM teacher where teacherid = ?;";
@@ -222,6 +267,51 @@ public abstract class SubjectTeacherDAO {
 			System.out.println("Connection!");
 			prst = con.prepareStatement(sql);
 			prst.setString(1, key);
+			prst.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+	}
+
+	//SQL:Subjectの更新メソッド
+	public static void updateSubject(int id, String name) {
+		final String sql = "UPDATE subject SET subjectname = ? where subjectid = ?;";
+		Connection con = null;
+		PreparedStatement prst = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			System.out.println("Connection!");
+			prst = con.prepareStatement(sql);
+			prst.setInt(1, id);
+			prst.setString(2, name);
 			prst.executeUpdate();
 
 		} catch (ClassNotFoundException e) {

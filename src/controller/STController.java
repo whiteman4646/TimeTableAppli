@@ -9,6 +9,7 @@ import Fxml.CreateTimetableMain;
 import dao.SubjectTeacherDAO;
 import dto.Subject;
 import dto.Teacher;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +20,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.DefaultStringConverter;
 
 public class STController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -38,6 +41,8 @@ public class STController implements Initializable {
 	private Button subTeaEntButton;
 	@FXML
 	private Button tsUpdateButt;
+	ObservableList<Teacher> teaOList;
+	ObservableList<Subject> subOList;
 	@FXML
 	private TableView<Teacher> teacherTableView;
 	@FXML
@@ -54,14 +59,28 @@ public class STController implements Initializable {
 	List<TextField> subList = new ArrayList<TextField>(5);
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		teacherTableView.setItems(SubjectTeacherDAO.selectTeacher());
-		subjectTableView.setItems(SubjectTeacherDAO.selectSubject());
+		teaOList = SubjectTeacherDAO.selectTeacher();
+		subOList = SubjectTeacherDAO.selectSubject();
+		teacherTableView.setItems(teaOList);
+		subjectTableView.setItems(subOList);
 		teacherTColumn.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
 		subjectTColumn.setCellValueFactory(new PropertyValueFactory<>("subjectName"));
+		teacherTColumn.setCellFactory(cell-> new TextFieldTableCell<>(new DefaultStringConverter()));
+		subjectTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 	}
 	@FXML
 	public void tsUpdate() {
-
+		int i = 0;
+		for(Teacher oL : teacherTableView.getItems()) {
+			if(oL.getTeacherName().equals("") || oL.getTeacherName().equals(teaOList.get(i).getTeacherName())) {
+				System.out.println(oL.getTeacherName());
+				System.out.println(teaOList.get(i).getTeacherName());
+				System.out.println("空文字ってどうなの？ダメでしょ！");
+				i++;
+				continue;
+			}
+			SubjectTeacherDAO.updateTeacher(oL.getTeacherId(), oL.getTeacherName());
+		}
 	}
 	@FXML
     public void subTeaEntry(ActionEvent e){

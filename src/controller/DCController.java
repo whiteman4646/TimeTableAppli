@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class DCController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -58,9 +59,11 @@ public class DCController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		dcTableView.setItems(DepartmentCourseDAO.selectDAO());
-		dcTColumn.setCellValueFactory(new PropertyValueFactory<>("dcname"));
 		crTableView.setItems(ClassRoomDAO.selectDAO());
+		dcTColumn.setCellValueFactory(new PropertyValueFactory<>("dcname"));
 		crTColumn.setCellValueFactory(new PropertyValueFactory<>("crname"));
+		dcTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+		crTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 	}
 
 	@FXML
