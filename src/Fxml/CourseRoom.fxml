@@ -13,16 +13,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DCController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DCController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text fill="#11dabc" layoutX="540.0" layoutY="138.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="学科・コース" wrappingWidth="223.000009059906" AnchorPane.topAnchor="90.51953125">
+            <Text fill="#11dabc" layoutX="640.0" layoutY="138.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="学科・コース" wrappingWidth="223.000009059906" AnchorPane.topAnchor="90.51953125">
                <font>
                   <Font size="44.0" />
                </font>
             </Text>
-            <Text fill="#18d5ee" layoutX="936.0" layoutY="138.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教室" AnchorPane.topAnchor="90.51953125">
+            <Text fill="#18d5ee" layoutX="1013.0" layoutY="138.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教室" AnchorPane.topAnchor="90.51953125">
                <font>
                   <Font size="44.0" />
                </font>
@@ -36,13 +36,7 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <TextField fx:id="dctext1" layoutX="533.0" layoutY="179.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="179.0" />
-            <TextField fx:id="dctext2" layoutX="533.0" layoutY="243.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="243.0" />
-            <TextField fx:id="dctext3" layoutX="533.0" layoutY="307.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="307.0" />
-            <TextField fx:id="dctext4" layoutX="533.0" layoutY="371.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="371.0" />
-            <TextField fx:id="dctext5" layoutX="533.0" layoutY="435.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="435.0" />
-            <TextField fx:id="dctext6" layoutX="533.0" layoutY="500.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="500.0" />
-            <TextField fx:id="dctext7" layoutX="533.0" layoutY="563.0" prefHeight="46.0" prefWidth="223.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="563.0" />
+            <TextField fx:id="dctext1" layoutX="620.0" layoutY="179.0" prefHeight="239.0" prefWidth="264.0" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="179.0" />
             <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
                   <Menu fx:id="cttmenu" mnemonicParsing="false" text="作成画面">
@@ -70,24 +64,18 @@
                      </items></Menu>
                </menus>
             </MenuBar>
-            <TextField fx:id="crtext1" layoutX="893.0" layoutY="179.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="179.0" />
-            <TextField fx:id="crtext2" layoutX="893.0" layoutY="243.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="243.0" />
-            <TextField fx:id="crtext3" layoutX="893.0" layoutY="307.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="307.0" />
-            <TextField fx:id="crtext4" layoutX="893.0" layoutY="371.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="371.0" />
-            <TextField fx:id="crtext5" layoutX="893.0" layoutY="435.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="435.0" />
-            <TextField fx:id="crtext6" layoutX="893.0" layoutY="499.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="499.0" />
-            <TextField fx:id="crtext7" layoutX="893.0" layoutY="563.0" prefHeight="46.0" prefWidth="180.0" AnchorPane.rightAnchor="167.0" />
-            <TableView fx:id="dcTableView" editable="true" layoutX="56.0" layoutY="119.0" prefHeight="497.0" prefWidth="192.0" AnchorPane.bottomAnchor="88.0" AnchorPane.topAnchor="121.0">
+            <TextField fx:id="crtext1" layoutX="967.0" layoutY="179.0" prefHeight="239.0" prefWidth="180.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="179.0" />
+            <TableView fx:id="dcTableView" layoutX="56.0" layoutY="119.0" prefHeight="491.0" prefWidth="273.0" AnchorPane.bottomAnchor="88.0" AnchorPane.topAnchor="121.0">
               <columns>
-                <TableColumn fx:id="dcTColumn" prefWidth="191.0" text="学科・コース" />
+                <TableColumn fx:id="dcTColumn" prefWidth="272.0000305175781" text="学科・コース" />
               </columns>
             </TableView>
-            <TableView fx:id="crTableView" editable="true" layoutX="279.0" layoutY="121.0" prefHeight="491.0" prefWidth="154.0" AnchorPane.bottomAnchor="88.0" AnchorPane.topAnchor="121.0">
+            <TableView fx:id="crTableView" layoutX="382.0" layoutY="121.0" prefHeight="491.0" prefWidth="205.0" AnchorPane.bottomAnchor="88.0" AnchorPane.topAnchor="121.0">
               <columns>
-                <TableColumn fx:id="crTColumn" prefWidth="153.0" text="教室" />
+                <TableColumn fx:id="crTColumn" prefWidth="204.0" text="教室" />
               </columns>
             </TableView>
-            <Button fx:id="dcUpdateButt" layoutX="348.0" layoutY="648.0" mnemonicParsing="false" onAction="#dcUpdate" prefHeight="39.0" prefWidth="85.0" text="更　新" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="348.0">
+            <Button fx:id="dcUpdateButt" layoutX="587.0" layoutY="640.0" mnemonicParsing="false" onAction="#dcUpdate" prefHeight="39.0" prefWidth="85.0" text="更　新" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="587.0">
                <font>
                   <Font size="15.0" />
                </font>
