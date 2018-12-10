@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
+
 
 public class STController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -29,10 +32,11 @@ public class STController implements Initializable {
 	private final String helpPage = "help.fxml";
 
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem;
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,fileop;
+
 
 	@FXML
 	private Button subTeaEntButton;
@@ -130,5 +134,18 @@ public class STController implements Initializable {
 	@FXML
 	public void Nextctt() {
 		CreateTimetableMain.getInstance().setPage(cttPage);
+	}
+	@FXML
+	protected void nextfile(ActionEvent a) {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("ファイルを開く");
+		fileChooser.setInitialDirectory(
+	            new File(System.getProperty("user.home"))
+	        );
+		File file = fileChooser.showOpenDialog(null);
+
+		String url = "file:///"+file.getPath();
+
+		System.out.println(url);
 	}
 }

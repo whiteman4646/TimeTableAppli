@@ -62,6 +62,11 @@
                      <items>
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
                      </items></Menu>
+                  <Menu mnemonicParsing="false" text="ファイル">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="開く" />
+                    </items>
+                  </Menu>
                </menus>
             </MenuBar>
             <TextField fx:id="crtext1" layoutX="967.0" layoutY="179.0" prefHeight="239.0" prefWidth="180.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="179.0" />
