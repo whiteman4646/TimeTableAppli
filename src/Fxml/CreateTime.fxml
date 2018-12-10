@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
 
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -118,6 +118,11 @@
                      <items>
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
                      </items>
+                  </Menu>
+                  <Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
+                    <items>
+                      <MenuItem fx:id="file" mnemonicParsing="false" onAction="#nextfile" text="開く" />
+                    </items>
                   </Menu>
                </menus>
           </MenuBar>
