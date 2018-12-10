@@ -13,7 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class DepartmentCourseDAO {
-	public static void insertDAO(String crname){
+	public static void insertDAO(String[] crname){
 
 
 		Connection con = null;
@@ -23,10 +23,17 @@ public class DepartmentCourseDAO {
 			Class.forName("org.sqlite.JDBC");
 			con = DriverManager.getConnection("jdbc:sqlite:C:/tools/sqlite3/timetable.db");
 			String sql = "INSERT INTO departmentcourse(dcname) VALUES(?);";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, crname);
+			for(String str : crname) {
+				str = str.replaceAll(" ", "");
+				str = str.replaceAll("　", "");
+				if(str.isEmpty()) {
+					continue;
+				}
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, str);
 
-			pstmt.executeUpdate();
+				pstmt.executeUpdate();
+			}
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("JDBCドライバが見つかりません。");

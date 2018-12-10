@@ -2,14 +2,13 @@ package controller;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import Fxml.CreateTimetableMain;
 import dao.SubjectTeacherDAO;
 import dto.Subject;
 import dto.Teacher;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +20,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
-
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.DefaultStringConverter;
 
 public class STController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -42,6 +42,8 @@ public class STController implements Initializable {
 	private Button subTeaEntButton;
 	@FXML
 	private Button tsUpdateButt;
+	ObservableList<Teacher> teaOList;
+	ObservableList<Subject> subOList;
 	@FXML
 	private Button LetsCtt;
 	@FXML
@@ -53,51 +55,39 @@ public class STController implements Initializable {
 	@FXML
 	private TableColumn<Subject, String> subjectTColumn;
 	@FXML
-	private TextField teatext1, teatext2, teatext3 ,teatext4, teatext5,
-					   subtext1, subtext2, subtext3, subtext4, subtext5;
+	private TextField teatext1,subtext1;
 
-	List<TextField> teaList = new ArrayList<TextField>(5);
-	List<TextField> subList = new ArrayList<TextField>(5);
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		teacherTableView.setItems(SubjectTeacherDAO.selectTeacher());
-		subjectTableView.setItems(SubjectTeacherDAO.selectSubject());
+		teaOList = SubjectTeacherDAO.selectTeacher();
+		subOList = SubjectTeacherDAO.selectSubject();
+		teacherTableView.setItems(teaOList);
+		subjectTableView.setItems(subOList);
 		teacherTColumn.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
 		subjectTColumn.setCellValueFactory(new PropertyValueFactory<>("subjectName"));
+		teacherTColumn.setCellFactory(cell-> new TextFieldTableCell<>(new DefaultStringConverter()));
+		subjectTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 	}
 	@FXML
 	public void tsUpdate() {
-
+		int i = 0;
+		for(Teacher oL : teacherTableView.getItems()) {
+			if(oL.getTeacherName().equals("") || oL.getTeacherName().equals(teaOList.get(i).getTeacherName())) {
+				System.out.println(oL.getTeacherName());
+				System.out.println(teaOList.get(i).getTeacherName());
+				System.out.println("空文字ってどうなの？ダメでしょ！");
+				i++;
+				continue;
+			}
+			SubjectTeacherDAO.updateTeacher(oL.getTeacherId(), oL.getTeacherName());
+		}
 	}
 	@FXML
     public void subTeaEntry(ActionEvent e){
-		teaList.add(teatext1);
-		teaList.add(teatext2);
-		teaList.add(teatext3);
-		teaList.add(teatext4);
-		teaList.add(teatext5);
-
-		subList.add(subtext1);
-		subList.add(subtext2);
-		subList.add(subtext3);
-		subList.add(subtext4);
-		subList.add(subtext5);
-
-		//System.out.println("登録が押されました。");
-		for(TextField t: teaList) {
-			if(t.getText().equals("")) {
-				continue;
-			}
-			SubjectTeacherDAO.insertTeacher(t.getText());
-			t.setText("");
-		}
-		for(TextField s: subList) {
-			if(s.getText().equals("")) {
-				continue;
-			}
-			SubjectTeacherDAO.insertSubject(s.getText());
-			s.setText("");
-		}
+		String[] teatext = teatext1.getText().split(",");
+		String[] subtext = subtext1.getText().split(",");
+		SubjectTeacherDAO.insertSubject(teatext);
+		SubjectTeacherDAO.insertTeacher(subtext);
 		System.out.println("登録完了！");
 		initialize(null, null);
     }
