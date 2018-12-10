@@ -69,7 +69,7 @@ public abstract class SubjectTeacherDAO {
 	}
 
 	//SQL:Teacherのインサートメソッド
-	public static void insertTeacher(String key) {
+	public static void insertTeacher(String[] key) {
 		final String sql = "INSERT INTO teacher(teachername) VALUES(?);";
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -79,9 +79,16 @@ public abstract class SubjectTeacherDAO {
 
 			con = DriverManager.getConnection(DB_CONNECT);
 			System.out.println("Connection!");
-			prst = con.prepareStatement(sql);
-			prst.setString(1, key);
-			prst.executeUpdate();
+			for(String str : key) {
+				str = str.replaceAll(" ", "");
+				str = str.replaceAll("　", "");
+				if(str.isEmpty()) {
+					continue;
+				}
+				prst = con.prepareStatement(sql);
+				prst.setString(1, str);
+				prst.executeUpdate();
+			}
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -256,7 +263,7 @@ public abstract class SubjectTeacherDAO {
 	}
 
 	//SQL:Subjectのインサートメソッド
-	public static void insertSubject(String key) {
+	public static void insertSubject(String[] key) {
 		final String sql = "INSERT INTO subject(subjectname) VALUES(?);";
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -265,9 +272,16 @@ public abstract class SubjectTeacherDAO {
 
 			con = DriverManager.getConnection(DB_CONNECT);
 			System.out.println("Connection!");
-			prst = con.prepareStatement(sql);
-			prst.setString(1, key);
-			prst.executeUpdate();
+			for(String str : key) {
+				str = str.replaceAll(" ", "");
+				str = str.replaceAll("　", "");
+				if(str.isEmpty()) {
+					continue;
+				}
+				prst = con.prepareStatement(sql);
+				prst.setString(1, str);
+				prst.executeUpdate();
+			}
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

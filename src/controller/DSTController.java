@@ -94,8 +94,8 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 			}
 		}
 		for(Teacher tea : teaList){
-			System.out.println(tea.getCheck());
-			if(tea.getCheck()){
+			System.out.println(tea.getTeacherCheck());
+			if(tea.getTeacherCheck()){
 				System.out.println(tea.getTeacherId());
 				SubjectTeacherDAO.deleteTeacher(tea.getTeacherId());
 

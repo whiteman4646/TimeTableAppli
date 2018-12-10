@@ -20,11 +20,11 @@ public class DTCheckBoxColumn extends TableColumn<Teacher, Boolean> {
 			// CheckBoxTableCellの挙動を定義する
 			CheckBoxTableCell<Teacher, Boolean> cell = new CheckBoxTableCell<Teacher, Boolean>(index -> {
 				BooleanProperty selected = new SimpleBooleanProperty(
-						this.getTableView().getItems().get(index).getCheck());
+						this.getTableView().getItems().get(index).getTeacherCheck());
 
 				selected.addListener((ov, o, n) -> {
 					// チェックボックスの状態が変わったらPersonのデータも更新する
-					this.getTableView().getItems().get(index).setCheck(n);
+					this.getTableView().getItems().get(index).setTeacherCheck(n);
 
 					// チェックボックスが押されたので、行を選択したことにする
 					this.getTableView().getSelectionModel().select(index);
