@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import dto.Teacher;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,6 +39,7 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 
 public class CreateTimetableController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -47,10 +50,10 @@ public class CreateTimetableController implements Initializable {
 	private final String helpPage = "help.fxml";
 
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem;
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file;
 
 	ObservableList<DepartmentCourse> dcList;
 	ObservableList<String> dcnameList = FXCollections.observableArrayList(new ArrayList<String>());
@@ -1853,7 +1856,18 @@ public class CreateTimetableController implements Initializable {
 		public void nexthelpPage(){
 			CreateTimetableMain.getInstance().setPage(helpPage);
 		}
+		@FXML
+		protected void nextfile(ActionEvent a) {
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("ファイルを開く");
+			fileChooser.setInitialDirectory(
+		            new File(System.getProperty("user.home"))
+		        );
+			File file = fileChooser.showOpenDialog(null);
 
+			String url = "file:///"+file.getPath();
 
+			System.out.println(url);
 
+		}
 }
