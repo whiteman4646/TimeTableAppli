@@ -39,6 +39,8 @@ public class STController implements Initializable {
 	@FXML
 	private Button tsUpdateButt;
 	@FXML
+	private Button LetsCtt;
+	@FXML
 	private TableView<Teacher> teacherTableView;
 	@FXML
 	private TableView<Subject> subjectTableView;
@@ -124,5 +126,9 @@ public class STController implements Initializable {
 	@FXML
 	public void nexthelpPage(){
 		CreateTimetableMain.getInstance().setPage(helpPage);
+	}
+	@FXML
+	public void Nextctt() {
+		CreateTimetableMain.getInstance().setPage(cttPage);
 	}
 }

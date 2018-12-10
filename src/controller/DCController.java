@@ -36,7 +36,8 @@ public class DCController implements Initializable {
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
 	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem;
-
+	@FXML
+	private Button NextButton;
 	@FXML
 	private Button RegistButton;
 	@FXML
@@ -133,6 +134,10 @@ public class DCController implements Initializable {
 	@FXML
 	public void nexthelpPage(){
 		CreateTimetableMain.getInstance().setPage(helpPage);
+	}
+	@FXML
+	public void NextBu(){
+		CreateTimetableMain.getInstance().setPage(crregiPage);
 	}
 
 
