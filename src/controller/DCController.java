@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class DCController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -59,9 +60,11 @@ public class DCController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		dcTableView.setItems(DepartmentCourseDAO.selectDAO());
-		dcTColumn.setCellValueFactory(new PropertyValueFactory<>("dcname"));
 		crTableView.setItems(ClassRoomDAO.selectDAO());
+		dcTColumn.setCellValueFactory(new PropertyValueFactory<>("dcname"));
 		crTColumn.setCellValueFactory(new PropertyValueFactory<>("crname"));
+		dcTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+		crTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 	}
 
 	@FXML
@@ -70,37 +73,12 @@ public class DCController implements Initializable {
 	}
 	@FXML
     public void clickregi(ActionEvent e){
-		dclist.add(dctext1);
-		dclist.add(dctext2);
-		dclist.add(dctext3);
-		dclist.add(dctext4);
-		dclist.add(dctext5);
-		dclist.add(dctext6);
-		dclist.add(dctext7);
-
-		crlist.add(crtext1);
-		crlist.add(crtext2);
-		crlist.add(crtext2);
-		crlist.add(crtext3);
-		crlist.add(crtext4);
-		crlist.add(crtext5);
-		crlist.add(crtext6);
-		crlist.add(crtext7);
-
-		for (TextField t : dclist){
-			if(t.getText().equals("")){
-				continue;
-			}
-			DepartmentCourseDAO.insertDAO(t.getText());
-			t.setText("");
-		}
-		for (TextField f : crlist){
-			if(f.getText().equals("")){
-				continue;
-			}
-			ClassRoomDAO.insertDAO(f.getText());
-			f.setText("");
-		}
+		String[] crtext = crtext1.getText().split(",");
+		String[] dctext = dctext1.getText().split(",");
+		ClassRoomDAO.insertDAO(crtext);
+		DepartmentCourseDAO.insertDAO(dctext);
+		System.out.println("登録完了！");
+		initialize(null, null);
 		System.out.println("登録完了");
 		initialize(null, null);
 

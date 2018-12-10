@@ -5,28 +5,28 @@ public class Teacher {
 	private Integer teacherId;
 	private String teacherName;
 
-	public Teacher(boolean teacherCheck, int teacherId, String teacherName) {
+	public Teacher(boolean check, int id, String name) {
 		super();
-		this.teacherCheck = teacherCheck;
-		this.teacherId = teacherId;
-		this.teacherName = teacherName;
+		this.teacherCheck = check;
+		this.teacherId = id;
+		this.teacherName = name;
 	}
 
-	public Boolean getCheck() {
+	public Boolean getTeacherCheck() {
 		return teacherCheck;
 	}
 
-	public void setCheck(Boolean teacherCheck) {
+	public void setTeacherCheck(Boolean teacherCheck) {
 		this.teacherCheck = teacherCheck;
 	}
 
 	public Integer getTeacherId() {
 		return teacherId;
 	}
-
 	public void setTeacherId(Integer teacherId) {
 		this.teacherId = teacherId;
 	}
+
 
 	public String getTeacherName() {
 		return teacherName;
