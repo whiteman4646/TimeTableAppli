@@ -1,54 +1,142 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import Fxml.CreateTimetableMain;
 import dao.SubjectTeacherDAO;
+import dto.Subject;
+import dto.Teacher;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.FileChooser;
+import javafx.util.converter.DefaultStringConverter;
 
-public class STController {
+public class STController implements Initializable {
+	private final String cttPage = "CreateTime.fxml";
+	private final String dcregiPage = "CourseRoom.fxml";
+	private final String crregiPage = "SubTea.fxml";
+	private final String dcdelPage = "DeleteCourseRoom.fxml";
+	private final String crdelPage = "DeleteTeaSub.fxml";
+	private final String helpPage = "help.fxml";
+
+	@FXML
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen;
+	@FXML
+	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,fileop;
+
 
 	@FXML
 	private Button subTeaEntButton;
-
 	@FXML
-	private TextField teatext1, teatext2, teatext3 ,teatext4, teatext5,
-					   subtext1, subtext2, subtext3, subtext4, subtext5;
+	private Button tsUpdateButt;
+	ObservableList<Teacher> teaOList;
+	ObservableList<Subject> subOList;
+	@FXML
+	private Button LetsCtt;
+	@FXML
+	private TableView<Teacher> teacherTableView;
+	@FXML
+	private TableView<Subject> subjectTableView;
+	@FXML
+	private TableColumn<Teacher, String> teacherTColumn;
+	@FXML
+	private TableColumn<Subject, String> subjectTColumn;
+	@FXML
+	private TextField teatext1,subtext1;
 
-	List<TextField> teaList = new ArrayList<TextField>(5);
-	List<TextField> subList = new ArrayList<TextField>(5);
-
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		teaOList = SubjectTeacherDAO.selectTeacher();
+		subOList = SubjectTeacherDAO.selectSubject();
+		teacherTableView.setItems(teaOList);
+		subjectTableView.setItems(subOList);
+		teacherTColumn.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
+		subjectTColumn.setCellValueFactory(new PropertyValueFactory<>("subjectName"));
+		teacherTColumn.setCellFactory(cell-> new TextFieldTableCell<>(new DefaultStringConverter()));
+		subjectTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+	}
+	@FXML
+	public void tsUpdate() {
+		int i = 0;
+		for(Teacher oL : teacherTableView.getItems()) {
+			if(oL.getTeacherName().equals("") || oL.getTeacherName().equals(teaOList.get(i).getTeacherName())) {
+				System.out.println(oL.getTeacherName());
+				System.out.println(teaOList.get(i).getTeacherName());
+				System.out.println("空文字ってどうなの？ダメでしょ！");
+				i++;
+				continue;
+			}
+			SubjectTeacherDAO.updateTeacher(oL.getTeacherId(), oL.getTeacherName());
+		}
+	}
 	@FXML
     public void subTeaEntry(ActionEvent e){
-		teaList.add(teatext1);
-		teaList.add(teatext2);
-		teaList.add(teatext3);
-		teaList.add(teatext4);
-		teaList.add(teatext5);
-
-		subList.add(subtext1);
-		subList.add(subtext2);
-		subList.add(subtext3);
-		subList.add(subtext4);
-		subList.add(subtext5);
-
-		//System.out.println("登録が押されました。");
-		for(TextField t: teaList) {
-			if(t.getText().equals("")) {
-				continue;
-			}
-			SubjectTeacherDAO.insertTeacher(t.getText());
-			t.setText("");
-		}
-		for(TextField s: subList) {
-			if(s.getText().equals("")) {
-				continue;
-			}
-			SubjectTeacherDAO.insertSubject(s.getText());
-			s.setText("");
-		}
+		String[] teatext = teatext1.getText().split(",");
+		String[] subtext = subtext1.getText().split(",");
+		SubjectTeacherDAO.insertSubject(teatext);
+		SubjectTeacherDAO.insertTeacher(subtext);
+		System.out.println("登録完了！");
+		initialize(null, null);
     }
+
+	@FXML
+	public void nextcttPage(){
+		CreateTimetableMain.getInstance().setPage(cttPage);
+	}
+
+	@FXML
+	public void nextdcregiPage(){
+		CreateTimetableMain.getInstance().setPage(dcregiPage);
+	}
+
+	@FXML
+	public void nextcrregiPage(){
+		CreateTimetableMain.getInstance().setPage(crregiPage);
+	}
+
+	@FXML
+	public void nextdcdelPage(){
+		CreateTimetableMain.getInstance().setPage(dcdelPage);
+	}
+
+	@FXML
+	public void nextcrdelPage(){
+		CreateTimetableMain.getInstance().setPage(crdelPage);
+	}
+
+	@FXML
+	public void nexthelpPage(){
+		CreateTimetableMain.getInstance().setPage(helpPage);
+	}
+	@FXML
+	public void Nextctt() {
+		CreateTimetableMain.getInstance().setPage(cttPage);
+	}
+	@FXML
+	protected void nextfile(ActionEvent a) {
+		
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("ファイルを開く");
+		fileChooser.setInitialDirectory(
+	            new File(System.getProperty("user.home"))
+	        );
+		File file = fileChooser.showOpenDialog(null);
+
+		String url = "file:///"+file.getPath();
+
+		System.out.println(url);
+	}
 }

@@ -3,17 +3,12 @@ package Fxml;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+//import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-/**
- * FXMLファイルを利用する１
- *
- * @author karura
- *
- */
-public class DepartmentCourseMain extends Application {
-	//public static CreateTimetableMain singleton;
+public class HelpMain extends Application {
+	//public static HelpMain singleton;
 	//private Stage stage;
 	private Pane root;
 
@@ -25,13 +20,15 @@ public class DepartmentCourseMain extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
+
 		try{
-			//singleton = new CreateTimetableMain();
+			//singleton = this;
 			//stage = primaryStage;
 			// フォント色がおかしくなることへの対処
 			System.setProperty( "prism.lcdtext" , "false" );
 
-			root = (Pane)FXMLLoader.load(getClass().getResource("CourseRoom.fxml"));
+			// FXMLファイルの読込
+			root = (Pane)FXMLLoader.load(getClass().getResource("help.fxml"));
 
 			// シーンの作成
 			Scene   scene       = new Scene( root , 1240 , 700 );
@@ -44,12 +41,12 @@ public class DepartmentCourseMain extends Application {
 			primaryStage.show();
 
 		}catch(Exception e) {
-			e.printStackTrace();    
+			e.printStackTrace();
 		}
 
-
 	}
-	/*public static CreateTimetableMain getInstance(){
+
+	/*public static HelpMain getInstance(){
 		return singleton;
 	}
 
@@ -58,13 +55,9 @@ public class DepartmentCourseMain extends Application {
 		try {
 			root = (Pane)FXMLLoader.load(getClass().getResource(fxml));
 			stage.setScene(new Scene(root));
-			root.getStylesheets().add(
-					getClass().getResource("CourseStyle.css").toExternalForm());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}*/
-
-
 
 }

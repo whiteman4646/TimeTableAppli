@@ -1,22 +1,41 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Fxml.CreateTimetableMain;
 import dao.SubjectTeacherDAO;
 import dto.Subject;
 import dto.Teacher;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import util.DSCheckBoxColumn;
 import util.DTCheckBoxColumn;
 
 public class DSTController extends TableColumn<Subject, Boolean> implements Initializable{
+	private final String cttPage = "CreateTime.fxml";
+	private final String dcregiPage = "CourseRoom.fxml";
+	private final String crregiPage = "SubTea.fxml";
+	private final String dcdelPage = "DeleteCourseRoom.fxml";
+	private final String crdelPage = "DeleteTeaSub.fxml";
+	private final String helpPage = "help.fxml";
+
+	@FXML
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
+	@FXML
+	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file;
+
 	ObservableList<Subject> subList;
 	ObservableList<Teacher> teaList;
 
@@ -52,8 +71,8 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 		subjectTable.setItems(subList);
 		teacherTable.setItems(teaList);
 
-		subjectTable.getColumns().add(new DSCheckBoxColumn());
-		teacherTable.getColumns().add(new DTCheckBoxColumn());
+		subjectTable.getColumns().set(0, new DSCheckBoxColumn());
+		teacherTable.getColumns().set(0, new DTCheckBoxColumn());
 
 
 		//sCheckColumn.setCellFactory(CheckBoxTableCell.forTableColumn(dscolumn));
@@ -78,8 +97,8 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 			}
 		}
 		for(Teacher tea : teaList){
-			System.out.println(tea.getCheck());
-			if(tea.getCheck()){
+			System.out.println(tea.getTeacherCheck());
+			if(tea.getTeacherCheck()){
 				System.out.println(tea.getTeacherId());
 				SubjectTeacherDAO.deleteTeacher(tea.getTeacherId());
 
@@ -89,5 +108,47 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 		initialize(null, null);
 	}
 
+	@FXML
+	public void nextcttPage(){
+		CreateTimetableMain.getInstance().setPage(cttPage);
+	}
 
+	@FXML
+	public void nextdcregiPage(){
+		CreateTimetableMain.getInstance().setPage(dcregiPage);
+	}
+
+	@FXML
+	public void nextcrregiPage(){
+		CreateTimetableMain.getInstance().setPage(crregiPage);
+	}
+
+	@FXML
+	public void nextdcdelPage(){
+		CreateTimetableMain.getInstance().setPage(dcdelPage);
+	}
+
+	@FXML
+	public void nextcrdelPage(){
+		CreateTimetableMain.getInstance().setPage(crdelPage);
+	}
+
+	@FXML
+	public void nexthelpPage(){
+		CreateTimetableMain.getInstance().setPage(helpPage);
+	}
+	@FXML
+	protected void nextfile(ActionEvent a) {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("ファイルを開く");
+		fileChooser.setInitialDirectory(
+	            new File(System.getProperty("user.home"))
+	        );
+		File file = fileChooser.showOpenDialog(null);
+
+		String url = "file:///"+file.getPath();
+
+		System.out.println(url);
+
+	}
 }

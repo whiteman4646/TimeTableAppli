@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,18 +11,35 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DSTController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DSTController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
-                  <Menu mnemonicParsing="false" text="作成画面" />
-                  <Menu mnemonicParsing="false" text="学科・コース・教室登録画面" />
-                  <Menu mnemonicParsing="false" text="科目・教員登録画面" />
-                  <Menu mnemonicParsing="false" text="学科・コース・教室削除画面" />
-                  <Menu mnemonicParsing="false" text="科目・教員削除画面" />
-                  <Menu mnemonicParsing="false" text="ヘルプ" />
+                  <Menu fx:id="cttmenu" mnemonicParsing="false" text="作成画面">
+                     <items>
+                        <MenuItem fx:id="cttmenuitem" mnemonicParsing="false" onAction="#nextcttPage" text="作成画面へ" />
+                     </items></Menu>
+                  <Menu fx:id="registmenu" mnemonicParsing="false" text="登録画面">
+                     <items>
+                        <MenuItem fx:id="dcregimenuItem" mnemonicParsing="false" onAction="#nextdcregiPage" text="学科コース/教室登録" />
+                        <MenuItem fx:id="crregimenuItem" mnemonicParsing="false" onAction="#nextcrregiPage" text="教員/科目登録" />
+                     </items></Menu>
+                  <Menu fx:id="deleteMenu" mnemonicParsing="false" text="削除画面">
+                     <items>
+                        <MenuItem fx:id="dcdeleMenuItem" mnemonicParsing="false" onAction="#nextdcdelPage" text="学科コース/教室削除" />
+                        <MenuItem fx:id="crdeleMenuItem" mnemonicParsing="false" onAction="#nextcrdelPage" text="教員/科目削除" />
+                     </items></Menu>
+                  <Menu fx:id="helpMenu" mnemonicParsing="false" text="ヘルプ">
+                     <items>
+                        <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプ" />
+                     </items></Menu>
+                  <Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
+                    <items>
+                      <MenuItem fx:id="file" mnemonicParsing="false" onAction="#nextfile" text="開く" />
+                    </items>
+                  </Menu>
                </menus>
             </MenuBar>
             <Text layoutX="30.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教員・科目一覧" AnchorPane.topAnchor="52.0">
@@ -31,8 +49,8 @@
             </Text>
             <TableView fx:id="teacherTable" layoutX="266.0" layoutY="165.0" prefHeight="445.0" prefWidth="300.0" AnchorPane.leftAnchor="266.0" AnchorPane.topAnchor="165.0">
                <columns>
-                  <TableColumn fx:id="tCheckColumn" prefWidth="60.0" text="CheckBox" />
-                  <TableColumn fx:id="teacherColumn" prefWidth="239.0" text="教員" />
+                  <TableColumn prefWidth="33.0" />
+                  <TableColumn fx:id="teacherColumn" prefWidth="266.0" text="教員" />
                </columns>
             </TableView>
             <Button fx:id="deleteSTButton" layoutX="1098.0" layoutY="639.0" mnemonicParsing="false" onAction="#deleteST" prefHeight="39.0" prefWidth="85.0" text="削　除" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="56.0">
@@ -42,8 +60,8 @@
             </Button>
             <TableView fx:id="subjectTable" layoutX="682.0" layoutY="166.0" prefHeight="445.0" prefWidth="300.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="166.0">
                <columns>
-                  <TableColumn fx:id="sCheckColumn" prefWidth="60.0" text="CheckBox" />
-                  <TableColumn fx:id="subjectColumn" prefWidth="239.0" text="科目" />
+                  <TableColumn prefWidth="33.0" />
+                  <TableColumn fx:id="subjectColumn" prefWidth="308.0" text="科目" />
                </columns>
             </TableView>
             <Text fill="#11dabc" layoutX="383.0" layoutY="143.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教員" wrappingWidth="80.33329153060913">
