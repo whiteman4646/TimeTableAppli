@@ -6,7 +6,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -36,25 +36,13 @@
                      <items>
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
                      </items></Menu>
-                  <Menu fx:id="fileopen" mnemonicParsing="false"  text="ファイル">
+                  <Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
                     <items>
                       <MenuItem fx:id="fileop" mnemonicParsing="false" onAction="#nextfile" text="開く" />
                     </items>
                   </Menu>
             </menus>
           </MenuBar>
-            <TextField fx:id="teatext1" layoutX="679.0" layoutY="231.0" prefHeight="206.0" prefWidth="247.0" AnchorPane.topAnchor="231.0" />
-            <Button fx:id="subTeaEntButton" layoutX="1018.0" layoutY="632.0" mnemonicParsing="false" onAction="#subTeaEntry" prefHeight="39.0" prefWidth="85.0" text="登　録" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="125.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="LetsCtt" layoutX="1106.0" layoutY="615.0" mnemonicParsing="false" onAction="#Nextctt" prefHeight="39.0" prefWidth="85.0" text="次　へ" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="25.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <TextField fx:id="subtext1" layoutX="926.0" layoutY="231.0" prefHeight="206.0" prefWidth="247.0" />
             <Text fill="#11dabc" layoutX="764.0" layoutY="195.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="教員" wrappingWidth="93.6666350364685">
                <font>
                   <Font size="44.0" />
@@ -65,6 +53,18 @@
                   <Font size="44.0" />
                </font>
             </Text>
+            <TextArea fx:id="teatext" layoutX="679.0" layoutY="231.0" prefHeight="206.0" prefWidth="247.0" AnchorPane.topAnchor="231.0" />
+            <TextArea fx:id="subtext" layoutX="926.0" layoutY="231.0" prefHeight="206.0" prefWidth="247.0" AnchorPane.topAnchor="231.0" />
+            <Button fx:id="subTeaEntButton" layoutX="1018.0" layoutY="632.0" mnemonicParsing="false" onAction="#subTeaEntry" prefHeight="39.0" prefWidth="85.0" text="登　録" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="125.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="LetsCtt" layoutX="1106.0" layoutY="615.0" mnemonicParsing="false" onAction="#Nextctt" prefHeight="39.0" prefWidth="85.0" text="次　へ" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="25.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
             <TableView fx:id="teacherTableView" editable="true" layoutX="88.0" layoutY="131.0" prefHeight="466.0" prefWidth="200.0" AnchorPane.topAnchor="131.0">
               <columns>
                 <TableColumn fx:id="teacherTColumn" prefWidth="199.0" text="教員" />
