@@ -17,7 +17,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
@@ -55,7 +55,7 @@ public class STController implements Initializable {
 	@FXML
 	private TableColumn<Subject, String> subjectTColumn;
 	@FXML
-	private TextField teatext1,subtext1;
+	private TextArea teatext, subtext;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -84,10 +84,10 @@ public class STController implements Initializable {
 	}
 	@FXML
     public void subTeaEntry(ActionEvent e){
-		String[] teatext = teatext1.getText().split(",");
-		String[] subtext = subtext1.getText().split(",");
-		SubjectTeacherDAO.insertSubject(teatext);
-		SubjectTeacherDAO.insertTeacher(subtext);
+		String[] teatext1 = teatext.getText().split("\n");
+		String[] subtext1 = subtext.getText().split("\n");
+		SubjectTeacherDAO.insertSubject(teatext1);
+		SubjectTeacherDAO.insertTeacher(subtext1);
 		System.out.println("登録完了！");
 		initialize(null, null);
     }
@@ -127,7 +127,7 @@ public class STController implements Initializable {
 	}
 	@FXML
 	protected void nextfile(ActionEvent a) {
-		
+
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("ファイルを開く");
 		fileChooser.setInitialDirectory(
