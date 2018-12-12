@@ -19,8 +19,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.FileChooser;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.FileChooser;
 import javafx.util.converter.DefaultStringConverter;
 
 public class STController implements Initializable {
@@ -127,6 +127,7 @@ public class STController implements Initializable {
 	}
 	@FXML
 	protected void nextfile(ActionEvent a) {
+		
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("ファイルを開く");
 		fileChooser.setInitialDirectory(

@@ -2,12 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -36,7 +37,6 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <TextField fx:id="dctext1" layoutX="620.0" layoutY="179.0" prefHeight="239.0" prefWidth="264.0" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="179.0" />
             <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
                   <Menu fx:id="cttmenu" mnemonicParsing="false" text="作成画面">
@@ -64,7 +64,6 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <TextField fx:id="crtext1" layoutX="967.0" layoutY="179.0" prefHeight="239.0" prefWidth="180.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="179.0" />
             <TableView fx:id="dcTableView" layoutX="56.0" layoutY="119.0" prefHeight="491.0" prefWidth="273.0" AnchorPane.bottomAnchor="88.0" AnchorPane.topAnchor="121.0">
               <columns>
                 <TableColumn fx:id="dcTColumn" prefWidth="272.0000305175781" text="学科・コース" />
@@ -80,6 +79,8 @@
                   <Font size="15.0" />
                </font>
             </Button>
+            <TextArea fx:id="textArea" layoutX="652.0" layoutY="179.0" prefHeight="239.0" prefWidth="223.0" />
+            <ListView fx:id="listview" layoutX="957.0" layoutY="179.0" prefHeight="239.0" prefWidth="200.0" />
          </children>
          <opaqueInsets>
             <Insets />
