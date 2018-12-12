@@ -9,6 +9,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -20,22 +22,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
 
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TableView layoutX="106.0" layoutY="301.0" prefHeight="351.0" prefWidth="562.0" AnchorPane.bottomAnchor="48.0" AnchorPane.topAnchor="301.0">
-              <columns>
-                <TableColumn text="1" />
-                <TableColumn text="2" />
-                  <TableColumn text="3" />
-                  <TableColumn text="4" />
-                  <TableColumn text="5" />
-                  <TableColumn text="6" />
-                  <TableColumn text="7" />
-              </columns>
-            </TableView>
             <ChoiceBox fx:id="dcchoice" layoutX="16.0" layoutY="77.0" prefHeight="44.0" prefWidth="181.0" />
             <ChoiceBox fx:id="subchoice" layoutX="212.0" layoutY="77.0" prefHeight="44.0" prefWidth="193.0" />
             <ChoiceBox fx:id="teachoice" layoutX="418.0" layoutY="77.0" prefHeight="44.0" prefWidth="181.0" />
@@ -60,27 +51,6 @@
                   <Font size="27.0" />
                </font>
             </Text>
-            <Button layoutX="106.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="月" AnchorPane.topAnchor="276.0" />
-            <Button layoutX="331.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="木" AnchorPane.topAnchor="276.0" />
-            <Button layoutX="406.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="金" AnchorPane.topAnchor="276.0" />
-            <Button layoutX="181.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="火" AnchorPane.topAnchor="276.0" />
-            <Button layoutX="256.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="水" AnchorPane.topAnchor="276.0" />
-            <Button layoutX="107.0" layoutY="209.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="131.0" text="教室" AnchorPane.topAnchor="209.0">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Button>
-            <Button layoutX="236.0" layoutY="209.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="131.0" text="教員" AnchorPane.topAnchor="209.0">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Button>
-            <TableView layoutX="29.0" layoutY="301.0" prefHeight="326.0" prefWidth="78.0" AnchorPane.bottomAnchor="48.0" AnchorPane.topAnchor="301.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="教員名/教室" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
-            </TableView>
             <Accordion layoutX="498.0" layoutY="195.0" />
             <Label fx:id="dcLabel" layoutX="847.0" layoutY="30.0" prefHeight="36.0" prefWidth="315.0" text="学科・コース" textAlignment="CENTER">
                <font>
@@ -119,9 +89,14 @@
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
                      </items>
                   </Menu>
+                  <Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
+                    <items>
+                      <MenuItem fx:id="file" mnemonicParsing="false" onAction="#nextfile" text="開く" />
+                    </items>
+                  </Menu>
                </menus>
           </MenuBar>
-            <ColorPicker fx:id="colorPicker" layoutX="620.0" layoutY="254.0" onAction="#actionSetColor" prefHeight="44.0" prefWidth="88.0" />
+            <ColorPicker fx:id="colorPicker" layoutX="355.0" layoutY="173.0" onAction="#actionSetColor" prefHeight="44.0" prefWidth="88.0" />
             <Button layoutX="1156.0" layoutY="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="PDF" />
             <GridPane fx:id="timetablegrid" layoutX="816.0" layoutY="121.0" prefHeight="508.0" prefWidth="364.0" AnchorPane.topAnchor="121.0">
               <columnConstraints>
@@ -249,6 +224,234 @@
             <Label layoutX="987.0" layoutY="100.0" text="水曜日" AnchorPane.topAnchor="100.0" />
             <Label layoutX="1060.0" layoutY="100.0" text="木曜日" AnchorPane.topAnchor="100.0" />
             <Label layoutX="1126.0" layoutY="100.0" text="金曜日" AnchorPane.topAnchor="100.0" />
+            <TabPane layoutX="50.0" layoutY="256.0" prefHeight="430.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="教員">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="177.0" prefWidth="217.0">
+                           <children>
+                              <TabPane prefHeight="408.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="月曜日">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="356.0" prefWidth="660.0">
+                                             <children>
+                                                <TableView fx:id="teacherTable1" layoutY="-1.0" prefHeight="373.0" prefWidth="650.0" AnchorPane.bottomAnchor="7.0" AnchorPane.topAnchor="-1.0">
+                                                  <columns>
+                                                      <TableColumn fx:id="teacherColumn1" minWidth="90.0" prefWidth="90.0" text="教員" />
+                                                    <TableColumn minWidth="80.0" text="1" />
+                                                    <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" prefWidth="82.0" text="7" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="火曜日">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="teacherTable2" prefHeight="373.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="teacherColumn2" minWidth="90.0" prefWidth="90.0" text="教員" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" prefWidth="82.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="水曜日">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="teacherTable3" prefHeight="373.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="teacherColumn3" minWidth="90.0" prefWidth="90.0" text="教員" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" prefWidth="82.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="木曜日">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="teacherTable4" prefHeight="373.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="teacherColumn4" minWidth="90.0" prefWidth="90.0" text="教員" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" prefWidth="82.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="金曜日">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="teacherTable5" prefHeight="373.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="teacherColumn5" minWidth="90.0" prefWidth="90.0" text="教員" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" prefWidth="82.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="教室">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane prefHeight="400.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="月曜日">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="640.0">
+                                             <children>
+                                                <TableView fx:id="classroomTable1" prefHeight="350.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="classroomColumn1" minWidth="80.0" prefWidth="90.0" text="教室" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="火曜日">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="classroomTable2" prefHeight="350.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="classroomColumn2" minWidth="80.0" prefWidth="90.0" text="教室" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="水曜日">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="classroomTable3" prefHeight="350.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="classroomColumn3" minWidth="80.0" prefWidth="90.0" text="教室" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="木曜日">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="classroomTable4" prefHeight="350.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="classroomColumn4" minWidth="80.0" prefWidth="90.0" text="教室" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="金曜日">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="classroomTable5" prefHeight="350.0" prefWidth="650.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="classroomColumn5" minWidth="80.0" prefWidth="90.0" text="教室" />
+                                                      <TableColumn minWidth="80.0" text="1" />
+                                                      <TableColumn minWidth="80.0" text="2" />
+                                                      <TableColumn minWidth="80.0" text="3" />
+                                                      <TableColumn minWidth="80.0" text="4" />
+                                                      <TableColumn minWidth="80.0" text="5" />
+                                                      <TableColumn minWidth="80.0" text="6" />
+                                                      <TableColumn minWidth="80.0" text="7" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
          </children>
     </AnchorPane>
   </children>

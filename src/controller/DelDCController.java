@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,6 +10,7 @@ import dao.DepartmentCourseDAO;
 import dto.ClassRoom;
 import dto.DepartmentCourse;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -17,6 +19,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import util.CRCheckBoxColumn;
 import util.DCCheckBoxColumn;
 
@@ -29,10 +32,10 @@ public class DelDCController implements Initializable {
 	private final String helpPage = "help.fxml";
 
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem;
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file;
 
 	ObservableList<DepartmentCourse> dcList;
 	ObservableList<ClassRoom>crList;
@@ -154,8 +157,19 @@ public class DelDCController implements Initializable {
 	public void nexthelpPage(){
 		CreateTimetableMain.getInstance().setPage(helpPage);
 	}
+	@FXML
+	protected void nextfile(ActionEvent a) {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("ファイルを開く");
+		fileChooser.setInitialDirectory(
+	            new File(System.getProperty("user.home"))
+	        );
+		File file = fileChooser.showOpenDialog(null);
 
+		String url = "file:///"+file.getPath();
 
+		System.out.println(url);
 
+	}
 }
 

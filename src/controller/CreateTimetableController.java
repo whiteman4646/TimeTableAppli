@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -15,15 +16,20 @@ import dto.Teacher;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 //import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -37,6 +43,7 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 
 public class CreateTimetableController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -47,10 +54,10 @@ public class CreateTimetableController implements Initializable {
 	private final String helpPage = "help.fxml";
 
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem;
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file;
 
 	ObservableList<DepartmentCourse> dcList;
 	ObservableList<String> dcnameList = FXCollections.observableArrayList(new ArrayList<String>());
@@ -61,6 +68,16 @@ public class CreateTimetableController implements Initializable {
 	ObservableList<Teacher> taList;
 	ObservableList<String> tanameList = FXCollections.observableArrayList(new ArrayList<String>());
 
+	@FXML
+	private Button classroombutton;
+	@FXML
+	private TableView<Teacher> teacherTable1, teacherTable2, teacherTable3, teacherTable4, teacherTable5;
+	@FXML
+	private TableView<ClassRoom> classroomTable1, classroomTable2, classroomTable3, classroomTable4, classroomTable5;
+	@FXML
+	private TableColumn<Teacher, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5;
+	@FXML
+	private TableColumn<ClassRoom, String> classroomColumn1, classroomColumn2, classroomColumn3, classroomColumn4, classroomColumn5;
 	@FXML
 	private ColorPicker colorPicker;
 	@FXML
@@ -90,6 +107,28 @@ public class CreateTimetableController implements Initializable {
 
 		timetablegrid.setGridLinesVisible(true);
 		komabox.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, null)));
+
+		teacherTable1.setItems(SubjectTeacherDAO.selectTeacher());
+		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
+		teacherTable2.setItems(SubjectTeacherDAO.selectTeacher());
+		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
+		teacherTable3.setItems(SubjectTeacherDAO.selectTeacher());
+		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
+		teacherTable4.setItems(SubjectTeacherDAO.selectTeacher());
+		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
+		teacherTable5.setItems(SubjectTeacherDAO.selectTeacher());
+		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
+
+		classroomTable1.setItems(ClassRoomDAO.selectDAO());
+		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("crname"));
+		classroomTable2.setItems(ClassRoomDAO.selectDAO());
+		classroomColumn2.setCellValueFactory(new PropertyValueFactory<>("crname"));
+		classroomTable3.setItems(ClassRoomDAO.selectDAO());
+		classroomColumn3.setCellValueFactory(new PropertyValueFactory<>("crname"));
+		classroomTable4.setItems(ClassRoomDAO.selectDAO());
+		classroomColumn4.setCellValueFactory(new PropertyValueFactory<>("crname"));
+		classroomTable5.setItems(ClassRoomDAO.selectDAO());
+		classroomColumn5.setCellValueFactory(new PropertyValueFactory<>("crname"));
 
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
 		dcList = DepartmentCourseDAO.selectDAO();
@@ -1853,7 +1892,18 @@ public class CreateTimetableController implements Initializable {
 		public void nexthelpPage(){
 			CreateTimetableMain.getInstance().setPage(helpPage);
 		}
+		@FXML
+		protected void nextfile(ActionEvent a) {
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("ファイルを開く");
+			fileChooser.setInitialDirectory(
+		            new File(System.getProperty("user.home"))
+		        );
+			File file = fileChooser.showOpenDialog(null);
 
+			String url = "file:///"+file.getPath();
 
+			System.out.println(url);
 
+		}
 }
