@@ -63,10 +63,8 @@ public class DCController implements Initializable {
 	@FXML
 	private TableColumn<ClassRoom, String> crTColumn;
 	@FXML
-	private TextArea textArea;
+	private TextArea dctext1, crtext1;
 
-	@FXML
-	private TextField dctext1,crtext1;
 	List<TextField> dclist = new ArrayList<TextField>();
 	List<TextField> crlist = new ArrayList<TextField>();
 	@Override
@@ -85,12 +83,10 @@ public class DCController implements Initializable {
 	}
 	@FXML
     public void clickregi(ActionEvent e){
-		String[] crtext = textArea.getText().split(",");
-		String[] dctext = dctext1.getText().split(",");
+		String[] crtext = crtext1.getText().split("\n");
+		String[] dctext = dctext1.getText().split("\n");
 		ClassRoomDAO.insertDAO(crtext);
 		DepartmentCourseDAO.insertDAO(dctext);
-		System.out.println("登録完了！");
-		initialize(null, null);
 		System.out.println("登録完了");
 		initialize(null, null);
 
@@ -132,7 +128,7 @@ public class DCController implements Initializable {
 	@FXML
 	protected void nextfile(ActionEvent a) {
 
-		textArea.setText("初期化");
+		crtext1.setText("初期化");
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("ファイルを開く");
 		fileChooser.setInitialDirectory(
@@ -147,7 +143,7 @@ public class DCController implements Initializable {
 		if (file != null) {
             String words = readCSV(file);
             if (words != null) {
-            	textArea.setText(words);
+            	crtext1.setText(words);
             }
 		}
 
