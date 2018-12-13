@@ -56,7 +56,7 @@
                      <items>
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
                      </items></Menu>
-                  <Menu fx:id="fileppen" mnemonicParsing="false" text="ファイル">
+                  <Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
                     <items>
                         <Menu mnemonicParsing="false" text="開く">
                           <items>
