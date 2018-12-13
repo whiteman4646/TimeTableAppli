@@ -37,7 +37,14 @@
                      </items></Menu>
                   <Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
                     <items>
-                      <MenuItem fx:id="file" mnemonicParsing="false" onAction="#nextfile" text="開く" />
+                        <Menu mnemonicParsing="false" text="開く">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="学科をインポート" />
+                            <MenuItem fx:id="file" mnemonicParsing="false" onAction="#nextfile" text="教室をインポート" />
+                              <MenuItem mnemonicParsing="false" text="科目をインポート" />
+                              <MenuItem mnemonicParsing="false" text="教員をインポート" />
+                          </items>
+                        </Menu>
                     </items>
                   </Menu>
                </menus>
