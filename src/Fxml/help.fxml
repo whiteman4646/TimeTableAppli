@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelpController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelpController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -42,10 +42,10 @@
                     <items>
                         <Menu mnemonicParsing="false" text="開く">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="学科をインポート" />
-                            <MenuItem fx:id="file" mnemonicParsing="false" onAction="#nexrfile" text="教室をインポート" />
-                              <MenuItem mnemonicParsing="false" text="科目をインポート" />
-                              <MenuItem mnemonicParsing="false" text="教員をインポート" />
+                            <MenuItem disable="true" mnemonicParsing="false" text="学科をインポート" />
+                            <MenuItem fx:id="file" disable="true" mnemonicParsing="false" onAction="#nexrfile" text="教室をインポート" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="科目をインポート" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="教員をインポート" />
                           </items>
                         </Menu>
                     </items>
