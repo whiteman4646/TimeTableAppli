@@ -89,6 +89,8 @@ public class DCController implements Initializable {
 		ClassRoomDAO.insertDAO(crtext);
 		DepartmentCourseDAO.insertDAO(dctext);
 		System.out.println("登録完了");
+		crtext1.setText("");
+		dctext1.setText("");
 		initialize(null, null);
 
 	}
