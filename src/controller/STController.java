@@ -94,9 +94,11 @@ public class STController implements Initializable {
     public void subTeaEntry(ActionEvent e){
 		String[] teatext1 = teatext.getText().split("\n");
 		String[] subtext1 = subtext.getText().split("\n");
-		SubjectTeacherDAO.insertSubject(teatext1);
-		SubjectTeacherDAO.insertTeacher(subtext1);
+		SubjectTeacherDAO.insertSubject(subtext1);
+		SubjectTeacherDAO.insertTeacher(teatext1);
 		System.out.println("登録完了！");
+		teatext.setText("");
+		subtext.setText("");
 		initialize(null, null);
     }
 
