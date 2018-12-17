@@ -47,7 +47,8 @@ public class DCController implements Initializable {
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,fileop;
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem, dcOpen,
+	crOpen;
 	@FXML
 	private Button NextButton;
 	@FXML
@@ -82,7 +83,7 @@ public class DCController implements Initializable {
 
 	}
 	@FXML
-    public void clickregi(ActionEvent e){
+	public void clickregi(ActionEvent e){
 		String[] crtext = crtext1.getText().split("\n");
 		String[] dctext = dctext1.getText().split("\n");
 		ClassRoomDAO.insertDAO(crtext);
@@ -90,7 +91,7 @@ public class DCController implements Initializable {
 		System.out.println("登録完了");
 		initialize(null, null);
 
-    }
+	}
 
 	@FXML
 	public void nextcttPage(){
@@ -126,131 +127,153 @@ public class DCController implements Initializable {
 		CreateTimetableMain.getInstance().setPage(crregiPage);
 	}
 	@FXML
-	protected void nextfile(ActionEvent a) {
+	private void dcOpenFile(ActionEvent a) {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("ファイルを開く");
+		fileChooser.setInitialDirectory(
+				new File(System.getProperty("user.home"))
+				);
+		fileChooser.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("CSV", "*.csv"),
+				new FileChooser.ExtensionFilter("All", "*.*")
+				);
+		File file = fileChooser.showOpenDialog(null);
+
+		if (file != null) {
+			String words = readCSV(file);
+			if (words != null) {
+				dctext1.setText(words);
+			}
+		}
+	}
+	@FXML
+	protected void crOpenFile(ActionEvent a) {
 
 		crtext1.setText("初期化");
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("ファイルを開く");
 		fileChooser.setInitialDirectory(
-	            new File(System.getProperty("user.home"))
-	        );
+				new File(System.getProperty("user.home"))
+				);
 		fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("CSV", "*.csv"),
-                new FileChooser.ExtensionFilter("All", "*.*")
-        );
+				new FileChooser.ExtensionFilter("CSV", "*.csv"),
+				new FileChooser.ExtensionFilter("All", "*.*")
+				);
 		File file = fileChooser.showOpenDialog(null);
 
 		if (file != null) {
-            String words = readCSV(file);
-            if (words != null) {
-            	crtext1.setText(words);
-            }
+			String words = readCSV(file);
+			if (words != null) {
+				crtext1.setText(words);
+			}
 		}
 
 
 
 	}
-	  boolean checkBeforeReadfile(File file) {
-	        if (file.exists()) {
-	            if (file.isFile() && file.canRead()) {
-	                return true;
-	            }
-	        }
-	        return false;
-	    }
-	  String readCSV(File file) {
+	boolean checkBeforeReadfile(File file) {
+		if (file.exists()) {
+			if (file.isFile() && file.canRead()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	String readCSV(File file) {
 
-	    	String display="";//テキストエリアに表示させるテキスト
+		String display="";//テキストエリアに表示させるテキスト
 
-	        try {
-	            if (checkBeforeReadfile(file)) {
-	                FileInputStream in = new FileInputStream(file);
-	                InputStreamReader sr = new InputStreamReader(in, "UTF-8");
-//	                InputStreamReader sr = new InputStreamReader(in, "Shift_JIS");
-	                BufferedReader br = new BufferedReader(sr);
+		try {
+			if (checkBeforeReadfile(file)) {
+				FileInputStream in = new FileInputStream(file);
+				InputStreamReader sr = new InputStreamReader(in, "UTF-8");
+				//	                InputStreamReader sr = new InputStreamReader(in, "Shift_JIS");
+				BufferedReader br = new BufferedReader(sr);
 
-	                String line;
-	                boolean isHeader = true;
-	                while ((line = br.readLine()) != null) {
-	                    StringTokenizer token = new StringTokenizer(line, ",");
+				String line;
+				boolean isHeader = true;
+				while ((line = br.readLine()) != null) {
+					StringTokenizer token = new StringTokenizer(line, ",");
 
-	                    if (isHeader) {
-	                        while (token.hasMoreTokens()) {
+					if (isHeader) {
+						while (token.hasMoreTokens()) {
 
-	                            display=display+" " + token.nextToken();
-	                        }
-	                        isHeader = false;
-	                    } else {
-	                        while (token.hasMoreTokens()) {
-	                        	display=display+"\r\n" + token.nextToken();
-	                        }
-	                    }
-
-
-
-	                }
-	                return display;
-
-	            } else {
-	                System.out.println("No file exists or can't open.");
-	            }
-	        } catch (FileNotFoundException e) {
-	            System.out.println("FileNotFoundException : " + e.getMessage());
-	        } catch (IOException e) {
-	            System.out.println("IOException : " + e.getMessage());
-	        }
-			return display;
+							display=display+" " + token.nextToken();
+						}
+						isHeader = false;
+					} else {
+						while (token.hasMoreTokens()) {
+							display=display+"\r\n" + token.nextToken();
+						}
+					}
 
 
 
-	    }
+				}
+				br.close();
+				return display;
 
-
-	    ObservableList<String> readCSVToArray(File file) {
-
-	    	//ArrayList<String> array=new ArrayList();//テキストエリアに表示させるテキスト
-	    	ObservableList<String>array = FXCollections.observableArrayList(  );
-	        try {
-	            if (checkBeforeReadfile(file)) {
-	                FileInputStream in = new FileInputStream(file);
-	                InputStreamReader sr = new InputStreamReader(in, "UTF-8");
-//	                InputStreamReader sr = new InputStreamReader(in, "Shift_JIS");
-	                BufferedReader br = new BufferedReader(sr);
-
-	                String line;
-	                boolean isHeader = true;
-	                while ((line = br.readLine()) != null) {
-	                    StringTokenizer token = new StringTokenizer(line, ",");
-
-
-	                   if (isHeader) {
-	                        while (token.hasMoreTokens()) {
-	                        	array.add(token.nextToken());
-	                        }
-	                        isHeader = false;
-	                        array.add("--------------");
-
-	                    } else {
-	                        while (token.hasMoreTokens()) {
-	                        	array.add(token.nextToken());
-	                        }
-	                    }
-	                }
-	                return array;
-
-	            } else {
-	                System.out.println("No file exists or can't open.");
-	            }
-	        } catch (FileNotFoundException e) {
-	            System.out.println("FileNotFoundException : " + e.getMessage());
-	        } catch (IOException e) {
-	            System.out.println("IOException : " + e.getMessage());
-	        }
-			return array;
+			} else {
+				System.out.println("No file exists or can't open.");
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("FileNotFoundException : " + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("IOException : " + e.getMessage());
+		}
+		return display;
 
 
 
-	    }
+	}
+
+
+	ObservableList<String> readCSVToArray(File file) {
+
+		//ArrayList<String> array=new ArrayList();//テキストエリアに表示させるテキスト
+		ObservableList<String>array = FXCollections.observableArrayList(  );
+		try {
+			if (checkBeforeReadfile(file)) {
+				FileInputStream in = new FileInputStream(file);
+				InputStreamReader sr = new InputStreamReader(in, "UTF-8");
+				//	                InputStreamReader sr = new InputStreamReader(in, "Shift_JIS");
+				BufferedReader br = new BufferedReader(sr);
+
+				String line;
+				boolean isHeader = true;
+				while ((line = br.readLine()) != null) {
+					StringTokenizer token = new StringTokenizer(line, ",");
+
+
+					if (isHeader) {
+						while (token.hasMoreTokens()) {
+							array.add(token.nextToken());
+						}
+						isHeader = false;
+						array.add("--------------");
+
+					} else {
+						while (token.hasMoreTokens()) {
+							array.add(token.nextToken());
+						}
+					}
+				}
+				br.close();
+				return array;
+
+			} else {
+				System.out.println("No file exists or can't open.");
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("FileNotFoundException : " + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("IOException : " + e.getMessage());
+		}
+		return array;
+
+
+
+	}
 
 
 }
