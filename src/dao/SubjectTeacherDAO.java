@@ -131,8 +131,8 @@ public abstract class SubjectTeacherDAO {
 			con = DriverManager.getConnection(DB_CONNECT);
 			System.out.println("Connection!");
 			prst = con.prepareStatement(sql);
-			prst.setInt(1, id);
-			prst.setString(2, name);
+			prst.setString(1, name);
+			prst.setInt(2, id);
 			prst.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
@@ -324,8 +324,8 @@ public abstract class SubjectTeacherDAO {
 			con = DriverManager.getConnection(DB_CONNECT);
 			System.out.println("Connection!");
 			prst = con.prepareStatement(sql);
-			prst.setInt(1, id);
-			prst.setString(2, name);
+			prst.setString(1, name);
+			prst.setInt(2, id);
 			prst.executeUpdate();
 
 		} catch (ClassNotFoundException e) {

@@ -76,11 +76,28 @@ public class DCController implements Initializable {
 		crTColumn.setCellValueFactory(new PropertyValueFactory<>("crname"));
 		dcTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 		crTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+		dcTColumn.setOnEditCommit(e -> {
+            ((DepartmentCourse) e.getTableView().getItems().get(e.getTablePosition().getRow())).setDcname(e.getNewValue());
+        });
+		crTColumn.setOnEditCommit(e -> {
+            ((ClassRoom) e.getTableView().getItems().get(e.getTablePosition().getRow())).setCrname(e.getNewValue());
+        });
 	}
 
 	@FXML
 	public void dcUpdate() {
-
+		for(DepartmentCourse oL : dcTableView.getItems()) {
+			if(oL.getDcname().equals("")) {
+				continue;
+			}
+			DepartmentCourseDAO.updateDAO(oL.getDcid(), oL.getDcname());
+		}
+		for(ClassRoom oL : crTableView.getItems()) {
+			if(oL.getCrname().equals("")) {
+				continue;
+			}
+			ClassRoomDAO.updateDAO(oL.getCrid(), oL.getCrname());
+		}
 	}
 	@FXML
 	public void clickregi(ActionEvent e){
