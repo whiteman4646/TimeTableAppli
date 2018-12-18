@@ -63,6 +63,49 @@ public class DepartmentCourseDAO {
 		}
 	}
 
+	public static void updateDAO(int id, String name) {
+		final String sql = "UPDATE departmentcourse SET dcname = ? where dcid = ?;";
+		Connection con = null;
+		PreparedStatement prst = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection("jdbc:sqlite:C:/tools/sqlite3/timetable.db");
+			prst = con.prepareStatement(sql);
+			prst.setString(1, name);
+			prst.setInt(2, id);
+			prst.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+	}
+
 	public static ClassRoom deleteDAO(int key){
 		ClassRoom result = null;
 
