@@ -28,7 +28,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
-import javafx.util.converter.DefaultStringConverter;
 
 public class STController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
@@ -73,21 +72,28 @@ public class STController implements Initializable {
 		subjectTableView.setItems(subOList);
 		teacherTColumn.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
 		subjectTColumn.setCellValueFactory(new PropertyValueFactory<>("subjectName"));
-		teacherTColumn.setCellFactory(cell-> new TextFieldTableCell<>(new DefaultStringConverter()));
+		teacherTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 		subjectTColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+		teacherTColumn.setOnEditCommit(e -> {
+            ((Teacher) e.getTableView().getItems().get(e.getTablePosition().getRow())).setTeacherName(e.getNewValue());
+        });
+		subjectTColumn.setOnEditCommit(e -> {
+            ((Subject) e.getTableView().getItems().get(e.getTablePosition().getRow())).setSubjectName(e.getNewValue());
+        });
 	}
 	@FXML
 	public void tsUpdate() {
-		int i = 0;
 		for(Teacher oL : teacherTableView.getItems()) {
-			if(oL.getTeacherName().equals("") || oL.getTeacherName().equals(teaOList.get(i).getTeacherName())) {
-				System.out.println(oL.getTeacherName());
-				System.out.println(teaOList.get(i).getTeacherName());
-				System.out.println("空文字ってどうなの？ダメでしょ！");
-				i++;
+			if(oL.getTeacherName().equals("")) {
 				continue;
 			}
 			SubjectTeacherDAO.updateTeacher(oL.getTeacherId(), oL.getTeacherName());
+		}
+		for(Subject oL : subjectTableView.getItems()) {
+			if(oL.getSubjectName().equals("")) {
+				continue;
+			}
+			SubjectTeacherDAO.updateSubject(oL.getSubjectId(), oL.getSubjectName());
 		}
 	}
 	@FXML
