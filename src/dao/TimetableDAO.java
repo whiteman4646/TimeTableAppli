@@ -84,17 +84,19 @@ public class TimetableDAO {
 			con = DriverManager.getConnection(DB_CONNECT);
 			System.out.println("Connection!");
 			for(int i = 0;i < key.length; i++) {
-				for(int j = 0; j < key.length; j++) {
-					prst = con.prepareStatement(sql);
-					prst.setString(1, key[i][j]);
-					prst.setString(2, key[i][j]);
-					prst.setString(3, key[i][j]);
-					prst.setInt(4, Integer.parseInt(key[i][j]));
-					prst.setInt(5, Integer.parseInt(key[i][j]));
-					prst.setInt(6, Integer.parseInt(key[i][j]));
-					prst.setInt(7, Integer.parseInt(key[i][j]));
-					prst.executeUpdate();
+				if(key[i][4] == null || key[i][5] == null || key[i][6] == null) {
+					continue;
 				}
+				prst = con.prepareStatement(sql);
+				prst.setString(1, key[i][0]);
+				prst.setString(2, key[i][1]);
+				prst.setString(3, key[i][2]);
+				prst.setInt(4, Integer.parseInt(key[i][3]));
+				prst.setInt(5, Integer.parseInt(key[i][4]));
+				prst.setInt(6, Integer.parseInt(key[i][5]));
+				prst.setInt(7, Integer.parseInt(key[i][6]));
+				prst.executeUpdate();
+
 			}
 
 		} catch (ClassNotFoundException e) {
