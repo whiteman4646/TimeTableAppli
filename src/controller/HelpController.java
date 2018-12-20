@@ -12,7 +12,7 @@ import main.CreateTimetableMain;
 public class HelpController {
 	private final String cttPage = "../Fxml/CreateTime.fxml";
 	private final String dcregiPage = "../Fxml/CourseRoom.fxml";
-	private final String crregiPage = "../FxmlSubTea.fxml";
+	private final String crregiPage = "../Fxml/SubTea.fxml";
 	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
