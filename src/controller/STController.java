@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
-import Fxml.CreateTimetableMain;
 import dao.SubjectTeacherDAO;
 import dto.Subject;
 import dto.Teacher;
@@ -28,6 +27,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
+import main.CreateTimetableMain;
 
 public class STController implements Initializable {
 	private final String cttPage = "CreateTime.fxml";
