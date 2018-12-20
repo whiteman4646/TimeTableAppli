@@ -2,20 +2,20 @@ package controller;
 
 import java.io.File;
 
-import Fxml.CreateTimetableMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
+import main.CreateTimetableMain;
 
 public class HelpController {
-	private final String cttPage = "CreateTime.fxml";
-	private final String dcregiPage = "CourseRoom.fxml";
-	private final String crregiPage = "SubTea.fxml";
-	private final String dcdelPage = "DeleteCourseRoom.fxml";
-	private final String crdelPage = "DeleteTeaSub.fxml";
-	private final String helpPage = "help.fxml";
+	private final String cttPage = "../Fxml/CreateTime.fxml";
+	private final String dcregiPage = "../Fml/CourseRoom.fxml";
+	private final String crregiPage = "../FxmlSubTea.fxml";
+	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
+	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
+	private final String helpPage = "../Fxml/help.fxml";
 
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;

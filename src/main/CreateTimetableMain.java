@@ -1,4 +1,4 @@
-package Fxml;
+package main;
 
 import java.io.IOException;
 
@@ -34,7 +34,7 @@ public class CreateTimetableMain extends Application {
 			// フォント色がおかしくなることへの対処
 			System.setProperty( "prism.lcdtext" , "false" );
 
-			root = (Pane)FXMLLoader.load(getClass().getResource("CreateTime.fxml"));
+			root = (Pane)FXMLLoader.load(getClass().getResource("../Fxml/CreateTime.fxml"));
 
 			// シーンの作成
 			Scene   scene       = new Scene( root , 1240 , 700 );
@@ -43,7 +43,7 @@ public class CreateTimetableMain extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.setScene( scene );
 			scene.getStylesheets().add(
-					getClass().getResource("CourseStyle.css").toExternalForm());
+					getClass().getResource("../Fxml/CourseStyle.css").toExternalForm());
 			primaryStage.show();
 
 			if(ClassRoomDAO.selectDAO().isEmpty()&&DepartmentCourseDAO.selectDAO().isEmpty()&&SubjectTeacherDAO.selectSubject().isEmpty()&&SubjectTeacherDAO.selectTeacher().isEmpty()){
