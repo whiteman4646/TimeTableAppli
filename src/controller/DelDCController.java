@@ -25,7 +25,7 @@ import util.DCCheckBoxColumn;
 
 public class DelDCController implements Initializable {
 	private final String cttPage = "../Fxml/CreateTime.fxml";
-	private final String dcregiPage = "../Fml/CourseRoom.fxml";
+	private final String dcregiPage = "../Fxml/CourseRoom.fxml";
 	private final String crregiPage = "../FxmlSubTea.fxml";
 	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";

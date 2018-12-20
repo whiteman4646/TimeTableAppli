@@ -86,7 +86,7 @@ public class CreateTimetableMain extends Application {
 			root = (Pane)FXMLLoader.load(getClass().getResource(fxml));
 			stage.setScene(new Scene(root));
 			root.getStylesheets().add(
-					getClass().getResource("CourseStyle.css").toExternalForm());
+					getClass().getResource("../Fxml/CourseStyle.css").toExternalForm());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
