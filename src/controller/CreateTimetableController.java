@@ -392,7 +392,7 @@ public class CreateTimetableController implements Initializable {
 			//key[i][6] = crid;
 
 		}
-		TimetableDAO.insertTeacher(key);
+		TimetableDAO.insertTimetable(key);
 
 	}
 

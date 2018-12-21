@@ -14,8 +14,8 @@ import javafx.collections.ObservableList;
 public class TimetableDAO {
 	final static String DB_CONNECT = "jdbc:sqlite:C:/tools/sqlite3/timetable.db";
 
-	//SQL:Teacherの参照メソッド
-	public static ObservableList<Timetable> selectTeacher() {
+	//SQL:時間割の参照メソッド
+	public static ObservableList<Timetable> selectTimetable() {
 		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -72,8 +72,69 @@ public class TimetableDAO {
 		return tableList;
 	}
 
-	//SQL:Teacherのインサートメソッド
-	public static void insertTeacher(String[][] key) {
+	public static ObservableList<Timetable> selectTimetableJoin() {
+		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		Connection con = null;
+		PreparedStatement prst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			String sql = "SELECT timetable.timetableid, timetable.week, timetable.time, timetable.period, departmentcourse.dcname, teacher.teachername, subject.subjectname, classroom.crname from timetable"
+					+ "inner join departmentcourse on timetable.dcid =  departmentcourse.dcid"
+					+ "inner join teacher on timetable.teacherid = teacher.teacherid"
+					+ "inner join subject on timetable.subjectid = subject.subjectid"
+					+ "inner join classroom on timetable.crid = classroom.crid;";
+			prst = con.prepareStatement(sql);
+			rs = prst.executeQuery();
+
+			while(rs.next() == true ){
+				int timetableid = rs.getInt("timetableid");
+				String week = rs.getString("week");
+				String time = rs.getString("time");
+				String period = rs.getString("period");
+				String dcname = rs.getString("dcname");
+				String teachername = rs.getString("teachername");
+				String subjectname = rs.getString("subjectname");
+				String crname = rs.getString("crname");
+				tableList.add(new Timetable(timetableid, week, time, period, dcname, teachername, subjectname, crname));
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return tableList;
+	}
+
+	//SQL:時間割のインサートメソッド
+	public static void insertTimetable(String[][] key) {
 		final String sql = "INSERT INTO Timetable(week, time, period, dcid, teacherid, subjectid, crid) VALUES(?, ?, ?, ?, ?, ?, ?);";
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -128,8 +189,8 @@ public class TimetableDAO {
 		}
 	}
 
-	//SQL:Teacherの更新メソッド
-	public static void updateTeacher(ArrayList<ArrayList<String>> key) {
+	//SQL:時間割の更新メソッド
+	public static void updateTimetable(ArrayList<ArrayList<String>> key) {
 		final String sql = "UPDATE Timetable SET week = ?, time = ?, period = ?, dcid = ?, teacherid = ?, subjectid = ?, crid = ? where timetableid = ?;";
 		Connection con = null;
 		PreparedStatement prst = null;
