@@ -289,7 +289,7 @@
 																<TableView fx:id="teacherTable1" layoutY="-1.0" prefHeight="373.0" prefWidth="650.0" AnchorPane.bottomAnchor="7.0" AnchorPane.topAnchor="-1.0">
 																	<columns>
 																		<TableColumn fx:id="teacherColumn1" minWidth="90.0" prefWidth="90.0" text="教員" />
-																		<TableColumn minWidth="80.0" text="Mon-1" />
+																		<TableColumn fx:id="teachmon1" minWidth="80.0" text="Mon-1" />
 																		<TableColumn minWidth="80.0" text="Mon-2" />
 																		<TableColumn minWidth="80.0" text="Mon-3" />
 																		<TableColumn minWidth="80.0" text="Mon-4" />

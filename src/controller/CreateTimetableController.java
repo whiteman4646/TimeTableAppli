@@ -81,7 +81,8 @@ public class CreateTimetableController implements Initializable {
 	@FXML
 	private TableView<ClassRoom> classroomTable1, classroomTable2, classroomTable3, classroomTable4, classroomTable5;
 	@FXML
-	private TableColumn<Teacher, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5;
+	private TableColumn<Teacher, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5,
+	teachmon1;
 	@FXML
 	private TableColumn<ClassRoom, String> classroomColumn1, classroomColumn2, classroomColumn3, classroomColumn4, classroomColumn5;
 	@FXML
@@ -281,6 +282,8 @@ public class CreateTimetableController implements Initializable {
 					//Label l = (Label)v.lookup("#Teacher");
 					//System.out.println(l.getText());
 
+					teacherTable1.setItems(SubjectTeacherDAO.selectTeacher());
+					teachmon1.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
 
 				}
 			});
