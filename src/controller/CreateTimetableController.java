@@ -185,6 +185,7 @@ public class CreateTimetableController implements Initializable {
 				});
 		//OneKoma onekoma = new OneKoma();
 
+		//初期色
 		komabox.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
 
 
@@ -193,11 +194,7 @@ public class CreateTimetableController implements Initializable {
 	//色選択
 	@FXML
 	public void actionSetColor() {
-		System.out.println("え？色選択されたん？");
 		komabox.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
-		/*subLabel.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
-		teaLabel.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
-		crLabel.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));*/
 	}
 
 	// ここからonDrag機能
