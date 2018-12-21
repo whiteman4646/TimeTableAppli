@@ -5,6 +5,10 @@ public class Timetable {
 	private String week;
 	private String time;
 	private String period;
+	private String dcname;
+	private String teachername;
+	private String subjectname;
+	private String crname;
 	private int dcid;
 	private int teacherid;
 	private int subjectid;
@@ -23,7 +27,18 @@ public class Timetable {
 		this.crid = crid;
 	}
 
-
+	public Timetable(int timetableid, String week, String time, String period, String dcname, String teachername,
+			String subjectname, String crname) {
+		super();
+		this.timetableid = timetableid;
+		this.week = week;
+		this.time = time;
+		this.period = period;
+		this.dcname = dcname;
+		this.teachername = teachername;
+		this.subjectname = subjectname;
+		this.crname = crname;
+	}
 
 	public int getTimetableid() {
 		return timetableid;
@@ -49,6 +64,38 @@ public class Timetable {
 	public void setPeriod(String period) {
 		this.period = period;
 	}
+	public String getDcname() {
+		return dcname;
+	}
+
+	public void setDcname(String dcname) {
+		this.dcname = dcname;
+	}
+
+	public String getTeachername() {
+		return teachername;
+	}
+
+	public void setTeachername(String teachername) {
+		this.teachername = teachername;
+	}
+
+	public String getSubjectname() {
+		return subjectname;
+	}
+
+	public void setSubjectname(String subjectname) {
+		this.subjectname = subjectname;
+	}
+
+	public String getCrname() {
+		return crname;
+	}
+
+	public void setCrname(String crname) {
+		this.crname = crname;
+	}
+
 	public int getDcid() {
 		return dcid;
 	}
