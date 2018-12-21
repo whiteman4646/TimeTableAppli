@@ -21,7 +21,6 @@ public class CreateTimetableMain extends Application {
 	private Pane root;
 
 	public static void main(String[] args) {
-
 		launch(args);
 	}
 
