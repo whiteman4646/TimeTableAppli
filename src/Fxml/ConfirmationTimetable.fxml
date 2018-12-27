@@ -57,7 +57,7 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <TableView layoutX="29.0" layoutY="99.0" prefHeight="594.0" prefWidth="574.0">
+            <TableView fx:id="ConfirmationTable1" layoutX="29.0" layoutY="99.0" prefHeight="594.0" prefWidth="574.0">
                <columns>
                   <TableColumn minWidth="0.0" prefWidth="73.0" text="時限" />
                   <TableColumn prefWidth="100.0" text="月曜日" />
@@ -68,7 +68,7 @@
                </columns>
             </TableView>
             <ChoiceBox fx:id="depcoursechoice1" layoutX="29.0" layoutY="74.0" prefWidth="150.0" />
-            <TableView layoutX="636.0" layoutY="99.0" prefHeight="594.0" prefWidth="574.0">
+            <TableView fx:id="ConfirmationTable2" layoutX="636.0" layoutY="99.0" prefHeight="594.0" prefWidth="574.0">
                <columns>
                   <TableColumn minWidth="0.0" prefWidth="73.0" text="時限" />
                   <TableColumn prefWidth="100.0" text="月曜日" />

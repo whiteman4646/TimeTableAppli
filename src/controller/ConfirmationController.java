@@ -11,6 +11,7 @@ import dao.SubjectTeacherDAO;
 import dto.ClassRoom;
 import dto.DepartmentCourse;
 import dto.Teacher;
+import dto.Timetable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableView;
 import javafx.stage.FileChooser;
 import main.CreateTimetableMain;
 
@@ -37,6 +39,7 @@ public class ConfirmationController implements Initializable{
 	ObservableList<String> crnameList = FXCollections.observableArrayList(new ArrayList<String>());
 	ObservableList<Teacher> taList;
 	ObservableList<String> tanameList = FXCollections.observableArrayList(new ArrayList<String>());
+	ObservableList<Timetable> timeList;
 
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen, ConfirmationMenu;
@@ -45,6 +48,8 @@ public class ConfirmationController implements Initializable{
 	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem, file, ConfirmationMenuItem;
 	@FXML
 	private ChoiceBox<String> depcoursechoice1, deptcoursechoice2, teacherchoice1, teacherchoice2, classroomchoice1, classroomchoice2;
+	@FXML
+	private TableView<Timetable> ConfirmationTable1, ConfirmationTable2;
 
 	public void initialize(URL location, ResourceBundle resources){
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
@@ -68,7 +73,12 @@ public class ConfirmationController implements Initializable{
 		}
 		teacherchoice1.setItems(tanameList);
 		teacherchoice2.setItems(tanameList);
+
+
+
 	}
+
+
 
 	//各種画面遷移
 	@FXML
