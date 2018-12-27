@@ -40,6 +40,24 @@ public class Timetable {
 		this.crname = crname;
 	}
 
+	public Timetable(String teachername, String time, String subjectname, String crname) {
+		super();
+		this.teachername = teachername;
+		this.time = time;
+		this.subjectname = subjectname;
+		this.crname = crname;
+	}
+
+	public Timetable(int teacherid, String teachername){
+		this.teacherid = teacherid;
+		this.teachername = teachername;
+	}
+
+	public  Timetable(String crname, int crid){
+		this.crid = crid;
+		this.crname = crname;
+	}
+
 	public int getTimetableid() {
 		return timetableid;
 	}

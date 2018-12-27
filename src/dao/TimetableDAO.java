@@ -82,24 +82,24 @@ public class TimetableDAO {
 			Class.forName("org.sqlite.JDBC");
 
 			con = DriverManager.getConnection(DB_CONNECT);
-			String sql = "SELECT timetable.timetableid, timetable.week, timetable.time, timetable.period, departmentcourse.dcname, teacher.teachername, subject.subjectname, classroom.crname from timetable"
-					+ "inner join departmentcourse on timetable.dcid =  departmentcourse.dcid"
-					+ "inner join teacher on timetable.teacherid = teacher.teacherid"
-					+ "inner join subject on timetable.subjectid = subject.subjectid"
-					+ "inner join classroom on timetable.crid = classroom.crid;";
+			String sql = "SELECT teacher.teachername, timetable.time, subject.subjectname, classroom.crname"
+					+ " from timetable"
+					+ " inner join departmentcourse on timetable.dcid =  departmentcourse.dcid"
+					+ " inner join teacher on timetable.teacherid = teacher.teacherid"
+					+ " inner join subject on timetable.subjectid = subject.subjectid"
+					+ " inner join classroom on timetable.crid = classroom.crid"
+					+ " where week = '月曜日' "
+					+ " order by time asc;";
 			prst = con.prepareStatement(sql);
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
-				int timetableid = rs.getInt("timetableid");
-				String week = rs.getString("week");
+
 				String time = rs.getString("time");
-				String period = rs.getString("period");
-				String dcname = rs.getString("dcname");
 				String teachername = rs.getString("teachername");
 				String subjectname = rs.getString("subjectname");
 				String crname = rs.getString("crname");
-				tableList.add(new Timetable(timetableid, week, time, period, dcname, teachername, subjectname, crname));
+				tableList.add(new Timetable(teachername, time, subjectname, crname));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -242,4 +242,112 @@ public class TimetableDAO {
 			}
 		}
 	}
+
+	public static ObservableList<Timetable> allteacher() {
+		ObservableList<Timetable> teaList = FXCollections.observableArrayList(new ArrayList<Timetable>());
+
+		Connection con = null;
+		PreparedStatement prst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			String sql = "SELECT * FROM teacher";
+			prst = con.prepareStatement(sql);
+			rs = prst.executeQuery();
+
+			while(rs.next() == true ){
+				int teacherid = rs.getInt("teacherid");
+				String teachername = rs.getString("teachername");
+				teaList.add(new Timetable(teacherid, teachername));
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return teaList;
+
+	}
+
+	public static ObservableList<Timetable> allclassroom() {
+		ObservableList<Timetable> clroList = FXCollections.observableArrayList(new ArrayList<Timetable>());
+
+		Connection con = null;
+		PreparedStatement prst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			String sql = "SELECT * FROM classroom";
+			prst = con.prepareStatement(sql);
+			rs = prst.executeQuery();
+
+			while(rs.next() == true ){
+				int id = rs.getInt("crid");
+				String name = rs.getString("crname");
+				clroList.add(new Timetable(name, id));
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return clroList;
+
+	}
+
+
 }

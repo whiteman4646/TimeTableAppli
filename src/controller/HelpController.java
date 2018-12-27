@@ -16,12 +16,13 @@ public class HelpController {
 	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
+	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen, ConfirmationMenu;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleteMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file;
+	dcdeleteMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file, ConfirmationMenuItem;
 
 
 	@FXML
@@ -53,6 +54,12 @@ public class HelpController {
 	public void nexthelpPage(){
 		CreateTimetableMain.getInstance().setPage(helpPage);
 	}
+
+	@FXML
+	public void nextConfirmationPage(){
+		CreateTimetableMain.getInstance().setPage(ConfirmationPage);
+	}
+
 	@FXML
 	protected void nexrfile(ActionEvent a) {
 		FileChooser fileChooser = new FileChooser();

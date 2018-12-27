@@ -42,13 +42,14 @@ public class DCController implements Initializable {
 	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
+	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen, ConfirmationMenu;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
 	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem, dcOpen,
-	crOpen;
+	crOpen, ConfirmationMenuItem;
 	@FXML
 	private Button NextButton;
 	@FXML
@@ -145,6 +146,12 @@ public class DCController implements Initializable {
 	public void NextBu(){
 		CreateTimetableMain.getInstance().setPage(crregiPage);
 	}
+
+	@FXML
+	public void nextConfirmationPage(){
+		CreateTimetableMain.getInstance().setPage(ConfirmationPage);
+	}
+
 	@FXML
 	private void dcOpenFile(ActionEvent a) {
 		FileChooser fileChooser = new FileChooser();
