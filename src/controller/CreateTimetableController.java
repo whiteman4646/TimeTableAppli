@@ -13,6 +13,7 @@ import dto.ClassRoom;
 import dto.DepartmentCourse;
 import dto.Subject;
 import dto.Teacher;
+import dto.Timetable;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,15 +54,16 @@ public class CreateTimetableController implements Initializable {
 	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
+	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
 
 	@FXML
 	private ArrayList<VBox> TimeBox;
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen, ConfirmationMenu;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem, file;
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem, file, ConfirmationMenuItem;
 
 	ObservableList<DepartmentCourse> dcList;
 	ObservableList<String> dcnameList = FXCollections.observableArrayList(new ArrayList<String>());
@@ -71,15 +73,16 @@ public class CreateTimetableController implements Initializable {
 	ObservableList<String> sbnameList = FXCollections.observableArrayList(new ArrayList<String>());
 	ObservableList<Teacher> taList;
 	ObservableList<String> tanameList = FXCollections.observableArrayList(new ArrayList<String>());
+	ObservableList<Timetable> timeteacherList;
 
 	@FXML
 	private Button classroombutton;
 	@FXML
 	private Button createbutton;
 	@FXML
-	private TableView<Teacher> teacherTable1, teacherTable2, teacherTable3, teacherTable4, teacherTable5;
+	private TableView<Timetable> teacherTable1, teacherTable2, teacherTable3, teacherTable4, teacherTable5;
 	@FXML
-	private TableView<ClassRoom> classroomTable1, classroomTable2, classroomTable3, classroomTable4, classroomTable5;
+	private TableView<Timetable> classroomTable1, classroomTable2, classroomTable3, classroomTable4, classroomTable5;
 	@FXML
 	private TableColumn<Teacher, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5,
 	teachmon1;
@@ -117,28 +120,6 @@ public class CreateTimetableController implements Initializable {
 		timetablegrid.setGridLinesVisible(true);
 		komabox.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, null)));
 
-		teacherTable1.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable2.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable3.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable4.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable5.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-
-		classroomTable1.setItems(ClassRoomDAO.selectDAO());
-		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable2.setItems(ClassRoomDAO.selectDAO());
-		classroomColumn2.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable3.setItems(ClassRoomDAO.selectDAO());
-		classroomColumn3.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable4.setItems(ClassRoomDAO.selectDAO());
-		classroomColumn4.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable5.setItems(ClassRoomDAO.selectDAO());
-		classroomColumn5.setCellValueFactory(new PropertyValueFactory<>("crname"));
-
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
 		dcList = DepartmentCourseDAO.selectDAO();
 		for (int i = 0; i < dcList.size(); i++){
@@ -164,6 +145,8 @@ public class CreateTimetableController implements Initializable {
 		}
 		teachoice.setItems(tanameList);
 
+
+
 		//学科・コースのチョイスボックス選択後ラベルに反映する
 		dcchoice.getSelectionModel().selectedIndexProperty().addListener(
 				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
@@ -184,7 +167,38 @@ public class CreateTimetableController implements Initializable {
 				(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) -> {
 					crLabel.setText(crList.get((int) ov.getValue()).getCrname());
 				});
-		//OneKoma onekoma = new OneKoma();
+
+
+		teacherTable1.setItems(TimetableDAO.allteacher());
+		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+
+		teacherTable2.setItems(TimetableDAO.allteacher());
+		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+
+		teacherTable3.setItems(TimetableDAO.allteacher());
+		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+
+		teacherTable4.setItems(TimetableDAO.allteacher());
+		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+
+		teacherTable5.setItems(TimetableDAO.allteacher());
+		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+
+
+		classroomTable1.setItems(TimetableDAO.allclassroom());
+		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("crname"));
+
+		classroomTable2.setItems(TimetableDAO.allclassroom());
+		classroomColumn2.setCellValueFactory(new PropertyValueFactory<>("crname"));
+
+		classroomTable3.setItems(TimetableDAO.allclassroom());
+		classroomColumn3.setCellValueFactory(new PropertyValueFactory<>("crname"));
+
+		classroomTable4.setItems(TimetableDAO.allclassroom());
+		classroomColumn4.setCellValueFactory(new PropertyValueFactory<>("crname"));
+
+		classroomTable5.setItems(TimetableDAO.allclassroom());
+		classroomColumn5.setCellValueFactory(new PropertyValueFactory<>("crname"));
 
 		//初期色
 		komabox.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
@@ -222,9 +236,32 @@ public class CreateTimetableController implements Initializable {
 				event.consume();
 			}
 		});
+
 		for(int a = 0; a < 35; a++){
 
 			VBox v = TimeBox.get(a);
+
+			v.setOnDragDetected(new EventHandler <MouseEvent>() {
+				@Override
+				public void handle(MouseEvent event) {
+					/* drag was detected, start drag-and-drop gesture*/
+					System.out.println("onDragDetected");
+
+					/* allow MOVE transfer mode */
+					Dragboard db = komabox.startDragAndDrop(TransferMode.MOVE);
+
+					String list = subLabel.getText() + " " + teaLabel.getText() + " " + crLabel.getText();
+					/* put a string on dragboard */
+					ClipboardContent content = new ClipboardContent();
+					content.putString(list);
+					//content.putString(subLabel.getText());
+
+					db.setContent(content);
+
+
+					event.consume();
+				}
+			});
 
 			v.setOnDragOver(new EventHandler <DragEvent>() {
 				@Override
@@ -281,9 +318,6 @@ public class CreateTimetableController implements Initializable {
 					//Node n = timeBox1.lookup("#Teacher");
 					//Label l = (Label)v.lookup("#Teacher");
 					//System.out.println(l.getText());
-
-					teacherTable1.setItems(SubjectTeacherDAO.selectTeacher());
-					teachmon1.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
 
 				}
 			});
@@ -429,6 +463,12 @@ public class CreateTimetableController implements Initializable {
 	public void nexthelpPage(){
 		CreateTimetableMain.getInstance().setPage(helpPage);
 	}
+
+	@FXML
+	public void nextConfirmationPage(){
+		CreateTimetableMain.getInstance().setPage(ConfirmationPage);
+	}
+
 	@FXML
 	protected void nextfile(ActionEvent a) {
 		FileChooser fileChooser = new FileChooser();

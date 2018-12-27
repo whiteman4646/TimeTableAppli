@@ -30,12 +30,13 @@ public class DelDCController implements Initializable {
 	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
+	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen, ConfirmationMenu;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
-	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file;
+	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem,file, ConfirmationMenuItem;
 
 	ObservableList<DepartmentCourse> dcList;
 	ObservableList<ClassRoom>crList;
@@ -157,6 +158,12 @@ public class DelDCController implements Initializable {
 	public void nexthelpPage(){
 		CreateTimetableMain.getInstance().setPage(helpPage);
 	}
+
+	@FXML
+	public void nextConfirmationPage(){
+		CreateTimetableMain.getInstance().setPage(ConfirmationPage);
+	}
+
 	@FXML
 	protected void nextfile(ActionEvent a) {
 		FileChooser fileChooser = new FileChooser();

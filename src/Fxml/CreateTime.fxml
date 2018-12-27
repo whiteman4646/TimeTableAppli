@@ -20,7 +20,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import java.util.ArrayList?>
 
 <VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
 
@@ -66,49 +65,6 @@
 				<Text layoutX="966.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="日" />
 				<Text layoutX="1072.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="月" />
 				<Text layoutX="992.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="～" />
-				<MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-					<menus>
-						<Menu fx:id="cttmenu" mnemonicParsing="false" text="作成画面">
-							<items>
-								<MenuItem fx:id="cttmenuitem" mnemonicParsing="false" onAction="#nextcttPage" text="作成画面へ" />
-							</items>
-						</Menu>
-						<Menu fx:id="registmenu" mnemonicParsing="false" text="登録画面">
-							<items>
-								<MenuItem fx:id="dcregimenuItem" mnemonicParsing="false" onAction="#nextdcregiPage" text="学科・コース/教室登録" />
-								<MenuItem fx:id="crregimenuItem" mnemonicParsing="false" onAction="#nextcrregiPage" text="教員/科目登録" />
-							</items>
-						</Menu>
-						<Menu fx:id="deleteMenu" mnemonicParsing="false" text="削除画面">
-							<items>
-								<MenuItem fx:id="dcdeleMenuItem" mnemonicParsing="false" onAction="#nextdcdelPage" text="学科・コース/教室削除" />
-								<MenuItem fx:id="crdeleMenuItem" mnemonicParsing="false" onAction="#nextcrdelPage" text="教員/科目削除" />
-							</items>
-						</Menu>
-						<!-- <Menu mnemonicParsing="false" text="編集">
-							<items>
-								<MenuItem mnemonicParsing="false" text="Action 1" />
-							</items>
-						</Menu>-->
-						<Menu fx:id="helpMenu" mnemonicParsing="false" text="ヘルプ">
-							<items>
-								<MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
-							</items>
-						</Menu>
-						<Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
-                    <items>
-                        <Menu mnemonicParsing="false" text="開く">
-                          <items>
-                              <MenuItem disable="true" mnemonicParsing="false" text="学科をインポート" />
-                            <MenuItem disable="true" mnemonicParsing="false" text="教室をインポート" />
-                            <MenuItem fx:id="file" disable="true" mnemonicParsing="false" onAction="#nextfile" text="科目をインポート" />
-                              <MenuItem disable="true" mnemonicParsing="false" text="教員をインポート" />
-                          </items>
-                        </Menu>
-                    </items>
-                  </Menu>
-					</menus>
-				</MenuBar>
 				<ColorPicker fx:id="colorPicker" layoutX="355.0" layoutY="173.0" onAction="#actionSetColor" prefHeight="44.0" prefWidth="88.0" />
 				<Button layoutX="1156.0" layoutY="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="PDF" />
 				<GridPane fx:id="timetablegrid" layoutX="816.0" layoutY="121.0" prefHeight="508.0" prefWidth="364.0" AnchorPane.topAnchor="121.0">
@@ -280,7 +236,7 @@
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="177.0" prefWidth="217.0">
 									<children>
-										<TabPane prefHeight="408.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE">
+										<TabPane prefHeight="408.0" prefWidth="668.0" tabClosingPolicy="UNAVAILABLE">
 											<tabs>
 												<Tab fx:id="teamonatab" text="月曜日">
 													<content>
@@ -502,6 +458,49 @@
 						</Tab>
 					</tabs>
 				</TabPane>
+            <MenuBar layoutX="14.0" layoutY="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <menus>
+                  <Menu fx:id="cttmenu1" mnemonicParsing="false" text="作成画面">
+                     <items>
+                        <MenuItem fx:id="cttmenuitem1" mnemonicParsing="false" onAction="#nextcttPage" text="作成画面へ" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="registmenu1" mnemonicParsing="false" text="登録画面">
+                     <items>
+                        <MenuItem fx:id="dcregimenuItem1" mnemonicParsing="false" onAction="#nextdcregiPage" text="学科コース/教室登録" />
+                        <MenuItem fx:id="crregimenuItem1" mnemonicParsing="false" onAction="#nextcrregiPage" text="教員/科目登録" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="deleteMenu1" mnemonicParsing="false" text="削除画面">
+                     <items>
+                        <MenuItem fx:id="dcdeleMenuItem1" mnemonicParsing="false" onAction="#nextdcdelPage" text="学科コース/教員削除" />
+                        <MenuItem fx:id="crdeleMenuItem1" mnemonicParsing="false" onAction="#nextcrdelPage" text="教員/科目削除" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="ConfirmationMenu" mnemonicParsing="false" text="作成済み時間割確認">
+                     <items>
+                        <MenuItem fx:id="ConfirmationMenuItem" mnemonicParsing="false" onAction="#nextConfirmationPage" text="時間割確認画面へ" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="helpMenu1" mnemonicParsing="false" text="ヘルプ">
+                     <items>
+                        <MenuItem fx:id="helpMenuItem1" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="fileopen" mnemonicParsing="false" text="ファイル">
+                    <items>
+                        <Menu mnemonicParsing="false" text="開く">
+                          <items>
+                              <MenuItem disable="true" mnemonicParsing="false" text="学科をインポート" />
+                            <MenuItem disable="true" mnemonicParsing="false" text="教室をインポート" />
+                            <MenuItem fx:id="file" disable="true" mnemonicParsing="false" onAction="#nextfile" text="科目をインポート" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="教員をインポート" />
+                          </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
 			</children>
 		</AnchorPane>
 	</children>
