@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -57,38 +56,42 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <ScrollBar layoutX="784.0" layoutY="100.0" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Text layoutX="564.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="テキストボックスに登録したい情報を入力して、登録ボタンを押していただくと入力された情報がデータベースに登録されます" wrappingWidth="418.509765625">
+            <Text layoutX="626.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="テキストボックスに登録したい情報を入力して、登録ボタンを押していただくと入力された情報がデータベースに登録されます。また、メニューバーにファイルのメニューがありますので、各項目を選んでいただくて、CSVファイルを選択していただくとまとめて登録することが可能です。" wrappingWidth="418.509765625">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="564.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="削除画面は登録した内容が一覧で表示されており、">
+            <Text layoutX="626.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="削除画面は登録した内容が一覧で表示されており、その一覧表にチェックボックスがありますので削除したい項目にチェックを入れて削除ボタンを押していただくとデータが削除されます" wrappingWidth="418.5097634792328">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="568.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="その一覧表にチェックボックスがありますので削除したい項目にチェックを入れて削除ボタンを押していただくとデータが削除されます" wrappingWidth="479.53515625">
+            <Text fill="#eabd00" layoutX="626.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.登録画面について" wrappingWidth="324.6171875">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fill="#eabd00" layoutX="626.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.削除画面について" wrappingWidth="240.6171875">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fill="#eabd00" layoutX="626.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.PDF変換について" wrappingWidth="228.6171875">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text layoutX="626.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDF変換は作成画面で時間割を作成したら、日付の隣ににPDF変換というボタンがあるので押していただくと作成した時間割をPDF変換してそこから印刷までつなげることが可能です。" wrappingWidth="418.5097634792328">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#eabd00" layoutX="564.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.登録画面について" wrappingWidth="324.6171875">
+            <Text layoutX="63.0" layoutY="126.0" strokeType="OUTSIDE" text="この画面を最初に起動していただくとまずデータベースにデータが入っていない場合に初期設定のダイアログが出てきます。「はい」を押すと時間割登録画面に遷移しますので、まずは登録してください。" wrappingWidth="418.5097577050328">
                <font>
-                  <Font size="29.0" />
+                  <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#eabd00" layoutX="568.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.削除画面について" wrappingWidth="240.6171875">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fill="#eabd00" layoutX="564.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.PDF変換について" wrappingWidth="228.6171875">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text layoutX="569.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDF変換は作成画面で時間割を作成したら、メニューバーにPDF変換という機能があるので押していただくと作成した時間割をPDF変換してそこから印刷までつなげることが可能です。" wrappingWidth="479.5351441204548">
+            <Text layoutX="63.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="登録していただくと、登録した情報がチョイスボックスに登録されており、その項目を選ぶと真ん中にある時間割作成の駒に反映されます。そして3つの項目をラベルに反映させたら隣にある時間割のマスにドラッグ＆ドロップしてください。そうすると、真ん中に作成した駒が時間割表の中に反映されます。" wrappingWidth="418.5097450017929">
                <font>
                   <Font size="18.0" />
                </font>
