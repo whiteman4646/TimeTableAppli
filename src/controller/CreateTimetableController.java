@@ -77,8 +77,7 @@ public class CreateTimetableController implements Initializable {
 
 	private ObservableList<Teacher> teacher = FXCollections.observableArrayList(new ArrayList<Teacher>());
 	private ObservableList<Timetable> timetable = FXCollections.observableArrayList(new ArrayList<Timetable>());
-	private ObservableList<Timetable> result= FXCollections.observableArrayList(new ArrayList<Timetable>());
-	private ObservableList<Timetable> result2;
+	private ObservableList<Timetable> result;
 	private String[] week = {"月曜日", "火曜日", "水曜日", "木曜日", "金曜日"};
 
 	@FXML
@@ -235,38 +234,6 @@ public class CreateTimetableController implements Initializable {
 					crLabel.setText(crList.get((int) ov.getValue()).getCrname());
 				});
 
-
-		teacherTable1.setItems(TimetableDAO.allteacher());
-		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-
-		teacherTable2.setItems(TimetableDAO.allteacher());
-		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-
-		teacherTable3.setItems(TimetableDAO.allteacher());
-		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-
-		teacherTable4.setItems(TimetableDAO.allteacher());
-		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-
-		teacherTable5.setItems(TimetableDAO.allteacher());
-		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-
-
-		classroomTable1.setItems(TimetableDAO.allclassroom());
-		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("crname"));
-
-		classroomTable2.setItems(TimetableDAO.allclassroom());
-		classroomColumn2.setCellValueFactory(new PropertyValueFactory<>("crname"));
-
-		classroomTable3.setItems(TimetableDAO.allclassroom());
-		classroomColumn3.setCellValueFactory(new PropertyValueFactory<>("crname"));
-
-		classroomTable4.setItems(TimetableDAO.allclassroom());
-		classroomColumn4.setCellValueFactory(new PropertyValueFactory<>("crname"));
-
-		classroomTable5.setItems(TimetableDAO.allclassroom());
-		classroomColumn5.setCellValueFactory(new PropertyValueFactory<>("crname"));
-
 		//初期色
 		komabox.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
 
@@ -274,7 +241,7 @@ public class CreateTimetableController implements Initializable {
 	}
 
 	public ObservableList<Timetable> oList(int num) {
-		result2 = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		teacher = SubjectTeacherDAO.selectTeacher();
 		for(int i = 0; i < teacher.size(); i++) {
 			timetable = TimetableDAO.selectTimetableVew(teacher.get(i).getTeacherName(), week[num]);
@@ -314,12 +281,12 @@ public class CreateTimetableController implements Initializable {
 				}
 				j++;
 			}
-			result2.add(new Timetable(teacher.get(i).getTeacherName(), list[0], list[1], list[2], list[3],
+			result.add(new Timetable(teacher.get(i).getTeacherName(), list[0], list[1], list[2], list[3],
 					list[4], list[5], list[6]));
 
 		}
 
-		return result2;
+		return result;
 	}
 
 	//色選択
