@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DCController">
+<VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DCController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
          <children>
@@ -52,6 +52,11 @@
                         <MenuItem fx:id="dcdeleMenuItem" mnemonicParsing="false" onAction="#nextdcdelPage" text="学科コース/教員削除" />
                         <MenuItem fx:id="crdeleMenuItem" mnemonicParsing="false" onAction="#nextcrdelPage" text="教員/科目削除" />
                      </items></Menu>
+                  <Menu fx:id="ConfirmationMenu" mnemonicParsing="false" text="作成済み時間割確認">
+                     <items>
+                        <MenuItem fx:id="ConfirmationMenuItem" mnemonicParsing="false" onAction="#nextConfirmationPage" text="時間割確認画面へ" />
+                     </items>
+                  </Menu>
                   <Menu fx:id="helpMenu" mnemonicParsing="false" text="ヘルプ">
                      <items>
                         <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#nexthelpPage" text="ヘルプへ" />

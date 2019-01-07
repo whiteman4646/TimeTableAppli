@@ -36,12 +36,13 @@ public class STController implements Initializable {
 	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
+	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 	@FXML
-	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen;
+	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen, ConfirmationMenu;
 	@FXML
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
 	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem, subOpen,
-	teaOpen;
+	teaOpen, ConfirmationMenuItem;
 
 
 	@FXML
@@ -140,6 +141,12 @@ public class STController implements Initializable {
 	public void Nextctt() {
 		CreateTimetableMain.getInstance().setPage(cttPage);
 	}
+
+	@FXML
+	public void nextConfirmationPage(){
+		CreateTimetableMain.getInstance().setPage(ConfirmationPage);
+	}
+
 	@FXML
 	private void teaOpenFile(ActionEvent a) {
 		FileChooser fileChooser = new FileChooser();
