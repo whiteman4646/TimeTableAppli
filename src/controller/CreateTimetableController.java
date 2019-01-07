@@ -56,7 +56,6 @@ public class CreateTimetableController implements Initializable {
 	private final String helpPage = "../Fxml/help.fxml";
 	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
-
 	@FXML
 	private ArrayList<VBox> TimeBox;
 	@FXML
