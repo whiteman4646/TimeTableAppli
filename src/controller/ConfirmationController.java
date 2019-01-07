@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import dao.ClassRoomDAO;
 import dao.DepartmentCourseDAO;
 import dao.SubjectTeacherDAO;
+import dao.TimetableDAO;
 import dto.ClassRoom;
 import dto.DepartmentCourse;
 import dto.Teacher;
@@ -20,7 +21,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import main.CreateTimetableMain;
 
@@ -47,9 +50,13 @@ public class ConfirmationController implements Initializable{
 	private MenuItem cttmenuitem, dcregimenuItem, crregimenuItem,
 	dcdeleMenuItem, crdeleMenuItem, nexthelpMenuItem, helpMenuItem, file, ConfirmationMenuItem;
 	@FXML
-	private ChoiceBox<String> depcoursechoice1, deptcoursechoice2, teacherchoice1, teacherchoice2, classroomchoice1, classroomchoice2;
+	private ChoiceBox<String> depcoursechoice1, deptcoursechoice2, teacherchoice1, teacherchoice2,
+	classroomchoice1, classroomchoice2;
 	@FXML
 	private TableView<Timetable> ConfirmationTable1, ConfirmationTable2;
+	@FXML
+	private TableColumn<Timetable, String> time1, monday1, tuesday1, wednesday1, thursday1, friday1,
+	time2, monday2, tuesday2, wednesday2, thursday2, friday2;
 
 	public void initialize(URL location, ResourceBundle resources){
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
@@ -74,11 +81,25 @@ public class ConfirmationController implements Initializable{
 		teacherchoice1.setItems(tanameList);
 		teacherchoice2.setItems(tanameList);
 
-
+		depcoursechoice1.setOnAction(event -> keychoiced());
 
 	}
 
-
+	public void keychoiced(){
+		for(DepartmentCourse d : dcList){
+			if(d.getDcname().equals(depcoursechoice1.getSelectionModel().getSelectedItem())){
+				System.out.println(d.getDcid());
+				ConfirmationTable1.setItems(TimetableDAO.selectTimeatableChoiceDC(d.getDcid()));
+				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
+				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				wednesday1.setCellValueFactory(new PropertyValueFactory<>("crname"));
+				thursday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				friday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				break;
+			}
+		}
+	}
 
 	//各種画面遷移
 	@FXML
