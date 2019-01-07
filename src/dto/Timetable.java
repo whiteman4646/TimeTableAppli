@@ -8,6 +8,12 @@ public class Timetable {
 	private String dcname;
 	private String teachername;
 	private String subjectname;
+	private String subjectname2;
+	private String subjectname3;
+	private String subjectname4;
+	private String subjectname5;
+	private String subjectname6;
+	private String subjectname7;
 	private String crname;
 	private int dcid;
 	private int teacherid;
@@ -35,6 +41,27 @@ public class Timetable {
 		this.time = time;
 		this.period = period;
 		this.dcname = dcname;
+		this.teachername = teachername;
+		this.subjectname = subjectname;
+		this.crname = crname;
+	}
+
+	public Timetable(String teachername, String subjectname, String subjectname2, String subjectname3,
+			String subjectname4, String subjectname5, String subjectname6, String subjectname7) {
+		super();
+		this.teachername = teachername;
+		this.subjectname = subjectname;
+		this.subjectname2 = subjectname2;
+		this.subjectname3 = subjectname3;
+		this.subjectname4 = subjectname4;
+		this.subjectname5 = subjectname5;
+		this.subjectname6 = subjectname6;
+		this.subjectname7 = subjectname7;
+	}
+
+	public Timetable(String time, String teachername, String subjectname, String crname) {
+		super();
+		this.time = time;
 		this.teachername = teachername;
 		this.subjectname = subjectname;
 		this.crname = crname;
@@ -120,4 +147,53 @@ public class Timetable {
 	public void setCrid(int crid) {
 		this.crid = crid;
 	}
+
+	public String getSubjectname2() {
+		return subjectname2;
+	}
+
+	public void setSubjectname2(String subjectname2) {
+		this.subjectname2 = subjectname2;
+	}
+
+	public String getSubjectname3() {
+		return subjectname3;
+	}
+
+	public void setSubjectname3(String subjectname3) {
+		this.subjectname3 = subjectname3;
+	}
+
+	public String getSubjectname4() {
+		return subjectname4;
+	}
+
+	public void setSubjectname4(String subjectname4) {
+		this.subjectname4 = subjectname4;
+	}
+
+	public String getSubjectname5() {
+		return subjectname5;
+	}
+
+	public void setSubjectname5(String subjectname5) {
+		this.subjectname5 = subjectname5;
+	}
+
+	public String getSubjectname6() {
+		return subjectname6;
+	}
+
+	public void setSubjectname6(String subjectname6) {
+		this.subjectname6 = subjectname6;
+	}
+
+	public String getSubjectname7() {
+		return subjectname7;
+	}
+
+	public void setSubjectname7(String subjectname7) {
+		this.subjectname7 = subjectname7;
+	}
+
 }

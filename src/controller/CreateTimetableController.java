@@ -13,6 +13,7 @@ import dto.ClassRoom;
 import dto.DepartmentCourse;
 import dto.Subject;
 import dto.Teacher;
+import dto.Timetable;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -72,16 +73,28 @@ public class CreateTimetableController implements Initializable {
 	ObservableList<Teacher> taList;
 	ObservableList<String> tanameList = FXCollections.observableArrayList(new ArrayList<String>());
 
+	private ObservableList<Teacher> teacher = FXCollections.observableArrayList(new ArrayList<Teacher>());
+	private ObservableList<Timetable> timetable = FXCollections.observableArrayList(new ArrayList<Timetable>());
+	private ObservableList<Timetable> result= FXCollections.observableArrayList(new ArrayList<Timetable>());
+	private ObservableList<Timetable> result2;
+	private String[] week = {"月曜日", "火曜日", "水曜日", "木曜日", "金曜日"};
+
 	@FXML
 	private Button classroombutton;
 	@FXML
 	private Button createbutton;
 	@FXML
-	private TableView<Teacher> teacherTable1, teacherTable2, teacherTable3, teacherTable4, teacherTable5;
+	private TableView<Timetable> teacherTable1, teacherTable2, teacherTable3, teacherTable4, teacherTable5;
 	@FXML
 	private TableView<ClassRoom> classroomTable1, classroomTable2, classroomTable3, classroomTable4, classroomTable5;
 	@FXML
-	private TableColumn<Teacher, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5;
+	private TableColumn<Timetable, String> teaMon1, teaMon2, teaMon3, teaMon4, teaMon5, teaMon6, teaMon7,
+											teaTue1, teaTue2, teaTue3, teaTue4, teaTue5, teaTue6, teaTue7,
+											teaWed1, teaWed2, teaWed3, teaWed4, teaWed5, teaWed6, teaWed7,
+											teaThu1, teaThu2, teaThu3, teaThu4, teaThu5, teaThu6, teaThu7,
+											teaFri1, teaFri2, teaFri3, teaFri4, teaFri5, teaFri6, teaFri7;
+	@FXML
+	private TableColumn<Timetable, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5;
 	@FXML
 	private TableColumn<ClassRoom, String> classroomColumn1, classroomColumn2, classroomColumn3, classroomColumn4, classroomColumn5;
 	@FXML
@@ -110,22 +123,56 @@ public class CreateTimetableController implements Initializable {
 	private GridPane timetablegrid;
 	@FXML
 	private TextField startmonth, startday, endmonth, endday;
-
 	public void initialize(URL location, ResourceBundle resources){
 
 		timetablegrid.setGridLinesVisible(true);
 		komabox.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, null)));
+		teacherTable1.setItems(oList(0));
+		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teaMon1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		teaMon2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		teaMon3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		teaMon4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		teaMon5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		teaMon6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		teaMon7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
 
-		teacherTable1.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable2.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable3.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable4.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-		teacherTable5.setItems(SubjectTeacherDAO.selectTeacher());
-		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
+		teacherTable2.setItems(oList(1));
+		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teaTue1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		teaTue2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		teaTue3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		teaTue4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		teaTue5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		teaTue6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		teaTue7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+		teacherTable3.setItems(oList(2));
+		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teaWed1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		teaWed2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		teaWed3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		teaWed4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		teaWed5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		teaWed6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		teaWed7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+		teacherTable4.setItems(oList(3));
+		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teaThu1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		teaThu2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		teaThu3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		teaThu4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		teaThu5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		teaThu6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		teaThu7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+		teacherTable5.setItems(oList(4));
+		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teaFri1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		teaFri2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		teaFri3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		teaFri4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		teaFri5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		teaFri6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		teaFri7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
 
 		classroomTable1.setItems(ClassRoomDAO.selectDAO());
 		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("crname"));
@@ -188,6 +235,55 @@ public class CreateTimetableController implements Initializable {
 		komabox.setBackground(new Background(new BackgroundFill(colorPicker.getValue(), null, null)));
 
 
+	}
+
+	public ObservableList<Timetable> oList(int num) {
+		result2 = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		teacher = SubjectTeacherDAO.selectTeacher();
+		for(int i = 0; i < teacher.size(); i++) {
+			timetable = TimetableDAO.selectTimetableVew(teacher.get(i).getTeacherName(), week[num]);
+			/*if(timetable.isEmpty()) {
+				continue;
+			}*/
+			int j = 0;
+			String[] list = {"","","","","","",""};
+			for(Timetable str: timetable) {
+
+				switch (timetable.get(j).getTime()) {
+				case "1":
+					list[0] = str.getSubjectname();
+					break;
+				case "2":
+					list[1] = str.getSubjectname();
+					break;
+				case "3":
+					list[2] = str.getSubjectname();
+					break;
+				case "4":
+					list[3] = str.getSubjectname();
+					break;
+				case "5":
+					list[4] = str.getSubjectname();
+					break;
+				case "6":
+					list[5] = str.getSubjectname();
+					break;
+				case "7":
+					list[6] = str.getSubjectname();
+					break;
+
+				default:
+					list[j] = " ";
+					break;
+				}
+				j++;
+			}
+			result2.add(new Timetable(teacher.get(i).getTeacherName(), list[0], list[1], list[2], list[3],
+					list[4], list[5], list[6]));
+
+		}
+
+		return result2;
 	}
 
 	//色選択
@@ -434,8 +530,8 @@ public class CreateTimetableController implements Initializable {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("ファイルを開く");
 		fileChooser.setInitialDirectory(
-	            new File(System.getProperty("user.home"))
-	        );
+				new File(System.getProperty("user.home"))
+				);
 		File file = fileChooser.showOpenDialog(null);
 
 		String url = "file:///"+file.getPath();

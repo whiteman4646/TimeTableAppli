@@ -83,10 +83,10 @@ public class TimetableDAO {
 
 			con = DriverManager.getConnection(DB_CONNECT);
 			String sql = "SELECT timetable.timetableid, timetable.week, timetable.time, timetable.period, departmentcourse.dcname, teacher.teachername, subject.subjectname, classroom.crname from timetable"
-					+ "inner join departmentcourse on timetable.dcid =  departmentcourse.dcid"
-					+ "inner join teacher on timetable.teacherid = teacher.teacherid"
-					+ "inner join subject on timetable.subjectid = subject.subjectid"
-					+ "inner join classroom on timetable.crid = classroom.crid;";
+					+ " inner join departmentcourse on timetable.dcid =  departmentcourse.dcid"
+					+ " inner join teacher on timetable.teacherid = teacher.teacherid"
+					+ " inner join subject on timetable.subjectid = subject.subjectid"
+					+ " inner join classroom on timetable.crid = classroom.crid;";
 			prst = con.prepareStatement(sql);
 			rs = prst.executeQuery();
 
@@ -100,6 +100,68 @@ public class TimetableDAO {
 				String subjectname = rs.getString("subjectname");
 				String crname = rs.getString("crname");
 				tableList.add(new Timetable(timetableid, week, time, period, dcname, teachername, subjectname, crname));
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return tableList;
+	}
+
+	public static ObservableList<Timetable> selectTimetableVew(String teachername, String week) {
+		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		Connection con = null;
+		PreparedStatement prst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			String sql = "SELECT teacher.teachername, timetable.time, subject.subjectname, classroom.crname"
+					+ " from timetable"
+					+ " inner join departmentcourse on timetable.dcid =  departmentcourse.dcid"
+					+ " inner join teacher on timetable.teacherid = teacher.teacherid"
+					+ " inner join subject on timetable.subjectid = subject.subjectid"
+					+ " inner join classroom on timetable.crid = classroom.crid"
+					+ " where teachername = ? and week = ?"
+					+ " order by time asc;";
+			prst = con.prepareStatement(sql);
+			prst.setString(1, teachername);
+			prst.setString(2, week);
+			rs = prst.executeQuery();
+
+			while(rs.next() == true ){
+				String time = rs.getString("time");
+				String teaname = rs.getString("teachername");
+				String subjectname = rs.getString("subjectname");
+				String crname = rs.getString("crname");
+				tableList.add(new Timetable(time, teaname, subjectname, crname));
 			}
 
 		} catch (ClassNotFoundException e) {
