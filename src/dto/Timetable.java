@@ -58,6 +58,22 @@ public class Timetable {
 		this.crname = crname;
 	}
 
+	public Timetable(String week, String time, String period, String dcname, String teachername, String subjectname,
+			String crname, int dcid, int teacherid, int subjectid, int crid) {
+		super();
+		this.week = week;
+		this.time = time;
+		this.period = period;
+		this.dcname = dcname;
+		this.teachername = teachername;
+		this.subjectname = subjectname;
+		this.crname = crname;
+		this.dcid = dcid;
+		this.teacherid = teacherid;
+		this.subjectid = subjectid;
+		this.crid = crid;
+	}
+
 	public int getTimetableid() {
 		return timetableid;
 	}
