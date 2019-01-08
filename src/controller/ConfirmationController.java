@@ -18,6 +18,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -56,7 +58,10 @@ public class ConfirmationController implements Initializable{
 	private TableView<Timetable> ConfirmationTable1, ConfirmationTable2;
 	@FXML
 	private TableColumn<Timetable, String> time1, monday1, tuesday1, wednesday1, thursday1, friday1,
+
 	time2, monday2, tuesday2, wendesday2, thursday2, friday2;
+	@FXML
+	private Button PDFman;
 
 	public void initialize(URL location, ResourceBundle resources){
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
@@ -182,4 +187,15 @@ public class ConfirmationController implements Initializable{
 
 		System.out.println(url);
 	}
+	@FXML
+    public void printpdf(ActionEvent event) {
+		PrinterJob job = PrinterJob.createPrinterJob();
+
+        job.showPageSetupDialog(null);
+        job.showPrintDialog(null);
+
+        job.printPage(ConfirmationTable1);
+        job.endJob();
+}
+
 }
