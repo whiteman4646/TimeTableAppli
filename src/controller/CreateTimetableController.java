@@ -330,9 +330,12 @@ public class CreateTimetableController implements Initializable {
 					System.out.println("onDragDetected");
 
 					/* allow MOVE transfer mode */
-					Dragboard db = komabox.startDragAndDrop(TransferMode.MOVE);
+					Dragboard db = v.startDragAndDrop(TransferMode.MOVE);
+					Label l1 = (Label)v.lookup("#Subject");
+					Label l2 = (Label)v.lookup("#Teacher");
+					Label l3 = (Label)v.lookup("#Classroom");
 
-					String list = subLabel.getText() + " " + teaLabel.getText() + " " + crLabel.getText();
+					String list = l1.getText() + " " + l2.getText() + " " + l3.getText();
 					/* put a string on dragboard */
 					ClipboardContent content = new ClipboardContent();
 					content.putString(list);
