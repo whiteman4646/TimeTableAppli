@@ -142,6 +142,146 @@ public class TimetableDAO {
 
 	}
 
+	public static ObservableList<Timetable> selectTimeatableChoiceTEA(int key){
+		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		Connection con = null;
+		PreparedStatement prst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			String sql = "SELECT timetable.time, timetable.week, timetable.period, timetable.dcid, "
+					+"departmentcourse.dcname, timetable.teacherid, teacher.teachername, "
+					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname from timetable "
+					+"inner join departmentcourse on timetable.dcid =  departmentcourse.dcid "
+					+"inner join teacher on timetable.teacherid = teacher.teacherid "
+					+"inner join subject on timetable.subjectid = subject.subjectid "
+					+"inner join classroom on timetable.crid = classroom.crid "
+					+"where timetable.teacherid = ?;";
+			prst = con.prepareStatement(sql);
+			prst.setInt(1, key);
+			rs = prst.executeQuery();
+
+			while(rs.next() == true ){
+				String week = rs.getString("week");
+				String time = rs.getString("time");
+				String period = rs.getString("period");
+				int dcid = rs.getInt("dcid");
+				String dcname = rs.getString("dcname");
+				int teacherid = rs.getInt("teacherid");
+				String teachername = rs.getString("teachername");
+				int subjectid = rs.getInt("subjectid");
+				String subjectname = rs.getString("subjectname");
+				int crid = rs.getInt("crid");
+				String crname = rs.getString("crname");
+				tableList.add(new Timetable(week, time,period , dcname, teachername,
+						subjectname, crname, dcid, teacherid, subjectid, crid));
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return tableList;
+
+	}
+
+	public static ObservableList<Timetable> selectTimeatableChoiceCR(int key){
+		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		Connection con = null;
+		PreparedStatement prst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			String sql = "SELECT timetable.time, timetable.week, timetable.period, timetable.dcid, "
+					+"departmentcourse.dcname, timetable.teacherid, teacher.teachername, "
+					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname from timetable "
+					+"inner join departmentcourse on timetable.dcid =  departmentcourse.dcid "
+					+"inner join teacher on timetable.teacherid = teacher.teacherid "
+					+"inner join subject on timetable.subjectid = subject.subjectid "
+					+"inner join classroom on timetable.crid = classroom.crid "
+					+"where timetable.crid = ?;";
+			prst = con.prepareStatement(sql);
+			prst.setInt(1, key);
+			rs = prst.executeQuery();
+
+			while(rs.next() == true ){
+				String week = rs.getString("week");
+				String time = rs.getString("time");
+				String period = rs.getString("period");
+				int dcid = rs.getInt("dcid");
+				String dcname = rs.getString("dcname");
+				int teacherid = rs.getInt("teacherid");
+				String teachername = rs.getString("teachername");
+				int subjectid = rs.getInt("subjectid");
+				String subjectname = rs.getString("subjectname");
+				int crid = rs.getInt("crid");
+				String crname = rs.getString("crname");
+				tableList.add(new Timetable(week, time,period , dcname, teachername,
+						subjectname, crname, dcid, teacherid, subjectid, crid));
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return tableList;
+
+	}
+
 	public static ObservableList<Timetable> selectTimetableJoin() {
 		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		Connection con = null;
