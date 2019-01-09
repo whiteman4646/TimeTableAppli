@@ -61,7 +61,7 @@ public class ConfirmationController implements Initializable{
 
 	time2, monday2, tuesday2, wendesday2, thursday2, friday2;
 	@FXML
-	private Button PDFman;
+	private Button PDFman, PDFman1;
 
 	public void initialize(URL location, ResourceBundle resources){
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
@@ -89,6 +89,10 @@ public class ConfirmationController implements Initializable{
 		depcoursechoice1.setOnAction(event -> keychoiced());
 		deptcoursechoice2.setOnAction(event -> keychoiced2());
 		teacherchoice1.setOnAction(event -> teachoice1());
+		teacherchoice2.setOnAction(event -> teachoice2());
+		classroomchoice1.setOnAction(event -> crchoice1());
+		classroomchoice2.setOnAction(event -> crchoice2());
+
 
 
 	}
@@ -125,13 +129,55 @@ public class ConfirmationController implements Initializable{
 	public void teachoice1(){
 		for(Teacher t : taList){
 			if(t.getTeacherName().equals(teacherchoice1.getSelectionModel().getSelectedItem())){
-				ConfirmationTable1.setItems(TimetableDAO.selectTimeatableChoiceDC(t.getTeacherId()));
+				ConfirmationTable1.setItems(TimetableDAO.selectTimeatableChoiceTEA(t.getTeacherId()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("crname"));
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 				friday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				break;
+			}
+		}
+	}
+	public void teachoice2(){
+		for(Teacher t2 : taList){
+			if(t2.getTeacherName().equals(teacherchoice2.getSelectionModel().getSelectedIndex())){
+				ConfirmationTable2.setItems(TimetableDAO.selectTimeatableChoiceTEA(t2.getTeacherId()));
+				time2.setCellValueFactory(new PropertyValueFactory<>("time"));
+				monday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				tuesday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				wendesday2.setCellValueFactory(new PropertyValueFactory<>("crname"));
+				thursday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				friday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				break;
+			}
+		}
+	}
+	public void crchoice1(){
+		for(ClassRoom c : crList){
+			if(c.getCrname().equals(classroomchoice1.getSelectionModel().getSelectedItem())){
+				ConfirmationTable1.setItems(TimetableDAO.selectTimeatableChoiceCR(c.getCrid()));
+				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
+				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				wednesday1.setCellValueFactory(new PropertyValueFactory<>("crname"));
+				thursday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				friday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				break;
+			}
+		}
+	}
+	public void crchoice2(){
+		for(ClassRoom c2 : crList){
+			if(c2.getCrname().equals(classroomchoice2.getSelectionModel().getSelectedItem())){
+				ConfirmationTable2.setItems(TimetableDAO.selectTimeatableChoiceCR(c2.getCrid()));
+				time2.setCellValueFactory(new PropertyValueFactory<>("time"));
+				monday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				tuesday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				wendesday2.setCellValueFactory(new PropertyValueFactory<>("crname"));
+				thursday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+				friday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
 				break;
 			}
 		}
@@ -196,6 +242,16 @@ public class ConfirmationController implements Initializable{
 
         job.printPage(ConfirmationTable1);
         job.endJob();
-}
+	}
+	@FXML
+	public void printpdf1(ActionEvent event){
+		PrinterJob job = PrinterJob.createPrinterJob();
+
+        job.showPageSetupDialog(null);
+        job.showPrintDialog(null);
+
+        job.printPage(ConfirmationTable2);
+        job.endJob();
+	}
 
 }
