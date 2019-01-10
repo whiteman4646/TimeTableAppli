@@ -104,7 +104,7 @@ public class CreateTimetableController implements Initializable {
 	@FXML
 	private TableColumn<Timetable, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5;
 	@FXML
-	private TableColumn<ClassRoom, String> classroomColumn1, classroomColumn2, classroomColumn3, classroomColumn4, classroomColumn5;
+	private TableColumn<Timetable, String> classroomColumn1, classroomColumn2, classroomColumn3, classroomColumn4, classroomColumn5;
 	@FXML
 	private ColorPicker colorPicker;
 	@FXML
@@ -135,8 +135,9 @@ public class CreateTimetableController implements Initializable {
 
 		timetablegrid.setGridLinesVisible(true);
 		komabox.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, null)));
+
 		teacherTable1.setItems(oList(0));
-		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("objectname"));
 		teaMon1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 		teaMon2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
 		teaMon3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
@@ -144,8 +145,9 @@ public class CreateTimetableController implements Initializable {
 		teaMon5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
 		teaMon6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
 		teaMon7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
 		teacherTable2.setItems(oList(1));
-		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("objectname"));
 		teaTue1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 		teaTue2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
 		teaTue3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
@@ -153,8 +155,9 @@ public class CreateTimetableController implements Initializable {
 		teaTue5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
 		teaTue6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
 		teaTue7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
 		teacherTable3.setItems(oList(2));
-		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teacherColumn3.setCellValueFactory(new PropertyValueFactory<>("objectname"));
 		teaWed1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 		teaWed2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
 		teaWed3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
@@ -162,8 +165,9 @@ public class CreateTimetableController implements Initializable {
 		teaWed5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
 		teaWed6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
 		teaWed7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
 		teacherTable4.setItems(oList(3));
-		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teacherColumn4.setCellValueFactory(new PropertyValueFactory<>("objectname"));
 		teaThu1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 		teaThu2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
 		teaThu3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
@@ -171,8 +175,9 @@ public class CreateTimetableController implements Initializable {
 		teaThu5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
 		teaThu6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
 		teaThu7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
 		teacherTable5.setItems(oList(4));
-		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+		teacherColumn5.setCellValueFactory(new PropertyValueFactory<>("objectname"));
 		teaFri1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 		teaFri2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
 		teaFri3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
@@ -182,15 +187,54 @@ public class CreateTimetableController implements Initializable {
 		teaFri7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
 
 		classroomTable1.setItems(oList2(0));
-		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable2.setItems(TimetableDAO.selectTimetable());
-		classroomColumn2.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable3.setItems(TimetableDAO.selectTimetable());
-		classroomColumn3.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable4.setItems(TimetableDAO.selectTimetable());
-		classroomColumn4.setCellValueFactory(new PropertyValueFactory<>("crname"));
-		classroomTable5.setItems(TimetableDAO.selectTimetable());
-		classroomColumn5.setCellValueFactory(new PropertyValueFactory<>("crname"));
+		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("objectname"));
+		classMon1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		classMon2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		classMon3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		classMon4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		classMon5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		classMon6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		classMon7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
+		classroomTable2.setItems(oList2(1));
+		classroomColumn2.setCellValueFactory(new PropertyValueFactory<>("objectname"));
+		classTue1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		classTue2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		classTue3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		classTue4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		classTue5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		classTue6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		classTue7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
+		classroomTable3.setItems(oList2(2));
+		classroomColumn3.setCellValueFactory(new PropertyValueFactory<>("objectname"));
+		classWed1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		classWed2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		classWed3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		classWed4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		classWed5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		classWed6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		classWed7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
+		classroomTable4.setItems(oList2(3));
+		classroomColumn4.setCellValueFactory(new PropertyValueFactory<>("objectname"));
+		classThu1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		classThu2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		classThu3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		classThu4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		classThu5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		classThu6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		classThu7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
+
+		classroomTable5.setItems(oList2(4));
+		classroomColumn5.setCellValueFactory(new PropertyValueFactory<>("objectname"));
+		classFri1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
+		classFri2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		classFri3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
+		classFri4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
+		classFri5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
+		classFri6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
+		classFri7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
 
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
 		dcList = DepartmentCourseDAO.selectDAO();

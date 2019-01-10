@@ -15,6 +15,9 @@ public class Timetable {
 	private String subjectname6;
 	private String subjectname7;
 	private String crname;
+	private String objectname;
+
+
 	private int dcid;
 	private int teacherid;
 	private int subjectid;
@@ -46,10 +49,10 @@ public class Timetable {
 		this.crname = crname;
 	}
 
-	public Timetable(String teachername, String subjectname, String subjectname2, String subjectname3,
+	public Timetable(String objectname, String subjectname, String subjectname2, String subjectname3,
 			String subjectname4, String subjectname5, String subjectname6, String subjectname7) {
 		super();
-		this.teachername = teachername;
+		this.objectname = objectname;
 		this.subjectname = subjectname;
 		this.subjectname2 = subjectname2;
 		this.subjectname3 = subjectname3;
@@ -220,6 +223,14 @@ public class Timetable {
 
 	public void setSubjectname7(String subjectname7) {
 		this.subjectname7 = subjectname7;
+	}
+
+	public String getObjectname() {
+		return objectname;
+	}
+
+	public void setObjectname(String objectname) {
+		this.objectname = objectname;
 	}
 
 }
