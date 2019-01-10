@@ -95,7 +95,12 @@ public class CreateTimetableController implements Initializable {
 											teaTue1, teaTue2, teaTue3, teaTue4, teaTue5, teaTue6, teaTue7,
 											teaWed1, teaWed2, teaWed3, teaWed4, teaWed5, teaWed6, teaWed7,
 											teaThu1, teaThu2, teaThu3, teaThu4, teaThu5, teaThu6, teaThu7,
-											teaFri1, teaFri2, teaFri3, teaFri4, teaFri5, teaFri6, teaFri7;
+											teaFri1, teaFri2, teaFri3, teaFri4, teaFri5, teaFri6, teaFri7,
+											classMon1, classMon2, classMon3, classMon4, classMon5, classMon6, classMon7,
+											classTue1, classTue2, classTue3, classTue4, classTue5, classTue6, classTue7,
+											classWed1, classWed2, classWed3, classWed4, classWed5, classWed6, classWed7,
+											classThu1, classThu2, classThu3, classThu4, classThu5, classThu6, classThu7,
+											classFri1, classFri2, classFri3, classFri4, classFri5, classFri6, classFri7;
 	@FXML
 	private TableColumn<Timetable, String> teacherColumn1, teacherColumn2, teacherColumn3, teacherColumn4, teacherColumn5;
 	@FXML
@@ -139,7 +144,6 @@ public class CreateTimetableController implements Initializable {
 		teaMon5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
 		teaMon6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
 		teaMon7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
-
 		teacherTable2.setItems(oList(1));
 		teacherColumn2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
 		teaTue1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
