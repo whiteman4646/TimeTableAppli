@@ -77,6 +77,9 @@ public class CreateTimetableController implements Initializable {
 	private ObservableList<Teacher> teacher = FXCollections.observableArrayList(new ArrayList<Teacher>());
 	private ObservableList<Timetable> timetable = FXCollections.observableArrayList(new ArrayList<Timetable>());
 	private ObservableList<Timetable> result;
+	private ObservableList<ClassRoom> classroom = FXCollections.observableArrayList(new ArrayList<ClassRoom>());
+	private ObservableList<Timetable> timetable2 = FXCollections.observableArrayList(new ArrayList<Timetable>());
+	private ObservableList<Timetable> result2;
 	private String[] week = {"月曜日", "火曜日", "水曜日", "木曜日", "金曜日"};
 
 	@FXML
@@ -174,7 +177,7 @@ public class CreateTimetableController implements Initializable {
 		teaFri6.setCellValueFactory(new PropertyValueFactory<>("subjectname6"));
 		teaFri7.setCellValueFactory(new PropertyValueFactory<>("subjectname7"));
 
-		classroomTable1.setItems(TimetableDAO.selectTimetable());
+		classroomTable1.setItems(oList2(0));
 		classroomColumn1.setCellValueFactory(new PropertyValueFactory<>("crname"));
 		classroomTable2.setItems(TimetableDAO.selectTimetable());
 		classroomColumn2.setCellValueFactory(new PropertyValueFactory<>("crname"));
@@ -243,7 +246,7 @@ public class CreateTimetableController implements Initializable {
 		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		teacher = SubjectTeacherDAO.selectTeacher();
 		for(int i = 0; i < teacher.size(); i++) {
-			timetable = TimetableDAO.selectTimetableVew(teacher.get(i).getTeacherName(), week[num]);
+			timetable = TimetableDAO.selectTimetableView(teacher.get(i).getTeacherName(), week[num]);
 			/*if(timetable.isEmpty()) {
 				continue;
 			}*/
@@ -286,6 +289,55 @@ public class CreateTimetableController implements Initializable {
 		}
 
 		return result;
+	}
+
+	public ObservableList<Timetable> oList2(int num) {
+		result2 = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		classroom = ClassRoomDAO.selectDAO();
+		for(int i = 0; i < classroom.size(); i++) {
+			timetable2 = TimetableDAO.selectTimetableView2(classroom.get(i).getCrname(), week[num]);
+			/*if(timetable.isEmpty()) {
+				continue;
+			}*/
+			int j = 0;
+			String[] list = {"","","","","","",""};
+			for(Timetable str: timetable2) {
+
+				switch (timetable2.get(j).getTime()) {
+				case "1":
+					list[0] = str.getSubjectname();
+					break;
+				case "2":
+					list[1] = str.getSubjectname();
+					break;
+				case "3":
+					list[2] = str.getSubjectname();
+					break;
+				case "4":
+					list[3] = str.getSubjectname();
+					break;
+				case "5":
+					list[4] = str.getSubjectname();
+					break;
+				case "6":
+					list[5] = str.getSubjectname();
+					break;
+				case "7":
+					list[6] = str.getSubjectname();
+					break;
+
+				default:
+					list[j] = " ";
+					break;
+				}
+				j++;
+			}
+			result2.add(new Timetable(classroom.get(i).getCrname(), list[0], list[1], list[2], list[3],
+					list[4], list[5], list[6]));
+
+		}
+
+		return result2;
 	}
 
 	//色選択

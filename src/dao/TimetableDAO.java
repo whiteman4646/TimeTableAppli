@@ -341,7 +341,7 @@ public class TimetableDAO {
 		return tableList;
 	}
 
-	public static ObservableList<Timetable> selectTimetableVew(String teachername, String week) {
+	public static ObservableList<Timetable> selectTimetableView(String teachername, String week) {
 		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -370,6 +370,68 @@ public class TimetableDAO {
 				String subjectname = rs.getString("subjectname");
 				String crname = rs.getString("crname");
 				tableList.add(new Timetable(time, teaname, subjectname, crname));
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("JDBCドライバが見つかりません。");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("DBアクセスに失敗しました。");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("値を指定してください");
+		} finally {
+			try{
+				if( prst != null){
+					prst.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return tableList;
+	}
+
+	public static ObservableList<Timetable> selectTimetableView2(String crname, String week) {
+		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		Connection con = null;
+		PreparedStatement prst = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+
+			con = DriverManager.getConnection(DB_CONNECT);
+			String sql = "SELECT teacher.teachername, timetable.time, subject.subjectname, classroom.crname"
+					+ " from timetable"
+					+ " inner join departmentcourse on timetable.dcid =  departmentcourse.dcid"
+					+ " inner join teacher on timetable.teacherid = teacher.teacherid"
+					+ " inner join subject on timetable.subjectid = subject.subjectid"
+					+ " inner join classroom on timetable.crid = classroom.crid"
+					+ " where crname = ? and week = ?"
+					+ " order by time asc;";
+			prst = con.prepareStatement(sql);
+			prst.setString(1, crname);
+			prst.setString(2, week);
+			rs = prst.executeQuery();
+
+			while(rs.next() == true ){
+				String time = rs.getString("time");
+				String teaname = rs.getString("teachername");
+				String subjectname = rs.getString("subjectname");
+				String classroomname = rs.getString("crname");
+				tableList.add(new Timetable(time, teaname, subjectname, classroomname));
 			}
 
 		} catch (ClassNotFoundException e) {
