@@ -22,7 +22,6 @@
 <?import javafx.scene.text.Text?>
 <?import java.util.ArrayList?>
 
-
 <VBox prefHeight="700.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTimetableController">
 
 	<children>
@@ -399,13 +398,13 @@
 																<TableView fx:id="classroomTable3" prefHeight="350.0" prefWidth="650.0">
 																	<columns>
 																		<TableColumn fx:id="classroomColumn3" minWidth="80.0" prefWidth="90.0" text="教室" />
-																		<TableColumn fx:id="classMon1" minWidth="80.0" text="Wednes-1" />
-																		<TableColumn minWidth="80.0" text="Wednes-2" />
-																		<TableColumn minWidth="80.0" text="Wednes-3" />
-																		<TableColumn minWidth="80.0" text="Wednes-4" />
-																		<TableColumn minWidth="80.0" text="Wednes-5" />
-																		<TableColumn minWidth="80.0" text="Wednes-6" />
-																		<TableColumn minWidth="80.0" text="Wednes-7" />
+																		<TableColumn fx:id="classWed1" minWidth="80.0" text="Wednes-1" />
+																		<TableColumn fx:id="classWed2" minWidth="80.0" text="Wednes-2" />
+																		<TableColumn fx:id="classWed3" minWidth="80.0" text="Wednes-3" />
+																		<TableColumn fx:id="classWed4" minWidth="80.0" text="Wednes-4" />
+																		<TableColumn fx:id="classWed5" minWidth="80.0" text="Wednes-5" />
+																		<TableColumn fx:id="classWed6" minWidth="80.0" text="Wednes-6" />
+																		<TableColumn fx:id="classWed7" minWidth="80.0" text="Wednes-7" />
 																	</columns>
 																</TableView>
 															</children>
@@ -419,13 +418,13 @@
 																<TableView fx:id="classroomTable4" prefHeight="350.0" prefWidth="650.0">
 																	<columns>
 																		<TableColumn fx:id="classroomColumn4" minWidth="80.0" prefWidth="90.0" text="教室" />
-																		<TableColumn minWidth="80.0" text="Thurs-1" />
-																		<TableColumn minWidth="80.0" text="Thurs-2" />
-																		<TableColumn minWidth="80.0" text="Thurs-3" />
-																		<TableColumn minWidth="80.0" text="Thurs-4" />
-																		<TableColumn minWidth="80.0" text="Thurs-5" />
-																		<TableColumn minWidth="80.0" text="Thurs-6" />
-																		<TableColumn minWidth="80.0" text="Thurs-7" />
+																		<TableColumn fx:id="classThu1" minWidth="80.0" text="Thurs-1" />
+																		<TableColumn fx:id="classThu2" minWidth="80.0" text="Thurs-2" />
+																		<TableColumn fx:id="classThu3" minWidth="80.0" text="Thurs-3" />
+																		<TableColumn fx:id="classThu4" minWidth="80.0" text="Thurs-4" />
+																		<TableColumn fx:id="classThu5" minWidth="80.0" text="Thurs-5" />
+																		<TableColumn fx:id="classThu6" minWidth="80.0" text="Thurs-6" />
+																		<TableColumn fx:id="classThu7" minWidth="80.0" text="Thurs-7" />
 																	</columns>
 																</TableView>
 															</children>
@@ -439,13 +438,13 @@
 																<TableView fx:id="classroomTable5" prefHeight="350.0" prefWidth="650.0">
 																	<columns>
 																		<TableColumn fx:id="classroomColumn5" minWidth="80.0" prefWidth="90.0" text="教室" />
-																		<TableColumn minWidth="80.0" text="Fri-1" />
-																		<TableColumn minWidth="80.0" text="Fri-2" />
-																		<TableColumn minWidth="80.0" text="Fri-3" />
-																		<TableColumn minWidth="80.0" text="Fri-4" />
-																		<TableColumn minWidth="80.0" text="Fri-5" />
-																		<TableColumn minWidth="80.0" text="Fri-6" />
-																		<TableColumn minWidth="80.0" text="Fri-7" />
+																		<TableColumn fx:id="classFri1" minWidth="80.0" text="Fri-1" />
+																		<TableColumn fx:id="classFri2" minWidth="80.0" text="Fri-2" />
+																		<TableColumn fx:id="classFri3" minWidth="80.0" text="Fri-3" />
+																		<TableColumn fx:id="classFri4" minWidth="80.0" text="Fri-4" />
+																		<TableColumn fx:id="classFri5" minWidth="80.0" text="Fri-5" />
+																		<TableColumn fx:id="classFri6" minWidth="80.0" text="Fri-6" />
+																		<TableColumn fx:id="classFri7" minWidth="80.0" text="Fri-7" />
 																	</columns>
 																</TableView>
 															</children>
