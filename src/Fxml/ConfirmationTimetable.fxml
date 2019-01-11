@@ -83,8 +83,8 @@
             <ChoiceBox fx:id="deptcoursechoice2" layoutX="636.0" layoutY="74.0" prefWidth="150.0" />
             <ChoiceBox fx:id="teacherchoice2" layoutX="786.0" layoutY="74.0" prefWidth="150.0" />
             <ChoiceBox fx:id="classroomchoice2" layoutX="936.0" layoutY="74.0" prefWidth="150.0" />
-            <Button fx:id="PDFman" layoutX="539.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.bottomAnchor="701.0" AnchorPane.leftAnchor="539.0" />
-            <Button fx:id="PDFman1" layoutX="1146.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf1" prefHeight="25.0" prefWidth="64.0" text="PDF" />
+            <Button fx:id="PDFman" layoutX="539.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.topAnchor="74.0" />
+            <Button fx:id="PDFman1" layoutX="1146.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf1" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.topAnchor="74.0" />
       </children>
     </AnchorPane>
   </children>
