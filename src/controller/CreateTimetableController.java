@@ -139,7 +139,7 @@ public class CreateTimetableController implements Initializable {
 		teacherTable1.setItems(oList(0));
 		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("objectname"));
 		teaMon1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-		teaMon2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
+		teaMon2.setCellValueFactory(new PropertyValueFactory<>("subjectnameAndcrName2"));
 		teaMon3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
 		teaMon4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
 		teaMon5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
@@ -304,29 +304,29 @@ public class CreateTimetableController implements Initializable {
 
 				switch (timetable.get(j).getTime()) {
 				case "1":
-					list[0] = str.getSubjectname();
+					list[0] = str.getSubjectname() + "\n" + str.getCrname();
 					break;
 				case "2":
-					list[1] = str.getSubjectname();
+					list[1] = str.getSubjectname() + "\n" + str.getCrname();
 					break;
 				case "3":
-					list[2] = str.getSubjectname();
+					list[2] = str.getSubjectname() + "\n" + str.getCrname();
 					break;
 				case "4":
-					list[3] = str.getSubjectname();
+					list[3] = str.getSubjectname() + "\n" + str.getCrname();
 					break;
 				case "5":
-					list[4] = str.getSubjectname();
+					list[4] = str.getSubjectname() + "\n" + str.getCrname();
 					break;
 				case "6":
-					list[5] = str.getSubjectname();
+					list[5] = str.getSubjectname() + "\n" + str.getCrname();
 					break;
 				case "7":
-					list[6] = str.getSubjectname();
+					list[6] = str.getSubjectname() + "\n" + str.getCrname();
 					break;
 
 				default:
-					list[j] = " ";
+					list[j] = "";
 					break;
 				}
 				j++;
@@ -353,29 +353,29 @@ public class CreateTimetableController implements Initializable {
 
 				switch (timetable2.get(j).getTime()) {
 				case "1":
-					list[0] = str.getSubjectname();
+					list[0] = str.getSubjectname() + "\n" + str.getTeachername();
 					break;
 				case "2":
-					list[1] = str.getSubjectname();
+					list[1] = str.getSubjectname() + "\n" + str.getTeachername();
 					break;
 				case "3":
-					list[2] = str.getSubjectname();
+					list[2] = str.getSubjectname() + "\n" + str.getTeachername();
 					break;
 				case "4":
-					list[3] = str.getSubjectname();
+					list[3] = str.getSubjectname() + "\n" + str.getTeachername();
 					break;
 				case "5":
-					list[4] = str.getSubjectname();
+					list[4] = str.getSubjectname() + "\n" + str.getTeachername();
 					break;
 				case "6":
-					list[5] = str.getSubjectname();
+					list[5] = str.getSubjectname() + "\n" + str.getTeachername();
 					break;
 				case "7":
-					list[6] = str.getSubjectname();
+					list[6] = str.getSubjectname() + "\n" + str.getTeachername();
 					break;
 
 				default:
-					list[j] = " ";
+					list[j] = "";
 					break;
 				}
 				j++;
