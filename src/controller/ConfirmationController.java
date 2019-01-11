@@ -237,18 +237,12 @@ public class ConfirmationController implements Initializable{
     public void printpdf(ActionEvent event) {
 		PrinterJob job = PrinterJob.createPrinterJob();
 
-        job.showPageSetupDialog(null);
-        job.showPrintDialog(null);
-
         job.printPage(ConfirmationTable1);
         job.endJob();
 	}
 	@FXML
 	public void printpdf1(ActionEvent event){
 		PrinterJob job = PrinterJob.createPrinterJob();
-
-        job.showPageSetupDialog(null);
-        job.showPrintDialog(null);
 
         job.printPage(ConfirmationTable2);
         job.endJob();
