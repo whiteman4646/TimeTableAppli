@@ -16,8 +16,6 @@ public class Timetable {
 	private String subjectname7;
 	private String crname;
 	private String objectname;
-
-
 	private int dcid;
 	private int teacherid;
 	private int subjectid;
