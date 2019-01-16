@@ -55,13 +55,13 @@ public class ConfirmationController implements Initializable{
 	private ChoiceBox<String> depcoursechoice1, deptcoursechoice2, teacherchoice1, teacherchoice2,
 	classroomchoice1, classroomchoice2;
 	@FXML
-	private TableView<Timetable> ConfirmationTable1, ConfirmationTable2;
+	private TableView<Timetable> ConfirmationTable1;
 	@FXML
 	private TableColumn<Timetable, String> time1, monday1, tuesday1, wednesday1, thursday1, friday1,
 
 	time2, monday2, tuesday2, wendesday2, thursday2, friday2;
 	@FXML
-	private Button PDFman, PDFman1;
+	private Button PDFman;
 
 	public void initialize(URL location, ResourceBundle resources){
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
@@ -70,30 +70,22 @@ public class ConfirmationController implements Initializable{
 			dcnameList.add(dcList.get(i).getDcname());
 		}
 		depcoursechoice1.setItems(dcnameList);
-		deptcoursechoice2.setItems(dcnameList);
 
 		crList  = ClassRoomDAO.selectDAO();
 		for(int j = 0; j < crList.size(); j++){
 			crnameList.add(crList.get(j).getCrname());
 		}
 		classroomchoice1.setItems(crnameList);
-		classroomchoice2.setItems(crnameList);
 
 		taList  = SubjectTeacherDAO.selectTeacher();
 		for(int l = 0; l < taList.size();l++){
 			tanameList.add(taList.get(l).getTeacherName());
 		}
 		teacherchoice1.setItems(tanameList);
-		teacherchoice2.setItems(tanameList);
 
 		depcoursechoice1.setOnAction(event -> keychoiced());
-		deptcoursechoice2.setOnAction(event -> keychoiced2());
 		teacherchoice1.setOnAction(event -> teachoice1());
-		teacherchoice2.setOnAction(event -> teachoice2());
 		classroomchoice1.setOnAction(event -> crchoice1());
-		classroomchoice2.setOnAction(event -> crchoice2());
-
-
 
 	}
 
@@ -112,20 +104,7 @@ public class ConfirmationController implements Initializable{
 			}
 		}
 	}
-	public void keychoiced2(){
-		for(DepartmentCourse d2 : dcList){
-			if(d2.getDcname().equals(deptcoursechoice2.getSelectionModel().getSelectedItem())){
-				ConfirmationTable2.setItems(TimetableDAO.selectTimeatableChoiceDC(d2.getDcid()));
-				time2.setCellValueFactory(new PropertyValueFactory<>("time"));
-				monday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				tuesday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				wendesday2.setCellValueFactory(new PropertyValueFactory<>("crname"));
-				thursday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				friday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				break;
-			}
-		}
-	}
+
 	public void teachoice1(){
 		for(Teacher t : taList){
 			if(t.getTeacherName().equals(teacherchoice1.getSelectionModel().getSelectedItem())){
@@ -140,20 +119,7 @@ public class ConfirmationController implements Initializable{
 			}
 		}
 	}
-	public void teachoice2(){
-		for(Teacher t2 : taList){
-			if(t2.getTeacherName().equals(teacherchoice2.getSelectionModel().getSelectedIndex())){
-				ConfirmationTable2.setItems(TimetableDAO.selectTimeatableChoiceTEA(t2.getTeacherId()));
-				time2.setCellValueFactory(new PropertyValueFactory<>("time"));
-				monday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				tuesday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				wendesday2.setCellValueFactory(new PropertyValueFactory<>("crname"));
-				thursday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				friday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				break;
-			}
-		}
-	}
+
 	public void crchoice1(){
 		for(ClassRoom c : crList){
 			if(c.getCrname().equals(classroomchoice1.getSelectionModel().getSelectedItem())){
@@ -168,20 +134,7 @@ public class ConfirmationController implements Initializable{
 			}
 		}
 	}
-	public void crchoice2(){
-		for(ClassRoom c2 : crList){
-			if(c2.getCrname().equals(classroomchoice2.getSelectionModel().getSelectedItem())){
-				ConfirmationTable2.setItems(TimetableDAO.selectTimeatableChoiceCR(c2.getCrid()));
-				time2.setCellValueFactory(new PropertyValueFactory<>("time"));
-				monday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				tuesday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				wendesday2.setCellValueFactory(new PropertyValueFactory<>("crname"));
-				thursday2.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				friday2.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				break;
-			}
-		}
-	}
+
 	ObservableList<Timetable> result;
 	ObservableList<ClassRoom> classroom;
 	ObservableList<Timetable> timetable;
@@ -295,12 +248,4 @@ public class ConfirmationController implements Initializable{
         job.printPage(ConfirmationTable1);
         job.endJob();
 	}
-	@FXML
-	public void printpdf1(ActionEvent event){
-		PrinterJob job = PrinterJob.createPrinterJob();
-
-        job.printPage(ConfirmationTable2);
-        job.endJob();
-	}
-
 }

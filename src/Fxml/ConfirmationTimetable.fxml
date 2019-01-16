@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="800.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConfirmationController">
+<VBox prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConfirmationController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="800.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
       <children>
@@ -68,23 +68,9 @@
                </columns>
             </TableView>
             <ChoiceBox fx:id="depcoursechoice1" layoutX="29.0" layoutY="74.0" prefWidth="150.0" />
-            <TableView fx:id="ConfirmationTable2" layoutX="636.0" layoutY="99.0" prefHeight="594.0" prefWidth="574.0">
-               <columns>
-                  <TableColumn fx:id="time2" minWidth="0.0" prefWidth="73.0" text="時限" />
-                  <TableColumn fx:id="monday2" prefWidth="100.0" text="月曜日" />
-                  <TableColumn fx:id="tuesday2" prefWidth="100.0" text="火曜日" />
-                  <TableColumn fx:id="wendesday2" prefWidth="100.0" text="水曜日" />
-                  <TableColumn fx:id="thursday2" prefWidth="100.0" text="木曜日" />
-                  <TableColumn fx:id="friday2" prefWidth="102.0" text="金曜日" />
-               </columns>
-            </TableView>
             <ChoiceBox fx:id="teacherchoice1" layoutX="179.0" layoutY="74.0" prefWidth="150.0" />
             <ChoiceBox fx:id="classroomchoice1" layoutX="329.0" layoutY="74.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="deptcoursechoice2" layoutX="636.0" layoutY="74.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="teacherchoice2" layoutX="786.0" layoutY="74.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="classroomchoice2" layoutX="936.0" layoutY="74.0" prefWidth="150.0" />
             <Button fx:id="PDFman" layoutX="539.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.topAnchor="74.0" />
-            <Button fx:id="PDFman1" layoutX="1146.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf1" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.topAnchor="74.0" />
       </children>
     </AnchorPane>
   </children>
