@@ -12,7 +12,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text fill="#eabd00" layoutX="63.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.時間割作成画面について" wrappingWidth="324.6171875">
+            <Text fill="#eabd00" layoutX="69.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.時間割作成画面について" wrappingWidth="324.6171875">
                <font>
                   <Font size="29.0" />
                </font>
@@ -81,17 +81,22 @@
                   <Font size="29.0" />
                </font>
             </Text>
-            <Text layoutX="626.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDF変換は作成画面で時間割を作成したら、日付の隣ににPDF変換というボタンがあるので押していただくと作成した時間割をPDF変換してそこから印刷までつなげることが可能です。" wrappingWidth="418.5097634792328">
+            <Text layoutX="621.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDF変換は作成済み時間割確認画面の方に遷移していただいて作成した時間割を指定いただきそうしたら時間割が表示されますのでPDFボタンを押していただくとPDFに変換されます。" wrappingWidth="418.5097634792328">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="63.0" layoutY="126.0" strokeType="OUTSIDE" text="この画面を最初に起動していただくとまずデータベースにデータが入っていない場合に初期設定のダイアログが出てきます。「はい」を押すと時間割登録画面に遷移しますので、まずは登録してください。" wrappingWidth="418.5097577050328">
+            <Text layoutX="69.0" layoutY="169.0" strokeType="OUTSIDE" text="この画面を最初に起動していただくとまずデータベースにデータが入っていない場合に初期設定のダイアログが出てきます。「はい」を押すと時間割登録画面に遷移しますので、まずは登録してください。" wrappingWidth="418.5097577050328">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="63.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="登録していただくと、登録した情報がチョイスボックスに登録されており、その項目を選ぶと真ん中にある時間割作成の駒に反映されます。そして3つの項目をラベルに反映させたら隣にある時間割のマスにドラッグ＆ドロップしてください。そうすると、真ん中に作成した駒が時間割表の中に反映されます。" wrappingWidth="418.5097450017929">
+            <Text layoutX="69.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="登録していただくと、登録した情報がチョイスボックスに登録されており、その項目を選ぶと真ん中にある時間割作成の駒に反映されます。そして3つの項目をラベルに反映させたら隣にある時間割のマスにドラッグ＆ドロップしてください。そうすると、真ん中に作成した駒が時間割表の中に反映されます。" wrappingWidth="418.5097450017929">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="69.0" layoutY="67.0" strokeType="OUTSIDE" text="まず初めにプリンターの設定をMicrosoft print to PDFに設定してください。" wrappingWidth="418.5097577050328">
                <font>
                   <Font size="18.0" />
                </font>
