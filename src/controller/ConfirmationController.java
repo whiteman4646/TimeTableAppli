@@ -93,7 +93,7 @@ public class ConfirmationController implements Initializable{
 		for(DepartmentCourse d : dcList){
 			if(d.getDcname().equals(depcoursechoice1.getSelectionModel().getSelectedItem())){
 				System.out.println(d.getDcid());
-				ConfirmationTable1.setItems(dOList(d.getDcid()));
+				ConfirmationTable1.setItems(dcOList(d.getDcid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
@@ -108,7 +108,7 @@ public class ConfirmationController implements Initializable{
 	public void teachoice1(){
 		for(Teacher t : taList){
 			if(t.getTeacherName().equals(teacherchoice1.getSelectionModel().getSelectedItem())){
-				ConfirmationTable1.setItems(TimetableDAO.selectTimeatableChoiceTEA(t.getTeacherId()));
+				ConfirmationTable1.setItems(teaOList(t.getTeacherId()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
@@ -123,7 +123,7 @@ public class ConfirmationController implements Initializable{
 	public void crchoice1(){
 		for(ClassRoom c : crList){
 			if(c.getCrname().equals(classroomchoice1.getSelectionModel().getSelectedItem())){
-				ConfirmationTable1.setItems(TimetableDAO.selectTimeatableChoiceCR(c.getCrid()));
+				ConfirmationTable1.setItems(crOList(c.getCrid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
@@ -139,55 +139,61 @@ public class ConfirmationController implements Initializable{
 	ObservableList<ClassRoom> classroom;
 	ObservableList<Timetable> timetable;
 	String[] week = {"月","火","水","木","金"};
-	public ObservableList<Timetable> dOList(int num) {
+	public ObservableList<Timetable> dcOList(int num) {
 		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
-		for(int i = 0; i < timetable.size(); i++) {
-			timetable = TimetableDAO.selectTimeatableChoiceDC(num);
-			/*if(timetable.isEmpty()) {
-				continue;
-			}*/
+		for(int i = 0; i < 7; i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceDC(num, i + 1);
+			result = dOList(timetable, i);
+		}
+		return result;
+	}
+	public ObservableList<Timetable> teaOList(int num) {
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		for(int i = 0; i < 7; i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceTEA(num, i + 1);
+			result = dOList(timetable, i);
+		}
+		return result;
+	}
+	public ObservableList<Timetable> crOList(int num) {
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		for(int i = 0; i < 7; i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceCR(num, i + 1);
+			result = dOList(timetable, i);
+		}
+		return result;
+	}
+
+	public ObservableList<Timetable> dOList(ObservableList<Timetable> object,  int timeNum) {
 			int j = 0;
 			String[] list = {"","","","","","",""};
+			timetable = object;
 			for(Timetable str: timetable) {
-
-				switch (timetable.get(j).getTime()) {
-				case "1":
-					if(list[0].equals("")) j++;
+				switch(str.getWeek()) {
+				case "月曜日":
 					list[0] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
 					break;
-				case "2":
+				case "火曜日":
 					list[1] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					j++;
 					break;
-				case "3":
+				case "水曜日":
 					list[2] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					j++;
 					break;
-				case "4":
+				case"木曜日":
 					list[3] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					j++;
 					break;
-				case "5":
+				case"金曜日":
 					list[4] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					j++;
-					break;
-				case "6":
-					list[5] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					j++;
-					break;
-				case "7":
-					list[6] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					j++;
 					break;
 				default:
 					list[j] = "";
-					break;
 				}
-				j++;
-			}
-			result.add(new Timetable(String.valueOf(j), list[0], list[1], list[2], list[3], list[4]));
 
-		}
+				++j;
+			}
+			result.add(new Timetable(String.valueOf(timeNum + 1), list[0], list[1], list[2], list[3], list[4]));
+
+
 
 		return result;
 	}
@@ -242,10 +248,10 @@ public class ConfirmationController implements Initializable{
 		System.out.println(url);
 	}
 	@FXML
-    public void printpdf(ActionEvent event) {
+	public void printpdf(ActionEvent event) {
 		PrinterJob job = PrinterJob.createPrinterJob();
 
-        job.printPage(ConfirmationTable1);
-        job.endJob();
+		job.printPage(ConfirmationTable1);
+		job.endJob();
 	}
 }

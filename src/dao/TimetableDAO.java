@@ -72,7 +72,7 @@ public class TimetableDAO {
 		return tableList;
 	}
 
-	public static ObservableList<Timetable> selectTimeatableChoiceDC(int key){
+	public static ObservableList<Timetable> selectTimeatableChoiceDC(int key, int timeNum){
 		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -89,9 +89,10 @@ public class TimetableDAO {
 					+"inner join teacher on timetable.teacherid = teacher.teacherid "
 					+"inner join subject on timetable.subjectid = subject.subjectid "
 					+"inner join classroom on timetable.crid = classroom.crid "
-					+"where timetable.dcid = ?;";
+					+"where timetable.dcid = ? and timetable.time = ?;";
 			prst = con.prepareStatement(sql);
 			prst.setInt(1, key);
+			prst.setInt(2, timeNum);
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
@@ -142,7 +143,7 @@ public class TimetableDAO {
 
 	}
 
-	public static ObservableList<Timetable> selectTimeatableChoiceTEA(int key){
+	public static ObservableList<Timetable> selectTimeatableChoiceTEA(int key, int timeNum){
 		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -159,9 +160,10 @@ public class TimetableDAO {
 					+"inner join teacher on timetable.teacherid = teacher.teacherid "
 					+"inner join subject on timetable.subjectid = subject.subjectid "
 					+"inner join classroom on timetable.crid = classroom.crid "
-					+"where timetable.teacherid = ?;";
+					+"where timetable.teacherid = ? and timetable.time = ?;";
 			prst = con.prepareStatement(sql);
 			prst.setInt(1, key);
+			prst.setInt(2, timeNum);
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
@@ -212,7 +214,7 @@ public class TimetableDAO {
 
 	}
 
-	public static ObservableList<Timetable> selectTimeatableChoiceCR(int key){
+	public static ObservableList<Timetable> selectTimeatableChoiceCR(int key, int timeNum){
 		ObservableList<Timetable> tableList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		Connection con = null;
 		PreparedStatement prst = null;
@@ -229,9 +231,10 @@ public class TimetableDAO {
 					+"inner join teacher on timetable.teacherid = teacher.teacherid "
 					+"inner join subject on timetable.subjectid = subject.subjectid "
 					+"inner join classroom on timetable.crid = classroom.crid "
-					+"where timetable.crid = ?;";
+					+"where timetable.crid = ? and timetable.time = ?;";
 			prst = con.prepareStatement(sql);
 			prst.setInt(1, key);
+			prst.setInt(2, timeNum);
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
