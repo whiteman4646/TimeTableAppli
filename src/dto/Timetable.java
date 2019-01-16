@@ -16,10 +16,66 @@ public class Timetable {
 	private String subjectname7;
 	private String crname;
 	private String objectname;
+	private String komaMon;
+	private String komaTue;
+	private String komaWed;
+	private String komaThu;
+	private String komaFri;
+
 	private int dcid;
 	private int teacherid;
 	private int subjectid;
 	private int crid;
+
+	public Timetable(String time, String komaMon, String komaTue, String komaWed, String komaThu, String komaFri) {
+		super();
+		this.time = time;
+		this.komaMon = komaMon;
+		this.komaTue = komaTue;
+		this.komaWed = komaWed;
+		this.komaThu = komaThu;
+		this.komaFri = komaFri;
+	}
+	public String getKomaMon() {
+		return komaMon;
+	}
+
+	public void setKomaMon(String komaMon) {
+		this.komaMon = komaMon;
+	}
+
+	public String getKomaTue() {
+		return komaTue;
+	}
+
+
+	public void setKomaTue(String komaTue) {
+		this.komaTue = komaTue;
+	}
+
+	public String getKomaWed() {
+		return komaWed;
+	}
+
+	public void setKomaWed(String komaWed) {
+		this.komaWed = komaWed;
+	}
+
+	public String getKomaThu() {
+		return komaThu;
+	}
+
+	public void setKomaThu(String komaThu) {
+		this.komaThu = komaThu;
+	}
+
+	public String getKomaFri() {
+		return komaFri;
+	}
+
+	public void setKomaFri(String komaFri) {
+		this.komaFri = komaFri;
+	}
 
 	public Timetable(int timetableid, String week, String time, String period, int dcid, int teacherid, int subjectid,
 			int crid) {

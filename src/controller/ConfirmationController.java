@@ -101,13 +101,13 @@ public class ConfirmationController implements Initializable{
 		for(DepartmentCourse d : dcList){
 			if(d.getDcname().equals(depcoursechoice1.getSelectionModel().getSelectedItem())){
 				System.out.println(d.getDcid());
-				ConfirmationTable1.setItems(TimetableDAO.selectTimeatableChoiceDC(d.getDcid()));
+				ConfirmationTable1.setItems(dOList(d.getDcid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
-				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				wednesday1.setCellValueFactory(new PropertyValueFactory<>("crname"));
-				thursday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				friday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
 				break;
 			}
 		}
@@ -182,7 +182,62 @@ public class ConfirmationController implements Initializable{
 			}
 		}
 	}
+	ObservableList<Timetable> result;
+	ObservableList<ClassRoom> classroom;
+	ObservableList<Timetable> timetable;
+	String[] week = {"月","火","水","木","金"};
+	public ObservableList<Timetable> dOList(int num) {
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		for(int i = 0; i < timetable.size(); i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceDC(num);
+			/*if(timetable.isEmpty()) {
+				continue;
+			}*/
+			int j = 0;
+			String[] list = {"","","","","","",""};
+			for(Timetable str: timetable) {
 
+				switch (timetable.get(j).getTime()) {
+				case "1":
+					if(list[0].equals("")) j++;
+					list[0] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+					break;
+				case "2":
+					list[1] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+					j++;
+					break;
+				case "3":
+					list[2] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+					j++;
+					break;
+				case "4":
+					list[3] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+					j++;
+					break;
+				case "5":
+					list[4] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+					j++;
+					break;
+				case "6":
+					list[5] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+					j++;
+					break;
+				case "7":
+					list[6] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+					j++;
+					break;
+				default:
+					list[j] = "";
+					break;
+				}
+				j++;
+			}
+			result.add(new Timetable(String.valueOf(j), list[0], list[1], list[2], list[3], list[4]));
+
+		}
+
+		return result;
+	}
 
 	//各種画面遷移
 	@FXML
