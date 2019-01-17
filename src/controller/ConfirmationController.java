@@ -110,11 +110,11 @@ public class ConfirmationController implements Initializable{
 			if(t.getTeacherName().equals(teacherchoice1.getSelectionModel().getSelectedItem())){
 				ConfirmationTable1.setItems(teaOList(t.getTeacherId()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
-				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				wednesday1.setCellValueFactory(new PropertyValueFactory<>("crname"));
-				thursday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				friday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
 				break;
 			}
 		}
@@ -125,11 +125,11 @@ public class ConfirmationController implements Initializable{
 			if(c.getCrname().equals(classroomchoice1.getSelectionModel().getSelectedItem())){
 				ConfirmationTable1.setItems(crOList(c.getCrid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
-				monday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				tuesday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
-				wednesday1.setCellValueFactory(new PropertyValueFactory<>("crname"));
-				thursday1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-				friday1.setCellValueFactory(new PropertyValueFactory<>("teachername"));
+				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
 				break;
 			}
 		}
@@ -143,7 +143,7 @@ public class ConfirmationController implements Initializable{
 		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		for(int i = 0; i < 7; i++) {
 			timetable = TimetableDAO.selectTimeatableChoiceDC(num, i + 1);
-			result = dOList(timetable, i);
+			result = oList(timetable, i);
 		}
 		return result;
 	}
@@ -151,7 +151,7 @@ public class ConfirmationController implements Initializable{
 		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		for(int i = 0; i < 7; i++) {
 			timetable = TimetableDAO.selectTimeatableChoiceTEA(num, i + 1);
-			result = dOList(timetable, i);
+			result = oList(timetable, i);
 		}
 		return result;
 	}
@@ -159,16 +159,15 @@ public class ConfirmationController implements Initializable{
 		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		for(int i = 0; i < 7; i++) {
 			timetable = TimetableDAO.selectTimeatableChoiceCR(num, i + 1);
-			result = dOList(timetable, i);
 		}
 		return result;
 	}
 
-	public ObservableList<Timetable> dOList(ObservableList<Timetable> object,  int timeNum) {
+	public ObservableList<Timetable> oList(ObservableList<Timetable> object,  int timeNum) {
 			int j = 0;
-			String[] list = {"","","","","","",""};
-			timetable = object;
-			for(Timetable str: timetable) {
+			String[] list = {"","","","",""};
+			//timetable = object;
+			for(Timetable str: object) {
 				switch(str.getWeek()) {
 				case "月曜日":
 					list[0] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
