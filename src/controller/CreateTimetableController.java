@@ -139,7 +139,7 @@ public class CreateTimetableController implements Initializable {
 		teacherTable1.setItems(oList(0));
 		teacherColumn1.setCellValueFactory(new PropertyValueFactory<>("objectname"));
 		teaMon1.setCellValueFactory(new PropertyValueFactory<>("subjectname"));
-		teaMon2.setCellValueFactory(new PropertyValueFactory<>("subjectnameAndcrName2"));
+		teaMon2.setCellValueFactory(new PropertyValueFactory<>("subjectname2"));
 		teaMon3.setCellValueFactory(new PropertyValueFactory<>("subjectname3"));
 		teaMon4.setCellValueFactory(new PropertyValueFactory<>("subjectname4"));
 		teaMon5.setCellValueFactory(new PropertyValueFactory<>("subjectname5"));
