@@ -159,6 +159,7 @@ public class ConfirmationController implements Initializable{
 		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		for(int i = 0; i < 7; i++) {
 			timetable = TimetableDAO.selectTimeatableChoiceCR(num, i + 1);
+			result = oList(timetable, i);
 		}
 		return result;
 	}
