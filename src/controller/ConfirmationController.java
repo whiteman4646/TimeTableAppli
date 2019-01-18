@@ -83,8 +83,11 @@ public class ConfirmationController implements Initializable{
 		}
 		teacherchoice1.setItems(tanameList);
 
+		depcoursechoice1.getSelectionModel().selectFirst();
 		depcoursechoice1.setOnAction(event -> keychoiced());
+		teacherchoice1.getSelectionModel().selectFirst();
 		teacherchoice1.setOnAction(event -> teachoice1());
+		classroomchoice1.getSelectionModel().selectFirst();
 		classroomchoice1.setOnAction(event -> crchoice1());
 
 	}
