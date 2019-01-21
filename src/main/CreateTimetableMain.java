@@ -68,7 +68,7 @@ public class CreateTimetableMain extends Application {
 			e.printStackTrace();
 			}
 		}
-		private final String dcregiPage = "CourseRoom.fxml";
+		private final String dcregiPage = "../Fxml/CourseRoom.fxml";
 		@FXML
 		public void nextdcregiPage(){
 			CreateTimetableMain.getInstance().setPage(dcregiPage);
