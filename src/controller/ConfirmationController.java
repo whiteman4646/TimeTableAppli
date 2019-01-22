@@ -21,11 +21,13 @@ import javafx.fxml.Initializable;
 import javafx.print.PrinterJob;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import main.CreateTimetableMain;
 
@@ -58,8 +60,11 @@ public class ConfirmationController implements Initializable{
 	private TableView<Timetable> ConfirmationTable1;
 	@FXML
 	private TableColumn<Timetable, String> time1, monday1, tuesday1, wednesday1, thursday1, friday1,
-
 	time2, monday2, tuesday2, wendesday2, thursday2, friday2;
+	@FXML
+	private Label timetabletitle;
+	@FXML
+	private Text period;
 	@FXML
 	private Button PDFman;
 
@@ -98,7 +103,8 @@ public class ConfirmationController implements Initializable{
 	public void keychoiced(){
 		for(DepartmentCourse d : dcList){
 			if(d.getDcname().equals(depcoursechoice1.getSelectionModel().getSelectedItem())){
-				System.out.println(d.getDcid());
+				System.out.println( d.getDcid() + d.getDcname());
+				timetabletitle.setText(d.getDcname());
 				ConfirmationTable1.setItems(dcOList(d.getDcid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
@@ -106,6 +112,9 @@ public class ConfirmationController implements Initializable{
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				period.setText(TimetableDAO.selectTimeatableDC(d.getDcid()).get(0).getPeriod());
+				classroomchoice1.getSelectionModel().selectFirst();
+				teacherchoice1.getSelectionModel().selectFirst();
 				break;
 			}
 		}
@@ -114,6 +123,8 @@ public class ConfirmationController implements Initializable{
 	public void teachoice1(){
 		for(Teacher t : taList){
 			if(t.getTeacherName().equals(teacherchoice1.getSelectionModel().getSelectedItem())){
+				System.out.println(t.getTeacherId() + t.getTeacherName());
+				timetabletitle.setText(t.getTeacherName());
 				ConfirmationTable1.setItems(teaOList(t.getTeacherId()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
@@ -121,6 +132,8 @@ public class ConfirmationController implements Initializable{
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				depcoursechoice1.getSelectionModel().selectFirst();
+				classroomchoice1.getSelectionModel().selectFirst();
 				break;
 			}
 		}
@@ -129,6 +142,8 @@ public class ConfirmationController implements Initializable{
 	public void crchoice1(){
 		for(ClassRoom c : crList){
 			if(c.getCrname().equals(classroomchoice1.getSelectionModel().getSelectedItem())){
+				System.out.println(c.getCrname() + c.getCrid());
+				timetabletitle.setText(c.getCrname());
 				ConfirmationTable1.setItems(crOList(c.getCrid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
@@ -136,6 +151,8 @@ public class ConfirmationController implements Initializable{
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				teacherchoice1.getSelectionModel().selectFirst();
+				depcoursechoice1.getSelectionModel().selectFirst();
 				break;
 			}
 		}
