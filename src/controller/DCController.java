@@ -23,7 +23,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
@@ -43,6 +46,8 @@ public class DCController implements Initializable {
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
 	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
+
+	private Alert alert = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
 
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen, ConfirmationMenu;
@@ -99,6 +104,10 @@ public class DCController implements Initializable {
 			}
 			ClassRoomDAO.updateDAO(oL.getCrid(), oL.getCrname());
 		}
+		alert.setTitle("確認");
+		alert.setHeaderText("更新完了");
+		alert.setContentText("更新されました。");
+		alert.show();
 	}
 	@FXML
 	public void clickregi(ActionEvent e){
@@ -109,6 +118,10 @@ public class DCController implements Initializable {
 		System.out.println("登録完了");
 		crtext1.setText("");
 		dctext1.setText("");
+		alert.setTitle("確認");
+		alert.setHeaderText("登録完了");
+		alert.setContentText("登録されました。");
+		alert.show();
 		initialize(null, null);
 
 	}

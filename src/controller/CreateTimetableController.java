@@ -21,7 +21,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
@@ -55,6 +58,8 @@ public class CreateTimetableController implements Initializable {
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
 	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
+
+	private Alert alert = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
 
 	@FXML
 	private ArrayList<VBox> TimeBox;
@@ -624,7 +629,10 @@ public class CreateTimetableController implements Initializable {
 
 		}
 		TimetableDAO.insertTimetable(key);
-
+		alert.setTitle("確認");
+		alert.setHeaderText("登録完了");
+		alert.setContentText("時間割を作成しました。");
+		alert.show();
 	}
 
 	//各種画面遷移
