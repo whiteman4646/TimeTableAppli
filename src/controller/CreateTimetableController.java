@@ -517,6 +517,15 @@ public class CreateTimetableController implements Initializable {
 	//時間割作成
 	@FXML
 	public void createtimetable(){
+		for(DepartmentCourse d : dcList){
+			if(d.getDcname().equals(dcLabel.getText())){
+				if(TimetableDAO.selectTimeatableDC(d.getDcid()) != null){
+					System.out.println("とおったお");
+					TimetableDAO.deleteDAO(d.getDcid());
+				}
+				break;
+			}
+		}
 
 		String [][] key = new String[35][7];
 		for(int i = 0; i < 35; i++){

@@ -69,22 +69,28 @@ public class ConfirmationController implements Initializable{
 		for (int i = 0; i < dcList.size(); i++){
 			dcnameList.add(dcList.get(i).getDcname());
 		}
+		dcnameList.add(0, "学科・コース");
 		depcoursechoice1.setItems(dcnameList);
 
 		crList  = ClassRoomDAO.selectDAO();
 		for(int j = 0; j < crList.size(); j++){
 			crnameList.add(crList.get(j).getCrname());
 		}
+		crnameList.add(0, "教室");
 		classroomchoice1.setItems(crnameList);
 
 		taList  = SubjectTeacherDAO.selectTeacher();
 		for(int l = 0; l < taList.size();l++){
 			tanameList.add(taList.get(l).getTeacherName());
 		}
+		tanameList.add(0, "教員");
 		teacherchoice1.setItems(tanameList);
 
+		depcoursechoice1.getSelectionModel().selectFirst();
 		depcoursechoice1.setOnAction(event -> keychoiced());
+		teacherchoice1.getSelectionModel().selectFirst();
 		teacherchoice1.setOnAction(event -> teachoice1());
+		classroomchoice1.getSelectionModel().selectFirst();
 		classroomchoice1.setOnAction(event -> crchoice1());
 
 	}
