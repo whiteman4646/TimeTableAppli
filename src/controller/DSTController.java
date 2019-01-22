@@ -11,7 +11,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
@@ -30,6 +33,8 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
 	private final String helpPage = "../Fxml/help.fxml";
 	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
+
+	private Alert alert = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
 
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen, ConfirmationMenu;
@@ -105,7 +110,10 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 
 			}
 		}
-		System.out.println("onAction delete");
+		alert.setTitle("確認");
+		alert.setHeaderText("更新完了");
+		alert.setContentText("更新されました。");
+		alert.show();
 		initialize(null, null);
 	}
 
