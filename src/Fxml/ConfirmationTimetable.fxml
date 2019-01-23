@@ -79,7 +79,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fx:id="period" fill="RED" layoutX="435.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="期間" wrappingWidth="167.99998366832733">
+            <Text fx:id="period" fill="RED" layoutX="368.0" layoutY="124.58203125" strokeType="OUTSIDE" strokeWidth="0.0" text="期間" wrappingWidth="255.99998366832733" AnchorPane.bottomAnchor="570.0" AnchorPane.topAnchor="103.0">
                <font>
                   <Font size="20.0" />
                </font>

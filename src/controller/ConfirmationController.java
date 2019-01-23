@@ -112,7 +112,11 @@ public class ConfirmationController implements Initializable{
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
-				period.setText(TimetableDAO.selectTimeatableDC(d.getDcid()).get(0).getPeriod());
+				if(TimetableDAO.selectTimeatableDC(d.getDcid()).isEmpty()){
+					break;
+				}else{
+					period.setText(TimetableDAO.selectTimeatableDC(d.getDcid()).get(0).getPeriod());
+				}
 				classroomchoice1.getSelectionModel().selectFirst();
 				teacherchoice1.getSelectionModel().selectFirst();
 				break;
@@ -132,6 +136,7 @@ public class ConfirmationController implements Initializable{
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				period.setText("期間");
 				depcoursechoice1.getSelectionModel().selectFirst();
 				classroomchoice1.getSelectionModel().selectFirst();
 				break;
@@ -151,6 +156,7 @@ public class ConfirmationController implements Initializable{
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				period.setText("期間");
 				teacherchoice1.getSelectionModel().selectFirst();
 				depcoursechoice1.getSelectionModel().selectFirst();
 				break;
@@ -188,33 +194,33 @@ public class ConfirmationController implements Initializable{
 	}
 
 	public ObservableList<Timetable> oList(ObservableList<Timetable> object,  int timeNum) {
-			int j = 0;
-			String[] list = {"","","","",""};
-			//timetable = object;
-			for(Timetable str: object) {
-				switch(str.getWeek()) {
-				case "月曜日":
-					list[0] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					break;
-				case "火曜日":
-					list[1] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					break;
-				case "水曜日":
-					list[2] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					break;
-				case"木曜日":
-					list[3] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					break;
-				case"金曜日":
-					list[4] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
-					break;
-				default:
-					list[j] = "";
-				}
-
-				++j;
+		int j = 0;
+		String[] list = {"","","","",""};
+		//timetable = object;
+		for(Timetable str: object) {
+			switch(str.getWeek()) {
+			case "月曜日":
+				list[0] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+				break;
+			case "火曜日":
+				list[1] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+				break;
+			case "水曜日":
+				list[2] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+				break;
+			case"木曜日":
+				list[3] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+				break;
+			case"金曜日":
+				list[4] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
+				break;
+			default:
+				list[j] = "";
 			}
-			result.add(new Timetable(String.valueOf(timeNum + 1), list[0], list[1], list[2], list[3], list[4]));
+
+			++j;
+		}
+		result.add(new Timetable(String.valueOf(timeNum + 1), list[0], list[1], list[2], list[3], list[4]));
 
 
 
