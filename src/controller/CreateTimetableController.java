@@ -519,7 +519,9 @@ public class CreateTimetableController implements Initializable {
 	public void createtimetable(){
 		for(DepartmentCourse d : dcList){
 			if(d.getDcname().equals(dcLabel.getText())){
-				if(TimetableDAO.selectTimeatableDC(d.getDcid()) != null){
+				if(TimetableDAO.selectTimeatableDC(d.getDcid()).isEmpty()){
+					break;
+				}else{
 					System.out.println("とおったお");
 					TimetableDAO.deleteDAO(d.getDcid());
 				}

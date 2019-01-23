@@ -60,31 +60,31 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <TableView fx:id="ConfirmationTable1" layoutX="29.0" layoutY="141.0" prefHeight="400.0" prefWidth="574.0" AnchorPane.bottomAnchor="159.0">
+            <TableView fx:id="ConfirmationTable1" layoutX="35.0" layoutY="132.0" prefHeight="434.0" prefWidth="589.0" AnchorPane.bottomAnchor="134.0" AnchorPane.topAnchor="132.0">
                <columns>
-                  <TableColumn fx:id="time1" minWidth="0.0" prefWidth="73.0" text="時限" />
-                  <TableColumn fx:id="monday1" prefWidth="100.0" text="月曜日" />
-                  <TableColumn fx:id="tuesday1" prefWidth="100.0" text="火曜日" />
-                  <TableColumn fx:id="wednesday1" prefWidth="100.0" text="水曜日" />
-                  <TableColumn fx:id="thursday1" prefWidth="100.0" text="木曜日" />
-                  <TableColumn fx:id="friday1" prefWidth="102.0" text="金曜日" />
+                  <TableColumn fx:id="time1" minWidth="0.0" prefWidth="35.0" text="時限" />
+                  <TableColumn fx:id="monday1" prefWidth="110.0" text="月曜日" />
+                  <TableColumn fx:id="tuesday1" prefWidth="110.0" text="火曜日" />
+                  <TableColumn fx:id="wednesday1" prefWidth="110.0" text="水曜日" />
+                  <TableColumn fx:id="thursday1" prefWidth="110.0" text="木曜日" />
+                  <TableColumn fx:id="friday1" prefWidth="110.0" text="金曜日" />
                </columns>
             </TableView>
             <ChoiceBox fx:id="depcoursechoice1" layoutX="29.0" layoutY="74.0" prefWidth="150.0" />
             <ChoiceBox fx:id="teacherchoice1" layoutX="179.0" layoutY="74.0" prefWidth="150.0" />
             <ChoiceBox fx:id="classroomchoice1" layoutX="329.0" layoutY="74.0" prefWidth="150.0" />
-            <Button fx:id="PDFman" layoutX="539.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.topAnchor="74.0" />
-            <Label layoutX="29.0" layoutY="102.0" prefHeight="34.0" prefWidth="180.0" text="現在選択している時間割">
+            <Button fx:id="PDFman" layoutX="556.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.bottomAnchor="601.0" AnchorPane.leftAnchor="556.0" AnchorPane.rightAnchor="620.0" AnchorPane.topAnchor="74.0" />
+            <Label fx:id="timetabletitle" layoutX="29.0" layoutY="102.0" prefHeight="34.0" prefWidth="180.0" text="現在選択している時間割">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fill="RED" layoutX="435.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="期間" wrappingWidth="167.99998366832733">
+            <Text fx:id="period" fill="RED" layoutX="368.0" layoutY="124.58203125" strokeType="OUTSIDE" strokeWidth="0.0" text="期間" wrappingWidth="255.99998366832733" AnchorPane.bottomAnchor="570.0" AnchorPane.topAnchor="103.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TableView layoutX="682.0" layoutY="141.0" prefHeight="400.0" prefWidth="189.0">
+            <TableView layoutX="704.0" layoutY="132.0" prefHeight="427.0" prefWidth="189.0" AnchorPane.bottomAnchor="134.0" AnchorPane.topAnchor="132.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="削除チェック" />
                 <TableColumn prefWidth="113.0" text="学科・コース" />
