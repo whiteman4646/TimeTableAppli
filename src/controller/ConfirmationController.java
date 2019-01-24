@@ -47,6 +47,7 @@ public class ConfirmationController implements Initializable{
 	ObservableList<Teacher> taList;
 	ObservableList<String> tanameList = FXCollections.observableArrayList(new ArrayList<String>());
 	ObservableList<Timetable> timeList;
+	ObservableList<String> dccheckList = FXCollections.observableArrayList(new ArrayList<String>());
 
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen, ConfirmationMenu;
@@ -59,8 +60,10 @@ public class ConfirmationController implements Initializable{
 	@FXML
 	private TableView<Timetable> ConfirmationTable1;
 	@FXML
+	private TableView<String> dcchecktable;
+	@FXML
 	private TableColumn<Timetable, String> time1, monday1, tuesday1, wednesday1, thursday1, friday1,
-	time2, monday2, tuesday2, wendesday2, thursday2, friday2;
+	time2, monday2, tuesday2, wendesday2, thursday2, friday2, checkcell, DCcell;
 	@FXML
 	private Label timetabletitle;
 	@FXML
@@ -71,22 +74,39 @@ public class ConfirmationController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources){
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
 		dcList = DepartmentCourseDAO.selectDAO();
-		for (int i = 0; i < dcList.size(); i++){
+		/*for (int i = 0; i < dcList.size(); i++){
 			dcnameList.add(dcList.get(i).getDcname());
+		}*/
+		for(DepartmentCourse dc : dcList){
+
+			if(TimetableDAO.selectTimeatableDC(dc.getDcid()).isEmpty()){
+				continue;
+			}else{
+				System.out.println(TimetableDAO.selectTimeatableDC(dc.getDcid()).get(0).getDcname());
+				dccheckList.add(TimetableDAO.selectTimeatableDC(dc.getDcid()).get(0).getDcname());
+			}
 		}
-		dcnameList.add(0, "学科・コース");
-		depcoursechoice1.setItems(dcnameList);
+		dccheckList.add(0, "学科・コース");
+		depcoursechoice1.setItems(dccheckList);
 
 		crList  = ClassRoomDAO.selectDAO();
-		for(int j = 0; j < crList.size(); j++){
-			crnameList.add(crList.get(j).getCrname());
+		for(ClassRoom cr : crList){
+			if(TimetableDAO.selectTimeatableCR(cr.getCrid()).isEmpty()){
+				continue;
+			}else{
+				crnameList.add(TimetableDAO.selectTimeatableCR(cr.getCrid()).get(0).getCrname());
+			}
 		}
 		crnameList.add(0, "教室");
 		classroomchoice1.setItems(crnameList);
 
 		taList  = SubjectTeacherDAO.selectTeacher();
-		for(int l = 0; l < taList.size();l++){
-			tanameList.add(taList.get(l).getTeacherName());
+		for(Teacher ta : taList){
+			if(TimetableDAO.selectTimeatableTA(ta.getTeacherId()).isEmpty()){
+				continue;
+			}else{
+				tanameList.add(TimetableDAO.selectTimeatableTA(ta.getTeacherId()).get(0).getTeachername());
+			}
 		}
 		tanameList.add(0, "教員");
 		teacherchoice1.setItems(tanameList);
@@ -97,6 +117,7 @@ public class ConfirmationController implements Initializable{
 		teacherchoice1.setOnAction(event -> teachoice1());
 		classroomchoice1.getSelectionModel().selectFirst();
 		classroomchoice1.setOnAction(event -> crchoice1());
+
 
 	}
 
