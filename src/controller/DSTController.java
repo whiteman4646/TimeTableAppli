@@ -34,7 +34,8 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 	private final String helpPage = "../Fxml/help.fxml";
 	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
-	private Alert alert = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
+	private Alert alertinfo = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
+	private Alert alertwar = new Alert(AlertType.WARNING, "", ButtonType.YES, ButtonType.NO);
 
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen, ConfirmationMenu;
@@ -94,6 +95,14 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 
 	@FXML
 	private void deleteST() {
+		alertwar.setTitle("警告");
+		alertwar.setHeaderText("削除確認");
+		alertwar.setContentText("削除すると戻すことはできません。\n本当に削除してよろしいですか？");
+		alertwar.showAndWait()
+		.filter(response -> response == ButtonType.YES)
+		.ifPresent(response -> delete());
+	}
+	private void delete() {
 		for(Subject sub : subList){
 			System.out.println(sub.getCheck());
 			if(sub.getCheck()){
@@ -110,11 +119,12 @@ public class DSTController extends TableColumn<Subject, Boolean> implements Init
 
 			}
 		}
-		alert.setTitle("確認");
-		alert.setHeaderText("更新完了");
-		alert.setContentText("更新されました。");
-		alert.show();
 		initialize(null, null);
+		alertinfo.setTitle("確認");
+		alertinfo.setHeaderText("削除完了");
+		alertinfo.setContentText("削除されました。");
+		alertinfo.show();
+
 	}
 
 	@FXML

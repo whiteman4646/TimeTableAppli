@@ -35,7 +35,8 @@ public class DelDCController implements Initializable {
 	private final String helpPage = "../Fxml/help.fxml";
 	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
-	private Alert alert = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
+	private Alert alertinfo = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
+	private Alert alertwar = new Alert(AlertType.WARNING, "", ButtonType.YES, ButtonType.NO);
 
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu,fileopen, ConfirmationMenu;
@@ -105,6 +106,15 @@ public class DelDCController implements Initializable {
 
 	@FXML
 	public void clickdelete(){
+		alertwar.setTitle("警告");
+		alertwar.setHeaderText("削除確認");
+		alertwar.setContentText("削除すると戻すことはできません。\n本当に削除してよろしいですか？");
+		alertwar.showAndWait()
+		.filter(response -> response == ButtonType.YES)
+		.ifPresent(response -> delete());
+
+	}
+	public void delete(){
 
 		for(DepartmentCourse dc : dcList){
 			if(dc.isDccheck()){
@@ -120,22 +130,11 @@ public class DelDCController implements Initializable {
 
 			}
 		}
-
-		alert.setTitle("確認");
-		alert.setHeaderText("削除完了");
-		alert.setContentText("削除されました。");
-		alert.show();
-
 		initialize(null, null);
-		/*dctable.refresh();
-		DepartmentCourseDAO.selectDAO();
-		dctable.setItems(dcList);
-
-		crtable.refresh();
-		ClassRoomDAO.selectDAO();
-		crtable.setItems(crList);*/
-
-
+		alertinfo.setTitle("確認");
+		alertinfo.setHeaderText("削除完了");
+		alertinfo.setContentText("削除されました。");
+		alertinfo.show();
 	}
 
 	@FXML
