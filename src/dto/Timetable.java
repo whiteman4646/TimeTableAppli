@@ -90,7 +90,7 @@ public class Timetable {
 		this.crid = crid;
 	}
 
-	public Timetable(int timetableid, String week, String time, String period, String dcname, String teachername,
+	/*public Timetable(int timetableid, String week, String time, String period, String dcname, String teachername,
 			String subjectname, String crname) {
 		super();
 		this.timetableid = timetableid;
@@ -101,7 +101,7 @@ public class Timetable {
 		this.teachername = teachername;
 		this.subjectname = subjectname;
 		this.crname = crname;
-	}
+	}*/
 
 	public Timetable(String objectname, String subjectname, String subjectname2, String subjectname3,
 			String subjectname4, String subjectname5, String subjectname6, String subjectname7) {
