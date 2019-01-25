@@ -1,6 +1,7 @@
 package dto;
 
 public class Timetable {
+	private Boolean check;
 	private int timetableid;
 	private String week;
 	private String time;
@@ -148,6 +149,30 @@ public class Timetable {
 		this.teacherid = teacherid;
 		this.subjectid = subjectid;
 		this.crid = crid;
+	}
+
+	public Timetable(Boolean check, String week, String time, String period, String dcname, String teachername, String subjectname,
+			String crname, int dcid, int teacherid, int subjectid, int crid) {
+		super();
+		this.check = check;
+		this.week = week;
+		this.time = time;
+		this.period = period;
+		this.dcname = dcname;
+		this.teachername = teachername;
+		this.subjectname = subjectname;
+		this.crname = crname;
+		this.dcid = dcid;
+		this.teacherid = teacherid;
+		this.subjectid = subjectid;
+		this.crid = crid;
+	}
+
+	public Boolean getCheck(){
+		return check;
+	}
+	public void setCheck(boolean check){
+		this.check = check;
 	}
 
 	public int getTimetableid() {

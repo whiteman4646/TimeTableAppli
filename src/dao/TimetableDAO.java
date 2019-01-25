@@ -491,6 +491,7 @@ public class TimetableDAO {
 			rs = prst.executeQuery();
 
 			while(rs.next() == true ){
+				boolean check = false;
 				String week = rs.getString("week");
 				String time = rs.getString("time");
 				String period = rs.getString("period");
@@ -502,7 +503,7 @@ public class TimetableDAO {
 				String subjectname = rs.getString("subjectname");
 				int crid = rs.getInt("crid");
 				String crname = rs.getString("crname");
-				tableList.add(new Timetable(week, time,period , dcname, teachername,
+				tableList.add(new Timetable(check, week, time,period , dcname, teachername,
 						subjectname, crname, dcid, teacherid, subjectid, crid));
 			}
 
