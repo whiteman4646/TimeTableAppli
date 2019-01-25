@@ -19,7 +19,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.print.PrinterJob;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -30,6 +33,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import main.CreateTimetableMain;
+import util.ConfigCheckBoxColumn;
 
 public class ConfirmationController implements Initializable{
 	private final String cttPage = "../Fxml/CreateTime.fxml";
@@ -40,13 +44,16 @@ public class ConfirmationController implements Initializable{
 	private final String helpPage = "../Fxml/help.fxml";
 	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
 
+	private Alert alertinfo = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
+	private Alert alertwar = new Alert(AlertType.WARNING, "", ButtonType.YES, ButtonType.NO);
+
 	ObservableList<DepartmentCourse> dcList;
 	ObservableList<String> dcnameList = FXCollections.observableArrayList(new ArrayList<String>());
 	ObservableList<ClassRoom> crList;
 	ObservableList<String> crnameList = FXCollections.observableArrayList(new ArrayList<String>());
 	ObservableList<Teacher> taList;
 	ObservableList<String> tanameList = FXCollections.observableArrayList(new ArrayList<String>());
-	ObservableList<Timetable> timeList;
+	ObservableList<Timetable> timeList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 	ObservableList<String> dccheckList = FXCollections.observableArrayList(new ArrayList<String>());
 
 	@FXML
@@ -60,18 +67,27 @@ public class ConfirmationController implements Initializable{
 	@FXML
 	private TableView<Timetable> ConfirmationTable1;
 	@FXML
-	private TableView<String> dcchecktable;
+	private TableView<Timetable> dcchecktable;
 	@FXML
 	private TableColumn<Timetable, String> time1, monday1, tuesday1, wednesday1, thursday1, friday1,
-	time2, monday2, tuesday2, wendesday2, thursday2, friday2, checkcell, DCcell;
+	time2, monday2, tuesday2, wendesday2, thursday2, friday2;
+	@FXML
+	private TableColumn<?,?> DCcell;
+	@FXML
+	private TableColumn<Timetable, Boolean> checkcell;
 	@FXML
 	private Label timetabletitle;
 	@FXML
 	private Text period;
 	@FXML
-	private Button PDFman;
+	private Button PDFman, deleteButton;
 
 	public void initialize(URL location, ResourceBundle resources){
+
+		dccheckList = FXCollections.observableArrayList(new ArrayList<String>());
+		crnameList = FXCollections.observableArrayList(new ArrayList<String>());
+		tanameList = FXCollections.observableArrayList(new ArrayList<String>());
+		timeList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 		//各種choiceboxにテーブルから名前の情報を取得させて格納
 		dcList = DepartmentCourseDAO.selectDAO();
 		/*for (int i = 0; i < dcList.size(); i++){
@@ -82,7 +98,6 @@ public class ConfirmationController implements Initializable{
 			if(TimetableDAO.selectTimeatableDC(dc.getDcid()).isEmpty()){
 				continue;
 			}else{
-				System.out.println(TimetableDAO.selectTimeatableDC(dc.getDcid()).get(0).getDcname());
 				dccheckList.add(TimetableDAO.selectTimeatableDC(dc.getDcid()).get(0).getDcname());
 			}
 		}
@@ -118,13 +133,26 @@ public class ConfirmationController implements Initializable{
 		classroomchoice1.getSelectionModel().selectFirst();
 		classroomchoice1.setOnAction(event -> crchoice1());
 
+		//timeList = TimetableDAO.selectTimetable();
+		for(DepartmentCourse dc : dcList){
+			if(TimetableDAO.selectTimeatableDC(dc.getDcid()).isEmpty()){
+				continue;
+			}else{
+				System.out.println(dc);
+				timeList.add(TimetableDAO.selectTimeatableDC(dc.getDcid()).get(0));
+			}
+		}
+		dcchecktable.setItems(timeList);
+		DCcell.setCellValueFactory(new PropertyValueFactory<>("dcname"));
+		dcchecktable.getColumns().set(0, new ConfigCheckBoxColumn());
+		dcchecktable.setEditable(true);
+
 
 	}
 
 	public void keychoiced(){
 		for(DepartmentCourse d : dcList){
 			if(d.getDcname().equals(depcoursechoice1.getSelectionModel().getSelectedItem())){
-				System.out.println( d.getDcid() + d.getDcname());
 				timetabletitle.setText(d.getDcname());
 				ConfirmationTable1.setItems(dcOList(d.getDcid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
@@ -246,6 +274,31 @@ public class ConfirmationController implements Initializable{
 
 
 		return result;
+	}
+	@FXML
+	private void deleteTimetable() {
+		alertwar.setTitle("警告");
+		alertwar.setHeaderText("削除確認");
+		alertwar.setContentText("削除すると戻すことはできません。\n本当に削除してよろしいですか？");
+		alertwar.showAndWait()
+		.filter(response -> response == ButtonType.YES)
+		.ifPresent(response -> delete());
+	}
+
+	@FXML
+	public void delete(){
+		for(Timetable t : timeList){
+			System.out.println(t.getCheck());
+			if(t.getCheck()){
+				System.out.println(t.getDcid());
+				TimetableDAO.deleteDAO(t.getDcid());
+			}
+		}
+		initialize(null, null);
+		alertinfo.setTitle("確認");
+		alertinfo.setHeaderText("削除完了");
+		alertinfo.setContentText("削除されました。");
+		alertinfo.show();
 	}
 
 	//各種画面遷移
