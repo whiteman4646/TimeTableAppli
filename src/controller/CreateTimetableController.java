@@ -304,7 +304,7 @@ public class CreateTimetableController implements Initializable {
 				continue;
 			}*/
 			int j = 0;
-			String[] list = {"","","","","","",""};
+			String[] list = {"\t\n\t","\t\n\t","\t\n\t","\t\n\t","\t\n\t","\t\n\t","\t\n\t"};
 			for(Timetable str: timetable) {
 
 				switch (timetable.get(j).getTime()) {
@@ -353,7 +353,7 @@ public class CreateTimetableController implements Initializable {
 				continue;
 			}*/
 			int j = 0;
-			String[] list = {"","","","","","",""};
+			String[] list = {"\t\n\t","\t\n\t","\t\n\t","\t\n\t","\t\n\t","\t\n\t","\t\n\t"};
 			for(Timetable str: timetable2) {
 
 				switch (timetable2.get(j).getTime()) {
@@ -380,7 +380,7 @@ public class CreateTimetableController implements Initializable {
 					break;
 
 				default:
-					list[j] = "";
+					list[j] = "\t\n\t";
 					break;
 				}
 				j++;

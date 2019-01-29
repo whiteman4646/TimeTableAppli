@@ -247,7 +247,7 @@ public class ConfirmationController implements Initializable{
 
 	public ObservableList<Timetable> oList(ObservableList<Timetable> object,  int timeNum) {
 		int j = 0;
-		String[] list = {"","","","",""};
+		String[] list = {"\t\n\t\n\t","\t\n\t\n\t","\t\n\t\n\t","\t\n\t\n\t","\t\n\t\n\t"};
 		//timetable = object;
 		for(Timetable str: object) {
 			switch(str.getWeek()) {
@@ -267,7 +267,7 @@ public class ConfirmationController implements Initializable{
 				list[4] = str.getSubjectname() + "\n" + str.getTeachername() + "\n" + str.getCrname();
 				break;
 			default:
-				list[j] = "";
+				list[j] = "\t\n\t\n\t";
 			}
 
 			++j;
