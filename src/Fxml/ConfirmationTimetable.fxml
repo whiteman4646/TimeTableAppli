@@ -17,6 +17,30 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="700.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
       <children>
+            <AnchorPane fx:id="PDFAnchor" layoutX="29.0" layoutY="99.0" prefHeight="698.0" prefWidth="627.0">
+               <children>
+                  <TableView fx:id="ConfirmationTable1" layoutY="29.0" prefHeight="425.0" prefWidth="593.0" AnchorPane.bottomAnchor="246.0" AnchorPane.topAnchor="29.0">
+                     <columns>
+                        <TableColumn fx:id="time1" minWidth="0.0" prefWidth="35.0" text="時限" />
+                        <TableColumn fx:id="monday1" prefWidth="110.0" text="月曜日" />
+                        <TableColumn fx:id="tuesday1" prefWidth="110.0" text="火曜日" />
+                        <TableColumn fx:id="wednesday1" prefWidth="110.0" text="水曜日" />
+                        <TableColumn fx:id="thursday1" prefWidth="110.0" text="木曜日" />
+                        <TableColumn fx:id="friday1" prefWidth="116.0" text="金曜日" />
+                     </columns>
+                  </TableView>
+                  <Label fx:id="timetabletitle" prefHeight="34.0" prefWidth="180.0" text="現在選択している時間割">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="period" fill="RED" layoutX="326.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="期間" wrappingWidth="255.99998366832733" AnchorPane.bottomAnchor="671.0" AnchorPane.topAnchor="2.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
             <MenuBar layoutX="14.0" layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <menus>
                   <Menu fx:id="cttmenu" mnemonicParsing="false" text="作成画面">
@@ -60,31 +84,11 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <TableView fx:id="ConfirmationTable1" layoutX="35.0" layoutY="132.0" prefHeight="434.0" prefWidth="589.0" AnchorPane.bottomAnchor="134.0" AnchorPane.topAnchor="132.0">
-               <columns>
-                  <TableColumn fx:id="time1" minWidth="0.0" prefWidth="35.0" text="時限" />
-                  <TableColumn fx:id="monday1" prefWidth="110.0" text="月曜日" />
-                  <TableColumn fx:id="tuesday1" prefWidth="110.0" text="火曜日" />
-                  <TableColumn fx:id="wednesday1" prefWidth="110.0" text="水曜日" />
-                  <TableColumn fx:id="thursday1" prefWidth="110.0" text="木曜日" />
-                  <TableColumn fx:id="friday1" prefWidth="110.0" text="金曜日" />
-               </columns>
-            </TableView>
             <ChoiceBox fx:id="depcoursechoice1" layoutX="29.0" layoutY="74.0" prefWidth="150.0" />
             <ChoiceBox fx:id="teacherchoice1" layoutX="179.0" layoutY="74.0" prefWidth="150.0" />
             <ChoiceBox fx:id="classroomchoice1" layoutX="329.0" layoutY="74.0" prefWidth="150.0" />
-            <Button fx:id="PDFman" layoutX="556.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="25.0" prefWidth="64.0" text="PDF" AnchorPane.bottomAnchor="601.0" AnchorPane.leftAnchor="556.0" AnchorPane.rightAnchor="620.0" AnchorPane.topAnchor="74.0" />
-            <Label fx:id="timetabletitle" layoutX="29.0" layoutY="102.0" prefHeight="34.0" prefWidth="180.0" text="現在選択している時間割">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <Text fx:id="period" fill="RED" layoutX="368.0" layoutY="124.58203125" strokeType="OUTSIDE" strokeWidth="0.0" text="期間" wrappingWidth="255.99998366832733" AnchorPane.bottomAnchor="570.0" AnchorPane.topAnchor="103.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TableView fx:id="dcchecktable" layoutX="662.0" layoutY="133.0" prefHeight="434.0" prefWidth="210.0" AnchorPane.bottomAnchor="133.0" AnchorPane.topAnchor="133.0">
+            <Button fx:id="PDFman" layoutX="556.0" layoutY="74.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="27.0" prefWidth="64.0" text="PDF" AnchorPane.bottomAnchor="872.0" AnchorPane.leftAnchor="556.0" AnchorPane.rightAnchor="620.0" AnchorPane.topAnchor="74.0" />
+            <TableView fx:id="dcchecktable" layoutX="667.0" layoutY="133.0" prefHeight="425.0" prefWidth="210.0" AnchorPane.bottomAnchor="413.0" AnchorPane.topAnchor="133.0">
               <columns>
                 <TableColumn fx:id="checkcell" prefWidth="28.0" />
                 <TableColumn fx:id="DCcell" prefWidth="181.0" text="学科・コース" />

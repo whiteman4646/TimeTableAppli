@@ -30,6 +30,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import main.CreateTimetableMain;
@@ -56,6 +57,8 @@ public class ConfirmationController implements Initializable{
 	ObservableList<Timetable> timeList = FXCollections.observableArrayList(new ArrayList<Timetable>());
 	ObservableList<String> dccheckList = FXCollections.observableArrayList(new ArrayList<String>());
 
+	@FXML
+	private AnchorPane PDFAnchor;
 	@FXML
 	private Menu cttmenu, registmenu, deleteMenu, helpMenu, fileopen, ConfirmationMenu;
 	@FXML
@@ -351,10 +354,12 @@ public class ConfirmationController implements Initializable{
 		System.out.println(url);
 	}
 	@FXML
+
 	public void printpdf(ActionEvent event) {
 		PrinterJob job = PrinterJob.createPrinterJob();
 
-		job.printPage(ConfirmationTable1);
+
+		job.printPage(PDFAnchor);
 		job.endJob();
 	}
 }
