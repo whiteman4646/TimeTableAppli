@@ -22,21 +22,16 @@ public class Timetable {
 	private String komaWed;
 	private String komaThu;
 	private String komaFri;
-
+	private String color;
+	private String color1;
+	private String color2;
+	private String color3;
+	private String color4;
 	private int dcid;
 	private int teacherid;
 	private int subjectid;
 	private int crid;
 
-	public Timetable(String time, String komaMon, String komaTue, String komaWed, String komaThu, String komaFri) {
-		super();
-		this.time = time;
-		this.komaMon = komaMon;
-		this.komaTue = komaTue;
-		this.komaWed = komaWed;
-		this.komaThu = komaThu;
-		this.komaFri = komaFri;
-	}
 	public String getKomaMon() {
 		return komaMon;
 	}
@@ -75,6 +70,16 @@ public class Timetable {
 	}
 
 	public void setKomaFri(String komaFri) {
+		this.komaFri = komaFri;
+	}
+
+	public Timetable(String time, String komaMon, String komaTue, String komaWed, String komaThu, String komaFri) {
+		super();
+		this.time = time;
+		this.komaMon = komaMon;
+		this.komaTue = komaTue;
+		this.komaWed = komaWed;
+		this.komaThu = komaThu;
 		this.komaFri = komaFri;
 	}
 
@@ -136,7 +141,7 @@ public class Timetable {
 	}
 
 	public Timetable(String week, String time, String period, String dcname, String teachername, String subjectname,
-			String crname, int dcid, int teacherid, int subjectid, int crid) {
+			String crname, int dcid, int teacherid, int subjectid, int crid, String color) {
 		super();
 		this.week = week;
 		this.time = time;
@@ -149,6 +154,7 @@ public class Timetable {
 		this.teacherid = teacherid;
 		this.subjectid = subjectid;
 		this.crid = crid;
+		this.color = color;
 	}
 
 	public Timetable(Boolean check, String week, String time, String period, String dcname, String teachername, String subjectname,
@@ -166,6 +172,32 @@ public class Timetable {
 		this.teacherid = teacherid;
 		this.subjectid = subjectid;
 		this.crid = crid;
+	}
+
+	public Timetable(String week, String time, String period, String dcname, String teachername,
+			String subjectname, String crname, int dcid, int teacherid, int subjectid, int crid) {
+		this.week = week;
+		this.time = time;
+		this.period = period;
+		this.dcname = dcname;
+		this.teachername = teachername;
+		this.subjectname = subjectname;
+		this.crname = crname;
+		this.dcid = dcid;
+		this.teacherid = teacherid;
+		this.subjectid = subjectid;
+		this.crid = crid;
+	}
+
+
+
+	public Timetable(String color, String color1, String color2, String color3, String color4) {
+		super();
+		this.color = color;
+		this.color1 = color1;
+		this.color2 = color2;
+		this.color3 = color3;
+		this.color4 = color4;
 	}
 
 	public Boolean getCheck(){
@@ -310,6 +342,46 @@ public class Timetable {
 
 	public void setObjectname(String objectname) {
 		this.objectname = objectname;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getColor1() {
+		return color1;
+	}
+
+	public void setColor1(String color1) {
+		this.color1 = color1;
+	}
+
+	public String getColor2() {
+		return color2;
+	}
+
+	public void setColor2(String color2) {
+		this.color2 = color2;
+	}
+
+	public String getColor3() {
+		return color3;
+	}
+
+	public void setColor3(String color3) {
+		this.color3 = color3;
+	}
+
+	public String getColor4() {
+		return color4;
+	}
+
+	public void setColor4(String color4) {
+		this.color4 = color4;
 	}
 
 }

@@ -27,6 +27,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -86,6 +87,7 @@ public class ConfirmationController implements Initializable{
 	private Button PDFman, deleteButton;
 
 	public void initialize(URL location, ResourceBundle resources){
+
 
 		dccheckList = FXCollections.observableArrayList(new ArrayList<String>());
 		crnameList = FXCollections.observableArrayList(new ArrayList<String>());
@@ -153,6 +155,7 @@ public class ConfirmationController implements Initializable{
 
 	}
 
+
 	public void keychoiced(){
 		for(DepartmentCourse d : dcList){
 			if(d.getDcname().equals(depcoursechoice1.getSelectionModel().getSelectedItem())){
@@ -160,10 +163,76 @@ public class ConfirmationController implements Initializable{
 				ConfirmationTable1.setItems(dcOList(d.getDcid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+
+				monday1.setCellFactory(e -> {
+					int i = 0;
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								String color = aOList(d.getDcid()).get(i).getColor().replace("0x","");
+								this.setStyle("-fx-background-color: #" + color + ";");
+
+							}
+						}
+					};
+				});
+
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				tuesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				wednesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				thursday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				friday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				if(TimetableDAO.selectTimeatableDC(d.getDcid()).isEmpty()){
 					break;
 				}else{
@@ -184,10 +253,70 @@ public class ConfirmationController implements Initializable{
 				ConfirmationTable1.setItems(teaOList(t.getTeacherId()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+				monday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				tuesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				wednesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				thursday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				friday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				period.setText("期間");
 				depcoursechoice1.getSelectionModel().selectFirst();
 				classroomchoice1.getSelectionModel().selectFirst();
@@ -204,10 +333,70 @@ public class ConfirmationController implements Initializable{
 				ConfirmationTable1.setItems(crOList(c.getCrid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+				monday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				tuesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				wednesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				thursday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				friday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (true) {
+								setText(item);
+
+							}
+						}
+					};
+				});
 				period.setText("期間");
 				teacherchoice1.getSelectionModel().selectFirst();
 				depcoursechoice1.getSelectionModel().selectFirst();
@@ -278,6 +467,48 @@ public class ConfirmationController implements Initializable{
 
 		return result;
 	}
+	public ObservableList<Timetable> aOList(int num) {
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		for(int i = 0; i < 7; i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceDC(num, i + 1);
+			result = oaList(timetable, i);
+		}
+		return result;
+	}
+	public ObservableList<Timetable> oaList(ObservableList<Timetable> object,  int timeNum) {
+		int j = 0;
+		String[] list = {"","","","",""};
+		//timetable = object;
+		for(Timetable str: object) {
+			switch(str.getWeek()) {
+			case "月曜日":
+				list[0] = str.getColor();
+				break;
+			case "火曜日":
+				list[1] = str.getColor();
+				break;
+			case "水曜日":
+				list[2] = str.getColor();
+				break;
+			case"木曜日":
+				list[3] = str.getColor();
+				break;
+			case"金曜日":
+				list[4] = str.getColor();
+				break;
+			default:
+				list[j] = "";
+			}
+
+			++j;
+		}
+		result.add(new Timetable(list[0], list[1], list[2], list[3], list[4]));
+
+
+
+		return result;
+	}
+
 	@FXML
 	private void deleteTimetable() {
 		alertwar.setTitle("警告");
