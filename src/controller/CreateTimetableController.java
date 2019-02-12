@@ -529,7 +529,7 @@ public class CreateTimetableController implements Initializable {
 			}
 		}
 
-		String [][] key = new String[35][7];
+		String [][] key = new String[35][8];
 		for(int i = 0; i < 35; i++){
 			if(TimeBox.get(i).getChildren().isEmpty()){
 				continue;
@@ -628,7 +628,7 @@ public class CreateTimetableController implements Initializable {
 				}
 			}
 			//key[i][6] = crid;
-
+			key[i][7] = TimeBox.get(i).getBackground().getFills().get(0).getFill().toString();
 		}
 		TimetableDAO.insertTimetable(key);
 		alert.setTitle("確認");

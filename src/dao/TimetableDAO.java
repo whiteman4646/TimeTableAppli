@@ -84,7 +84,7 @@ public class TimetableDAO {
 			con = DriverManager.getConnection(DB_CONNECT);
 			String sql = "SELECT timetable.time, timetable.week, timetable.period, timetable.dcid, "
 					+"departmentcourse.dcname, timetable.teacherid, teacher.teachername, "
-					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname from timetable "
+					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname, timetable.color from timetable "
 					+"inner join departmentcourse on timetable.dcid =  departmentcourse.dcid "
 					+"inner join teacher on timetable.teacherid = teacher.teacherid "
 					+"inner join subject on timetable.subjectid = subject.subjectid "
@@ -107,8 +107,9 @@ public class TimetableDAO {
 				String subjectname = rs.getString("subjectname");
 				int crid = rs.getInt("crid");
 				String crname = rs.getString("crname");
-				tableList.add(new Timetable(week, time,period , dcname, teachername,
-						subjectname, crname, dcid, teacherid, subjectid, crid));
+				String color = rs.getString("color");
+				tableList.add(new Timetable(week, time, period , dcname, teachername,
+						subjectname, crname, dcid, teacherid, subjectid, crid, color));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -155,7 +156,7 @@ public class TimetableDAO {
 			con = DriverManager.getConnection(DB_CONNECT);
 			String sql = "SELECT timetable.time, timetable.week, timetable.period, timetable.dcid, "
 					+"departmentcourse.dcname, timetable.teacherid, teacher.teachername, "
-					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname from timetable "
+					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname, timetable.color from timetable "
 					+"inner join departmentcourse on timetable.dcid =  departmentcourse.dcid "
 					+"inner join teacher on timetable.teacherid = teacher.teacherid "
 					+"inner join subject on timetable.subjectid = subject.subjectid "
@@ -178,8 +179,9 @@ public class TimetableDAO {
 				String subjectname = rs.getString("subjectname");
 				int crid = rs.getInt("crid");
 				String crname = rs.getString("crname");
+				String color = rs.getString("color");
 				tableList.add(new Timetable(week, time,period , dcname, teachername,
-						subjectname, crname, dcid, teacherid, subjectid, crid));
+						subjectname, crname, dcid, teacherid, subjectid, crid, color));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -226,7 +228,7 @@ public class TimetableDAO {
 			con = DriverManager.getConnection(DB_CONNECT);
 			String sql = "SELECT timetable.time, timetable.week, timetable.period, timetable.dcid, "
 					+"departmentcourse.dcname, timetable.teacherid, teacher.teachername, "
-					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname from timetable "
+					+"timetable.subjectid, subject.subjectname, timetable.crid, classroom.crname, timetable.color from timetable "
 					+"inner join departmentcourse on timetable.dcid =  departmentcourse.dcid "
 					+"inner join teacher on timetable.teacherid = teacher.teacherid "
 					+"inner join subject on timetable.subjectid = subject.subjectid "
@@ -249,8 +251,9 @@ public class TimetableDAO {
 				String subjectname = rs.getString("subjectname");
 				int crid = rs.getInt("crid");
 				String crname = rs.getString("crname");
+				String color = rs.getString("color");
 				tableList.add(new Timetable(week, time,period , dcname, teachername,
-						subjectname, crname, dcid, teacherid, subjectid, crid));
+						subjectname, crname, dcid, teacherid, subjectid, crid, color));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -681,7 +684,7 @@ public class TimetableDAO {
 
 	//SQL:時間割のインサートメソッド
 	public static void insertTimetable(String[][] key) {
-		final String sql = "INSERT INTO Timetable(week, time, period, dcid, teacherid, subjectid, crid) VALUES(?, ?, ?, ?, ?, ?, ?);";
+		final String sql = "INSERT INTO Timetable(week, time, period, dcid, teacherid, subjectid, crid, color) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 		Connection con = null;
 		PreparedStatement prst = null;
 
@@ -702,6 +705,7 @@ public class TimetableDAO {
 				prst.setInt(5, Integer.parseInt(key[i][4]));
 				prst.setInt(6, Integer.parseInt(key[i][5]));
 				prst.setInt(7, Integer.parseInt(key[i][6]));
+				prst.setString(8, key[i][7]);
 				prst.executeUpdate();
 
 			}

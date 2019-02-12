@@ -27,6 +27,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -85,7 +86,24 @@ public class ConfirmationController implements Initializable{
 	@FXML
 	private Button PDFman, deleteButton;
 
+	int index0 = 0;
+	int index1 = 0;
+	int index2= 0;
+	int index3 = 0;
+	int index4 = 0;
+	int index5 = 0;
+	int index6 = 0;
+	int index7 = 0;
+	int index8 = 0;
+	int index9 = 0;
+	int index10 = 0;
+	int index11 = 0;
+	int index12 = 0;
+	int index13 = 0;
+	int index14 = 0;
+
 	public void initialize(URL location, ResourceBundle resources){
+
 
 		dccheckList = FXCollections.observableArrayList(new ArrayList<String>());
 		crnameList = FXCollections.observableArrayList(new ArrayList<String>());
@@ -153,17 +171,128 @@ public class ConfirmationController implements Initializable{
 
 	}
 
+
 	public void keychoiced(){
+		index0 = -1;
+		index1 = -1;
+		index2 = -1;
+		index3 = -1;
+		index4 = -1;
+
 		for(DepartmentCourse d : dcList){
 			if(d.getDcname().equals(depcoursechoice1.getSelectionModel().getSelectedItem())){
 				timetabletitle.setText(d.getDcname());
-				ConfirmationTable1.setItems(dcOList(d.getDcid()));
+
+				ObservableList<Timetable> list = dcOList(d.getDcid());
+				ConfirmationTable1.setItems(list);
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+
+				monday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index0 < 7){
+									if(index0 >= 0){
+										String color = aOList(d.getDcid(), 0).get(index0).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index0++;
+									}else {
+										index0++;
+									}
+								}
+							}
+						}
+					};
+				});
+
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				tuesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index1< 7){
+									if(index1>= 0){
+										String color = aOList(d.getDcid(), 1).get(index1).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index1++;
+									}else {
+										index1++;
+									}
+								}
+							}
+						}
+					};
+				});
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				wednesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index2< 7){
+									if(index2>= 0){
+										String color = aOList(d.getDcid(), 2).get(index2).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index2++;
+									}else {
+										index2++;
+									}
+								}
+							}
+						}
+					};
+				});
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				thursday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index3 < 7){
+									if(index3 >= 0){
+										String color = aOList(d.getDcid(), 3).get(index3).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index3++;
+									}else {
+										index3++;
+									}
+								}
+							}
+						}
+					};
+				});
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				friday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index4 < 7){
+									if(index4 >= 0){
+										String color = aOList(d.getDcid(), 4).get(index4).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index4++;
+									}else {
+										index4++;
+									}
+								}
+							}
+						}
+					};
+				});
 				if(TimetableDAO.selectTimeatableDC(d.getDcid()).isEmpty()){
 					break;
 				}else{
@@ -177,6 +306,11 @@ public class ConfirmationController implements Initializable{
 	}
 
 	public void teachoice1(){
+		index5 = -1;
+		index6 = -1;
+		index7 = -1;
+		index8 = -1;
+		index9 = -1;
 		for(Teacher t : taList){
 			if(t.getTeacherName().equals(teacherchoice1.getSelectionModel().getSelectedItem())){
 				System.out.println(t.getTeacherId() + t.getTeacherName());
@@ -184,10 +318,110 @@ public class ConfirmationController implements Initializable{
 				ConfirmationTable1.setItems(teaOList(t.getTeacherId()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+				monday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index5 < 7){
+									if(index5 >= 0){
+										String color = cOList(t.getTeacherId(), 0).get(index5).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index5++;
+									}else {
+										index5++;
+									}
+								}
+							}
+						}
+					};
+				});
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				tuesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index6 < 7){
+									if(index6 >= 0){
+										String color = cOList(t.getTeacherId(), 1).get(index6).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index6++;
+									}else {
+										index6++;
+									}
+								}
+							}
+						}
+					};
+				});
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				wednesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index7 < 7){
+									if(index7 >= 0){
+										String color = cOList(t.getTeacherId(), 2).get(index7).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index7++;
+									}else {
+										index7++;
+									}
+								}
+							}
+						}
+					};
+				});
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				thursday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index8 < 7){
+									if(index8 >= 0){
+										String color = cOList(t.getTeacherId(), 3).get(index8).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index8++;
+									}else {
+										index8++;
+									}
+								}
+							}
+						}
+					};
+				});
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				friday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index9 < 7){
+									if(index9 >= 0){
+										String color = cOList(t.getTeacherId(), 4).get(index9).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index9++;
+									}else {
+										index9++;
+									}
+								}
+							}
+						}
+					};
+				});
 				period.setText("期間");
 				depcoursechoice1.getSelectionModel().selectFirst();
 				classroomchoice1.getSelectionModel().selectFirst();
@@ -197,6 +431,11 @@ public class ConfirmationController implements Initializable{
 	}
 
 	public void crchoice1(){
+		index10 = -1;
+		index11 = -1;
+		index12 = -1;
+		index13 = -1;
+		index14 = -1;
 		for(ClassRoom c : crList){
 			if(c.getCrname().equals(classroomchoice1.getSelectionModel().getSelectedItem())){
 				System.out.println(c.getCrname() + c.getCrid());
@@ -204,10 +443,110 @@ public class ConfirmationController implements Initializable{
 				ConfirmationTable1.setItems(crOList(c.getCrid()));
 				time1.setCellValueFactory(new PropertyValueFactory<>("time"));
 				monday1.setCellValueFactory(new PropertyValueFactory<>("komaMon"));
+				monday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index10 < 7){
+									if(index10 >= 0){
+										String color = bOList(c.getCrid(), 0).get(index10).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index10++;
+									}else {
+										index10++;
+									}
+								}
+							}
+						}
+					};
+				});
 				tuesday1.setCellValueFactory(new PropertyValueFactory<>("komaTue"));
+				tuesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index11 < 7){
+									if(index11 >= 0){
+										String color = bOList(c.getCrid(), 1).get(index11).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index11++;
+									}else {
+										index11++;
+									}
+								}
+							}
+						}
+					};
+				});
 				wednesday1.setCellValueFactory(new PropertyValueFactory<>("komaWed"));
+				wednesday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index12 < 7){
+									if(index12 >= 0){
+										String color = bOList(c.getCrid(), 2).get(index12).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index12++;
+									}else {
+										index12++;
+									}
+								}
+							}
+						}
+					};
+				});
 				thursday1.setCellValueFactory(new PropertyValueFactory<>("komaThu"));
+				thursday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index13 < 7){
+									if(index13 >= 0){
+										String color = bOList(c.getCrid(), 3).get(index13).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index13++;
+									}else {
+										index13++;
+									}
+								}
+							}
+						}
+					};
+				});
 				friday1.setCellValueFactory(new PropertyValueFactory<>("komaFri"));
+				friday1.setCellFactory(e -> {
+					return new TableCell<Timetable, String>() {
+						@Override
+						protected void updateItem(final String item, final boolean empty) {
+							super.updateItem(item, empty);
+							if (item != null) {
+								setText(item);
+								if( index14 < 7){
+									if(index14 >= 0){
+										String color = bOList(c.getCrid(), 4).get(index14).getColor().replace("0x","");
+										this.setStyle("-fx-background-color: #" + color + ";");
+										index14++;
+									}else {
+										index14++;
+									}
+								}
+							}
+						}
+					};
+				});
 				period.setText("期間");
 				teacherchoice1.getSelectionModel().selectFirst();
 				depcoursechoice1.getSelectionModel().selectFirst();
@@ -278,6 +617,63 @@ public class ConfirmationController implements Initializable{
 
 		return result;
 	}
+	public ObservableList<Timetable> aOList(int num, int week) {
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		for(int i = 0; i < 7; i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceDC(num, i + 1);
+			result = oaList(timetable, i, week);
+		}
+		return result;
+	}
+	public ObservableList<Timetable> bOList(int num, int week) {
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		for(int i = 0; i < 7; i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceCR(num, i + 1);
+			result = oaList(timetable, i, week);
+		}
+		return result;
+	}
+	public ObservableList<Timetable> cOList(int num, int week) {
+		result = FXCollections.observableArrayList(new ArrayList<Timetable>());
+		for(int i = 0; i < 7; i++) {
+			timetable = TimetableDAO.selectTimeatableChoiceTEA(num, i + 1);
+			result = oaList(timetable, i, week);
+		}
+		return result;
+	}
+	public ObservableList<Timetable> oaList(ObservableList<Timetable> object,  int timeNum, int week) {
+		int j = 0;
+		String[] list = {"","","","",""};
+		for(Timetable str: object) {
+			switch(str.getWeek()) {
+			case "月曜日":
+				list[0] = str.getColor();
+				break;
+			case "火曜日":
+				list[1] = str.getColor();
+				break;
+			case "水曜日":
+				list[2] = str.getColor();
+				break;
+			case"木曜日":
+				list[3] = str.getColor();
+				break;
+			case"金曜日":
+				list[4] = str.getColor();
+				break;
+			default:
+				list[j] = "";
+			}
+
+			++j;
+		}
+		result.add(new Timetable(list[week]));
+
+
+
+		return result;
+	}
+
 	@FXML
 	private void deleteTimetable() {
 		alertwar.setTitle("警告");
