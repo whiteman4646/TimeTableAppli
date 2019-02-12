@@ -191,13 +191,10 @@ public class Timetable {
 
 
 
-	public Timetable(String color, String color1, String color2, String color3, String color4) {
+	public Timetable(String color) {
 		super();
 		this.color = color;
-		this.color1 = color1;
-		this.color2 = color2;
-		this.color3 = color3;
-		this.color4 = color4;
+
 	}
 
 	public Boolean getCheck(){
