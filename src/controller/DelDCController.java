@@ -27,13 +27,13 @@ import util.CRCheckBoxColumn;
 import util.DCCheckBoxColumn;
 
 public class DelDCController implements Initializable {
-	private final String cttPage = "../Fxml/CreateTime.fxml";
-	private final String dcregiPage = "../Fxml/CourseRoom.fxml";
-	private final String crregiPage = "../Fxml/SubTea.fxml";
-	private final String dcdelPage = "../Fxml/DeleteCourseRoom.fxml";
-	private final String crdelPage = "../Fxml/DeleteTeaSub.fxml";
-	private final String helpPage = "../Fxml/help.fxml";
-	private final String ConfirmationPage = "../Fxml/ConfirmationTimetable.fxml";
+	private final String cttPage = "/Fxml/CreateTime.fxml";
+	private final String dcregiPage = "/Fxml/CourseRoom.fxml";
+	private final String crregiPage = "/Fxml/SubTea.fxml";
+	private final String dcdelPage = "/Fxml/DeleteCourseRoom.fxml";
+	private final String crdelPage = "/Fxml/DeleteTeaSub.fxml";
+	private final String helpPage = "/Fxml/help.fxml";
+	private final String ConfirmationPage = "/Fxml/ConfirmationTimetable.fxml";
 
 	private Alert alertinfo = new Alert(AlertType.INFORMATION, "", ButtonType.OK);
 	private Alert alertwar = new Alert(AlertType.WARNING, "", ButtonType.YES, ButtonType.NO);

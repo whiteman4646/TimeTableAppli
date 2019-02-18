@@ -33,7 +33,11 @@ public class CreateTimetableMain extends Application {
 			// フォント色がおかしくなることへの対処
 			System.setProperty( "prism.lcdtext" , "false" );
 
-			root = (Pane)FXMLLoader.load(getClass().getResource("../Fxml/CreateTime.fxml"));
+//			FXMLLoader loader = new FXMLLoader(CreateTimetableMain.class.getResource("../Fxml/CreateTime.fxml"));
+//
+//			root = (Pane)loader.load();
+
+			root = (Pane)FXMLLoader.load(CreateTimetableMain.class.getResource("/Fxml/CreateTime.fxml"));
 
 			// シーンの作成
 			Scene   scene       = new Scene( root , 1240 , 700 );
@@ -42,8 +46,9 @@ public class CreateTimetableMain extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.setScene( scene );
 			scene.getStylesheets().add(
-					getClass().getResource("../Fxml/CourseStyle.css").toExternalForm());
+					getClass().getResource("/Fxml/CourseStyle.css").toExternalForm());
 			primaryStage.show();
+
 
 			if(ClassRoomDAO.selectDAO().isEmpty()&&DepartmentCourseDAO.selectDAO().isEmpty()&&SubjectTeacherDAO.selectSubject().isEmpty()&&SubjectTeacherDAO.selectTeacher().isEmpty()){
 
@@ -68,7 +73,7 @@ public class CreateTimetableMain extends Application {
 			e.printStackTrace();
 			}
 		}
-		private final String dcregiPage = "../Fxml/CourseRoom.fxml";
+		private final String dcregiPage = "/Fxml/CourseRoom.fxml";
 		@FXML
 		public void nextdcregiPage(){
 			CreateTimetableMain.getInstance().setPage(dcregiPage);
@@ -85,7 +90,7 @@ public class CreateTimetableMain extends Application {
 			root = (Pane)FXMLLoader.load(getClass().getResource(fxml));
 			stage.setScene(new Scene(root));
 			root.getStylesheets().add(
-					getClass().getResource("../Fxml/CourseStyle.css").toExternalForm());
+					getClass().getResource("/Fxml/CourseStyle.css").toExternalForm());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
