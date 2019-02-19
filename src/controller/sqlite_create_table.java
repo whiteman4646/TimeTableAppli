@@ -167,9 +167,6 @@ public class sqlite_create_table {
 
 		ArrayList<ArrayList<String>> oResult = new ArrayList<ArrayList<String>>();
 
-		//ファイル読み込みで使用する３つのクラス
-		String[] data = null;
-
 		try {
 			FileInputStream fi = null;
 			InputStreamReader is = null;
@@ -186,22 +183,17 @@ public class sqlite_create_table {
 			//読み込み行数の管理
 			int i = 0;
 
-			//列名を管理する為の配列
-			String[] arr = null;
-
 			//1行ずつ読み込みを行う
 			while ((sLine = br.readLine()) != null) {
 
 				String temp[] = sLine.split(",",-1);
-				ArrayList al = new ArrayList();
+				ArrayList<String> al = new ArrayList();
 
 				int colno = 0;
 				int il = temp.length;
 
 				//先頭行は列名
 				if (i == 0) {
-					//カンマで分割した内容を配列に格納する
-					arr = sLine.split(",");
 				} else {
 
 					//データ内容をコンソールに表示する
